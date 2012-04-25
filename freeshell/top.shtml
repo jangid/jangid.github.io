@@ -1,0 +1,11 @@
+<div id="top">
+    <ul id="navigation">
+        <li><a href="index.shtml">Home</a></li>
+        <li><a href="resume.shtml">R&eacute;sum&eacute;</a></li>
+        <li><a href="bookmarks.shtml">Bookmarks</a></li>
+        <li><a href="writings.shtml">Writings</a></li>
+        <li><a href="contacts.shtml">Contacts</a></li>
+        <li><a href="blog.shtml">Weblog</a></li>
+        <li><a href="key.shtml">GPGKey</a></li>
+    </ul>
+</div>

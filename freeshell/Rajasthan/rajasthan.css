@@ -1,0 +1,31 @@
+BODY {font-family: times,serif;background-color:#f0e0c0;color:black;margin:2% 3% 2% 3%}
+BODY.photo {font-family:verdana,sans-serif;background-color:white;color:black;margin: 0 0 0 0;}
+BODY.photo P {text-align: center;font-weight:bolder;font-size:0.9em;margin:0 0 0 0}
+P{font-size: 1.11em; text-align:justify; line-height:1.25em;margin-bottom:1.5em;}
+P.copyright{margin:0 10% 0 10%; font-style:italic; font-family:times, serif;font-size:1.0em;}
+SUB,SUP{font-size:0.7em;}
+
+DIV.footer P {
+	text-align:center;
+	font-family:verdana, sans-serif;
+	font-size:0.9em;
+}
+DIV.footer {
+	background-color: #000080;
+	color: white;
+	clear: both;
+}
+
+DIV.footer A {
+	font-weight: bold;
+	text-decoration: none;
+}
+DIV.footer A:link, DIV.footer A:visited {
+	color: white;
+	background-color: transparent;
+}
+DIV.footer A:active, DIV.footer A:hover {
+	color: #000080;
+	background-color: white;
+}
+H2 {clear:left}

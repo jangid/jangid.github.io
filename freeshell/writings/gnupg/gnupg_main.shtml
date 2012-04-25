@@ -1,0 +1,44 @@
+<div id="content">
+
+    <h2>GNU Privacy Guard</h2>
+    <p>GnuPG is a tool for secure communication. It is used to encrypt and/or sign data using public-key cryptography. In the public-key system, each user has a pair of keys consisting of a private-key and a public-key. The private-key is kept secret and the public-key can be given to the person with whom the user wants to communicate.</p>
+    <h3>Generating your keypair</h3>
+    <p>The command for using GnuPG is "gpg". This command has a lot of command line options. Key generation can be accomplished by using the option --gen-key.</p>
+    <pre>host$ gpg --gen-key</pre>
+    <p>This command will ask the type of key you want; select default - this will create a DSA keypair and an ElGamal keypair. DSA is used for signing a document and ElGamal is used for encryption. The system will then ask you the key size. The longer the key the more secure it is, but encryption and decryption will slow down as the key size is increased. The default key size (1024) is an optimal choice. Once selected, the key size cannot be changed. Then you must choose an expiration date. In the last step the system will ask for your user id and passphrase. User id is of the form: name, comment and email address. For e.g.</p>
+    <pre>"Pankaj Jangid (Debian/User) &lt;pankaj_jangid@yahoo.com&gt;"</pre>
+    <p>The passphrase is meant to protect your private-key. If someone gets your private-key the only protection is the passphrase.</p>
+    <h3>Exchanging public-keys</h3>
+    <p>Exchange public-keys with whomever you want to communicate.  To list keys you have "gpg" with the --list-keys option. For exporting your public key, use --export option like this:</p>
+    <pre>host$ gpg --armor -export pankaj_jangid@yahoo.com &gt; my-key.gpg</pre>
+    <p>Replace the above email id with the one you used during key
+    creation. Without the --armor option, output will be in binary format which is
+    not easy to send using email or for publishing on the web.</p>
+    <p>Importing others keys is simpler:</p>
+    <pre>host$ gpg --import your-key.gpg</pre>
+    <p>However we should check the fingerprint and then verify the keys sent by others. Using the --edit-key option with the id of the person will give you a shell to view the fingerprint and to sign (i.e. verify) it (requires passphrase).</p>
+    <pre>host$ gpg --edit-key yourname@yourdomain.org</pre>
+    <p>This will display some information related to the above key holder, and then a prompt similar to that given below will appear.</p>
+    <pre>command&gt; fpr</pre>
+    <p>The fingerprint will be displayed.</p>
+    <pre>command&gt; sign</pre>
+    <p>The "fpr" command is for viewing the fingerprint. And the "sign" command for signing it. The sign command will ask for your passphrase.  Key import is complete now.</p>
+    <h3>Encrypting and signing a document</h3>
+    <p>A document can be encrypted and decrypted using the keypair generated as above. Encryption is done using the public key of the receiver and decryption using the corresponding private key. To encrypt use the option --encrypt and to decrypt --decrypt. On the sending side:</p>
+    <pre>host$ gpg --output doc.gpg -encrypt --recipient you@host.org doc</pre>
+    <p>Here "doc.gpg" is the resultant encrypted version of "doc".  For decryption on the receiver's side you need the corresponding private key.  The command is:</p>
+    <pre>host$ gpg --output doc --decrypt doc.gpg</pre>
+    <p>This will ask for the passphrase. "doc" is the decrypted document.</p>
+    <p>Similarly, for signing the document, use the command:</p>
+    <pre>host$ gpg --output doc.sig --sign doc</pre>
+    <p>The document is compressed before being signed. The signed document is in binary format. On the receiver's side, you can check the signature using the --verify option and you can check and extract the document using the --decrypt option as given below:</p>
+    <pre>host$ gpg --output doc --decrypt doc.sig</pre>
+    <h3>Applications supporting GnuPG</h3>
+    <p>Ximian's "evolution" (for GUI users) and "mutt" (for text only users) are ready-to-use email clients with GnuPG support. KMail for KDE also supports GnuPG, and a lot of other free email clients are available supporting GnuPG.</p>
+    <h3>References</h3>
+    <ul>
+    <li><a href="http://www.gnupg.org/">http://www.gnupg.org</a></li>
+    <li>man gpg</li>
+    </ul>
+
+</div>

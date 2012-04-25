@@ -1,0 +1,23 @@
+<!--#include virtual="doctype.shtml"-->
+<!--#set var="TITLE" value="Resume"-->
+
+<html lang="en">
+
+<!--#include virtual="head.shtml"-->
+<!--#include virtual="resume_style.shtml"-->
+
+<body>
+
+    <div id="container">
+
+<!--#include virtual="top.shtml"-->
+
+<!--#include virtual="resume_main.shtml"-->
+
+<!--#include virtual="bottom.shtml"-->
+
+    </div>
+
+</body>
+
+</html>

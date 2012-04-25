@@ -1,0 +1,3 @@
+<div id="content">
+<!--#include virtual="../../cgi-bin/blog.cgi"-->
+</div>

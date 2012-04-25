@@ -1,0 +1,24 @@
+<!--#include virtual="doctype.shtml"-->
+<!--#set var="TITLE" value="Concurrent Versioning System"-->
+
+<html lang="en">
+
+<!--#include virtual="head.shtml"-->
+
+<body>
+
+    <div id="container">
+
+<!--#include virtual="top.shtml"-->
+
+<!--#include virtual="side.shtml"-->
+
+<!--#include virtual="writings/cvs/cvs_main.shtml"-->
+
+<!--#include virtual="bottom.shtml"-->
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+#!/usr/pkg/bin/perl
+
+use strict;
+use warnings;
+use CGI;
+use XML::DOM;
+use LWP::Simple qw(!head);
+
+# parse the rss content
+my $parser =  new XML::DOM::Parser;
+my $xmlFile = get ("http://www.livejournal.com/users/jangid/data/rss");
+my $doc = $parser->parse ($xmlFile);
+#my $doc = $parser->parsefile ("rss.xml");
+my $nodes = $doc->getElementsByTagName ("item");
+my $n = $nodes->getLength;
+
+# display the content
+my $cgi = new CGI;
+print $cgi->header();
+
+my $title_date = "";
+
+for(my $i = 0; $i < $n; $i++)
+{
+    my $date = $nodes->item ($i)->getElementsByTagName ("pubDate")->item(0)->getFirstChild->getNodeValue;
+    $date =~ s/ [[:digit:]]{2}:[[:digit:]]{2}:[[:digit:]]{2} GMT//;
+    my $title = $nodes->item ($i)->getElementsByTagName ("title")->item(0)->getFirstChild->getNodeValue;
+    my $description = $nodes->item ($i)->getElementsByTagName ("description")->item(0)->getFirstChild->getNodeValue;
+    my $comment = $nodes->item ($i)->getElementsByTagName ("comments")->item(0)->getFirstChild->getNodeValue;
+    $comment =~ s/<wbr \/>//;
+
+
+    if($title_date ne $date) {
+        $title_date = $date;
+        print $cgi->h1($title_date);
+        print $cgi->hr();
+    }
+    print $cgi->h2($title);
+    print $cgi->p($description);
+    print $cgi->a({href=>$comment}, "comment");
+}

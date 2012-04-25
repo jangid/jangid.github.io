@@ -1,0 +1,24 @@
+<!--#include virtual="doctype.shtml"-->
+<!--#set var="TITLE" value="Bookmarks"-->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<!--#include virtual="head.shtml"-->
+
+<body>
+
+    <div id="container">
+
+<!--#include virtual="top.shtml"-->
+
+<!--#include virtual="side.shtml"-->
+
+<!--#include virtual="bookmarks_main.shtml"-->
+
+<!--#include virtual="bottom.shtml"-->
+
+    </div>
+
+</body>
+
+</html>

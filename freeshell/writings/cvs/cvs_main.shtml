@@ -1,0 +1,319 @@
+<div id="content">
+
+	<!--SLIDE-0-->
+
+    <h1>Software Development Using CVS, ACM Mumbai - 09<sup>th</sup> Nov, 2001</h1> 
+	<hr/>
+
+	<!--/SLIDE-0-->
+	<!--SLIDE-1-->
+
+	<h1>Roadmap</h1>
+	<hr/>
+	<ul>
+	<li>What is version control ?</li>
+	<li>Why version control ?</li>
+	<li>How CVS evolved ?</li>
+	<li>How to use it ?<br/></li>
+	<li>Example project</li>
+	</ul>
+	<!--/SLIDE-1-->
+	<!--SLIDE-2-->
+
+	<h1>What is version control ? </h1>
+	<hr/>
+	<ul>
+	<li>Keeping old versions of program. </li>
+	<li>Keeping track of these versions. </li>
+	<li>Manipulation of these versions. </li>
+	</ul>
+
+	<!--/SLIDE-2-->
+	<!--SLIDE-3-->
+	<h1>Why version control ?</h1>
+	<hr/>
+	<table>
+	<tr>
+	<td> Scenario </td>
+	<td>: single user single project </td>
+	</tr>
+	<tr>
+	<td> Problem </td>
+	<td>: loss of older versions/snapshots </td>
+	</tr>
+	<tr><td colspan="2">&nbsp;</td></tr>
+	<tr>
+	<td> Scenario </td>
+	<td>: multiple user single project </td>
+	</tr>
+	<tr>
+	<td> Problem </td>
+	<td>: concurrent updation of a file </td>
+	</tr>
+	</table>
+
+	<!--/SLIDE-3-->
+	<!--SLIDE-4-->
+
+	<h1>Why version control ? (contd..)</h1>
+	<hr/>
+	<ul>
+	<li>Encourages documentation of changes, change log. </li>
+	<li>Easy to manage parallel development of different versions of a file.</li>
+	<li>Regulates multiple developers wanting to change the same file. </li>
+	</ul>
+
+	<!--/SLIDE-4-->
+	<!--SLIDE-5-->
+
+	<h1>How it evolved ?</h1>
+	<hr/>
+	<ul>
+	<li>Initial CVS shell scripts were written by Dick Grune.</li>
+	<li>Developed on newsgroup (comp.sources.unix, vol-6, december-1986).</li>
+	<li>Current version uses very small part of the original.</li>
+	<li>Brian Berliner redesigned and coded CVS (1989).</li>
+	<li>Jeff Polk later helped Brian (module and vender branch support).</li>
+	</ul>
+
+	<!--/SLIDE-5-->
+	<!--SLIDE-6-->
+
+	<h1>How it evolved ? (contd..)</h1>
+	<hr/>
+	<ul>
+	<li>CVS is based on RCS (Revision Control System).</li>
+	<li>RCS was designed by Walter Tichy (1982).</li>
+	<li>Designed for maintaining revisions of documents, drawings, forms, articles, source code.</li>
+	<li>Other version control systems - AT&amp;T's SCCS, IBM's CLEAR/CASTER, DEC'S CMS.</li>
+	</ul>
+
+	<!--/SLIDE-6-->
+	<!--SLIDE-7-->
+
+	<h1>Environment Setup</h1>
+	<hr/>
+	<ul>
+	<li>CVSROOT - location of repository (contains protocol, username, server, path-to-cvsrootdir)</li>
+	<li>CVS_RSH - remote shell command to use when starting a cvs server.</li>
+	<li>CVSEDITOR - editor to use for recording log messages (during <strong>commit</strong>).</li>
+	<li>CVSREAD - makes the files in the working directory read-only (during <strong>checkout</strong> and <strong>update</strong>).</li>
+	</ul>
+
+	<!--/SLIDE-7-->
+	<!--SLIDE-8-->
+
+	<h1>Anonymous User Commands</h1>
+	<hr/>
+	<ul>
+	<li>Logging in<br/>
+    $ <em>cvs -d:pserver:anoncvs@subversions.gnu.org:/cvsroot/vm login</em><br/></li>
+	<li>Checking out<br/>
+    $ <em>cvs checkout module/file/dir</em><br/></li>
+	<li>Updating<br/>
+	$ <em>cvs update</em></li>
+	</ul>
+
+	<!--/SLIDE-8-->
+	<!--SLIDE-9-->
+
+	<h1>Anonymous User Commands (Contd..)</h1>
+	<hr/>
+	<ul>
+	<li>Status indication letter for each file in the working directory :
+    <br/>U, P, A, R, M, C, ?<br/></li>
+	<li>Some command modifiers : <br/>
+	$ <em> cvs -z3 update -d </em> <br/>
+	$ <em> cvs -z3 update -l </em> <br/>
+	$ <em> cvs -z3 -n update -d </em>
+	</li>
+	</ul>
+
+	<!--/SLIDE-9-->
+	<!--SLIDE-10-->
+
+	<h1>Developers Commands </h1>
+	<hr/>
+	<ul>
+	<li>Comitting<br/>
+	$ <em>cvs commit [files..] </em><br/>
+    $ <em>cvs commit -m "log message" [files..] </em><br/></li>
+	<li>Adding/removing files<br/>
+	$ <em>cvs add [files..]</em><br/>
+    $ <em>cvs remove [files..]</em><br/><br/></li>
+	<li>Creating patches<br/>
+    $ <em>cvs diff -u> my_cvs.patch </em><br/></li>
+	<li>Version numbers<br/>
+	$ <em>cvs commit -r 3.0</em></li>
+	</ul>
+
+	<!--/SLIDE-10-->
+	<!--SLIDE-11-->
+
+	<h1>Repository Management Commands </h1>
+	<hr/>
+	<ul>
+	<li>Creating a repository <br/>
+    $ <em> cvs -d /var/lib/cvs init </em> <br/> </li>
+	<li>Importing a project <br/>
+    $ <em> cvs project/pilot pilot-team start </em><br/></li>
+	<li>Managing modules <br/>
+	$ <em> cvs co CVSROOT/modules </em><br/><br/>
+	pilot project/pilot<br/><br/>
+    $ <em> cvs co pilot </em><br/></li>
+	</ul>
+
+	<!--/SLIDE-11-->
+	<!--SLIDE-12-->
+
+	<h1>Repository Management Commands (contd..)</h1>
+	<hr/>
+	<ul>
+	<li>Revisions <br/>
+    $ <em> cvs commit -r 3.0 </em><br/></li>
+	<li>Tags <br/>
+	$ <em> cvs tag rel-1-0 . </em><br/>
+    $ <em> cvs checkout -r rel-1-0 modulename</em><br/></li>
+	</ul>
+
+	<!--/SLIDE-12-->
+	<!--SLIDE-13-->
+
+	<h1>Repository Management Commands (contd..)</h1>
+	<hr/>
+	<ul>
+	<li>What to tag <br/>
+	$ <em> cvs tag -c rel-1-0 . </em><br/>
+	$ <em> cvs tag -r 1-0 rel-1-0 modulename</em><br/>
+	$ <em> cvs tag -D date-spec rel-1-0 modulename</em> <br/></li>
+	<li>Deleting, moving, renaming tags <br/>
+	$ <em> cvs tag -d rel-1-0 . </em><br/>
+	$ <em> cvs tag -r 1-6 -F stable modulename</em><br/><br/>
+	$ <em> cvs tag -r old-tag-1-0 rel-1-0 modulename</em><br/>
+	$ <em> cvs tag -d old-tag-1-0 modulename</em> <br/></li>
+	</ul>
+
+	<!--/SLIDE-13-->
+	<!--SLIDE-14-->
+
+	<h1>Repository Management Commands (contd..)</h1>
+	<hr/>
+	<ul>
+	<li>Creating a branch <br/>
+	$ <em> cvs tag -b rel-1-0-patches </em><br/>
+	$ <em> cvs rtag -b -r rel-1-0 rel-1-0-patches modulename</em> <br/></li>
+	<li>Accessing branches <br/>
+	$ <em> cvs checkout -r rel-1-0-patches modulename </em><br/>
+	$ <em> cvs update -r rel-1-0-patches modulename </em><br/></li>
+	</ul>
+
+	<!--/SLIDE-14-->
+	<!--SLIDE-15-->
+
+	<h1>Repository Management Commands (contd..)</h1>
+	<hr/>
+	<ul>
+	<li>Branches and revisions
+	<pre>
+				    +-------------+
+		Branch 1.2.2.3.2 -> ! 1.2.2.3.2.1 !
+				    +-------------+
+				   /
+				  /
+			+---------+    +---------+    +---------+
+	Branch 1.2.2->  ! 1.2.2.1 !----! 1.2.2.2 !----! 1.2.2.3 !
+			+---------+    +---------+    +---------+
+		      /
+Main trunk          /
+	+-----+    +-----+    +-----+    +-----+    +-----+
+        ! 1.1 !----! 1.2 !----! 1.3 !----! 1.4 !----! 1.5 !
+	+-----+    +-----+    +-----+    +-----+    +-----+
+		   \
+		    \	
+		    +---------+    +---------+    +---------+
+Branch 1.2.4 -> +-- ! 1.2.4.1 !----! 1.2.4.2 !----! 1.2.4.3 !
+		    +---------+    +---------+    +---------+
+	</pre> </li>
+	</ul>
+
+	<!--/SLIDE-15-->
+	<!--SLIDE-16-->
+
+	<h1>Repository Management Commands (contd..)</h1>
+	<hr/>
+	<ul>
+	<li>Merging an entire branch <br/>
+	<pre>
+    +-----+    +-----+    +-----+    +-----+
+    ! 1.1 !----! 1.2 !----! 1.3 !----! 1.4 !      &lt;- The main trunk
+    +-----+    +-----+    +-----+    +-----+
+			!
+			!
+			!   +---------+    +---------+
+	Branch R1fix -> +---! 1.2.2.1 !----! 1.2.2.2 !
+			    +---------+    +---------+
+	</pre>
+	$ <em> cvs checkout modulename </em><br/>
+	$ <em> cvs update -j R1fix file.c </em><br/>
+	$ <em> cvs commit -m "Included R1fix" </em> <br/><br/>
+	OR (better approach)<br/><br/>
+	$ <em> cvs checkout -j R1fix modulename </em><br/>
+    $ <em> cvs commit -m "Included R1fix" </em><br/></li>
+	</ul>
+
+	<!--/SLIDE-16-->
+	<!--SLIDE-17-->
+
+	<h1>Repository Management Commands (contd..)</h1>
+	<hr/>
+	<ul>
+	<li>Merging from a branch several times <br/>
+	<pre>
+	+-----+    +-----+    +-----+    +-----+    +-----+
+	! 1.1 !----! 1.2 !----! 1.3 !----! 1.4 !----! 1.5 !   &lt;- The main trunk
+	+-----+    +-----+    +-----+    +-----+    +-----+
+		       !                           *
+   		       !                          *
+		       !   +---------+    +---------+    +---------+
+      Branch R1fix -> +--- ! 1.2.2.1 !----! 1.2.2.2 !----! 1.2.2.3 !
+		           +---------+    +---------+    +---------+
+	</pre>
+	$ <em> cvs update -j 1.2.2.2 -j R1fix file.c </em><br/><br/>
+	$ <em> cvs update -j R1fix:yesterday -j R1fix file.c </em><br/>
+	(specify the date last merge was done.)<br/><br/>
+	$ <em> cvs update -j merged_from_R1fix_to_trunk -j R1fix file.c </em><br/>
+    (tag the R1fix branch after every merge then use tag for every subsequent merge.) <br/><br/></li>
+	</ul>
+
+	<!--/SLIDE-17-->
+	<!--SLIDE-18-->
+
+	<h1>Repository Management Commands (contd..)</h1>
+	<hr/>
+	<ul>
+	<li>File Status<br/>
+	$ <em>cvs -n -q update </em><br/><br/></li>
+	<li>Several developers simultaneously attempting to run CVS<br/>
+	<em>[11:43:23] waiting for bach's lock in /usr/local/cvsroot/foo</em><br/><br/></li>
+	<li>Informing other developers<br/>
+	<pre>
+	# file - CVSROOT/modules
+
+	modulename -i prog -a first-dir
+	</pre>
+	</li>
+	</ul>
+
+	<!--/SLIDE-18-->
+	<!--SLIDE-19-->
+
+	<h1>References</h1>
+	<hr/>
+	<ul>
+	<li>CVS Home (online manual - <a href="http://www.nongnu.org/cvs/">http://www.nongnu.org/cvs/</a>).</li>
+	<li>Jan Barsodi's articles on CVS (<a href="http://zez.org/article/author/view/26/">http://zez.org/article/author/view/26/</a>).</li>
+	</ul>
+
+	<!--/SLIDE-19-->
+
+</div>

@@ -1,0 +1,12 @@
+<div id="top">
+    <ul id="navigation">
+        <li><a href="index.shtml">मुख्य</a></li>
+        <li><a title="अंग्रेजी" href="../resume.shtml">रेज्यूमे</a></li>
+        <li><a title="अंग्रेजी" href="../bookmarks.shtml">बुकमार्क</a></li>
+        <li><a title="अंग्रेजी" href="../writings.shtml">लेखन</a></li>
+        <li><a title="अंग्रेजी" href="../contacts.shtml">संपर्क</a></li>
+        <li><a title="अंग्रेजी" href="../blog.shtml">वेब-लोग</a></li>
+        <li><a title="अंग्रेजी" href="../key.shtml">चाबी</a></li>
+	<li>[<a href="../index.shtml">English</a>]</li>
+    </ul>
+</div>

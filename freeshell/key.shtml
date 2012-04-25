@@ -1,0 +1,24 @@
+<!--#include virtual="doctype.shtml"-->
+<!--#set var="TITLE" value="GPG Key"-->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<!--#include virtual="head.shtml"-->
+
+<body>
+
+    <div id="container">
+
+<!--#include virtual="top.shtml"-->
+
+<!--#include virtual="side.shtml"-->
+
+<!--#include virtual="key_main.shtml"-->
+
+<!--#include virtual="bottom.shtml"-->
+
+    </div>
+
+</body>
+
+</html>

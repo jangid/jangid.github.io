@@ -1,0 +1,21 @@
+<head>
+    <title>[<!--#echo var="TITLE"-->] Pankaj Jangid's HOME</title>
+<meta name="robots" content="index, follow"/>
+<meta name="keywords" content="Compilers, Natural Language Theory, NLT, C++, Java, C#, FORTRAN, High Performance Computing, HPC, .NET, Techinal Lead, Technical Architect, GNU, Linux, HURD, CVS, GNU Privacy Guard, GNUPG, streaming, media, helix, darwin, google, analyst"/>
+<meta http-equiv="Content-type" content="text/xhtml; charset=utf-8"/>
+<meta name="description" content="Home of Pankaj Jangid, Articles, Presentations, Knowledge"/>
+<meta name="author" content="Pankaj Jangid http://jangid.freeshell.org"/>
+<meta name="name" content="Pankaj Jangid"/>
+<link rel="stylesheet" type="text/css" href="styles/default.css" media="screen"/>
+<link rel="shortcut icon" href="images/pankaj.png"/>
+
+<!-- Google Analyst Starts-->
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-309724-1";
+urchinTracker();
+</script>
+<!-- Google Analyst Ends-->
+
+</head>

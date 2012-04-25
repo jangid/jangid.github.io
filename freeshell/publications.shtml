@@ -1,0 +1,23 @@
+<!--#include virtual="doctype.shtml"-->
+
+<html lang="en">
+
+<!--#include virtual="head.shtml"-->
+
+<body>
+
+    <div id="container">
+
+<!--#include virtual="top.shtml"-->
+
+<!--#include virtual="side.shtml"-->
+
+<!--#include virtual="publications_main.shtml"-->
+
+<!--#include virtual="bottom.shtml"-->
+
+    </div>
+
+</body>
+
+</html>

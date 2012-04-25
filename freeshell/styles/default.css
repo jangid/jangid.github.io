@@ -1,0 +1,165 @@
+/* style for html elements */
+html,
+body {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	background: #fff;
+	color: #000;
+	font-family: Verdana,Sans-serif;
+	font-size: 80%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 1em 0 0.5em 0;
+}
+
+h1 { color: #3A5EAF; font-size: 120%; background-color: #FFFFFF;}
+h2 { color: #233767; font-size: 110%; background-color: #FFFFFF;}
+h3 { color: #1399A4; font-size: 100%; background-color: #FFFFFF;}
+h4 { color: #0B5960; font-size: 100%; background-color: #FFFFFF;}
+h5 { color: #16BB1C; font-size: 90%; background-color: #FFFFFF;}
+h6 { color: #0f7311; font-size: 90%; background-color: #FFFFFF;}
+
+:link {
+	color: #554FA0;
+	font-weight: bold;
+    background-color: #FFFFFF;
+}
+
+:visited {
+	color: #090051;
+	font-weight: bold;
+    background-color: #FFFFFF;
+}
+
+:link:hover, :visited:hover {
+	color: #5B52CB;
+    background-color: #FFFFFF;
+}
+
+/* style corresponding to div ids */
+#container {
+	margin: 0;
+	padding: 0;
+    border: 0;
+}
+
+#top #navigation {
+	margin: 0;
+	line-height: 2em;
+
+	color: #FFFFFF;
+	background-color: #6892BB;
+	text-align: right;
+}
+
+#top #navigation :link, #top #navigation :visited {
+	text-decoration: none;
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #6892BB;
+}
+
+#top #navigation :link:hover, #top #navigation :visited:hover {
+	color: #DFDFDF;
+	background-color: #6892BB;
+}
+
+#top #navigation li {
+	white-space: nowrap;
+	list-style-type: none;
+	display: inline;
+	padding: 0 0.5em;
+}
+
+#side {
+    position: absolute;
+    left: 0px;
+    background: #FFFFFF;
+    color: #000;
+    padding-left:10px;
+}
+
+#side-add {
+  margin-top: 15px;
+}
+
+#side a {
+    position: relative;
+    left: 10px;
+    width: 190px;
+    border: none;
+}
+
+/*
+#side a img {
+    position: relative;
+    top: 5px;
+    left: 5px;
+    width: 190px;
+    border: none;
+}
+*/
+
+#content {
+    margin-top: 0px;
+    margin-left: 200px;
+	background: #fff;
+    color: #000;
+    padding: 20px 30px;
+    border-left: 1px solid black;
+    height: 100%;
+}
+
+#content h2 {
+    border-bottom: 1px solid #ddd;
+}
+
+#bottom {
+    border-top: 1px solid black;
+    width: 100%;
+}
+
+#bottom-add {
+  width: 100%;
+  text-align:center;
+  margin-top: 5px;
+}
+
+#bottom p {
+	font-size: 0.8em;
+    text-align: center;
+}
+
+#bottom p img {
+    border: none;
+}
+
+#bn {
+	padding: 0;
+    text-align: center;
+}
+
+#bn li {
+	display: inline;
+	white-space: nowrap;
+}
+
+#w3 {
+	padding: 0;
+    text-align: center;
+}
+
+#w3 li {
+	display: inline;
+	white-space: nowrap;
+}
+
+#w3 li img {
+    border: none;
+}
+
+/* EOF */

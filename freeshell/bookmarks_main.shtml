@@ -1,0 +1,46 @@
+<div id="content">
+    <h2>Bookmarks</h2>
+    <dl>
+        <dt>Mails, Blogs &amp; Communities</dt>
+        <dd>
+        <a href="http://gmail.com">GMail</a> <br/>
+        <a href="https://mail.yahoo.com/">Yahoo! Mail</a> <br/>
+        <a href="http://www.livejournal.com/users/jangid/">Livejournal</a> <br/>
+        <a href="http://jangid.blogspot.com/">Blogspot</a> <br/>
+        <a href="http://360.yahoo.com/pankaj_jangid">Yahoo! 360<sup>0</sup></a> <br/>
+        </dd>
+        <dt>News</dt>
+        <dd>
+        <a href="http://news.google.com/">Google News</a> <br/>
+        <a href="http://economictimes.indiatimes.com/">Economic Times</a>
+        </dd>
+        <dt>Disscussion Forums</dt>
+        <dd>
+        <a href="http://groups.google.com/">Google Groups</a> <br/>
+        <a href="http://slashdot.org/">Slashdot</a> <br/>
+        </dd>
+        <dt>Interesting Reading Resources</dt>
+        <dd>
+        <a href="http://en.wikipedia.org/">Wikipedia</a> <br/>
+        </dd>
+        <dt>Free Software Community</dt>
+        <dd>
+        <a href="http://foss.in/">FOSS.IN</a> <br/>
+        <a href="http://www.gnu.org/">GNU</a> <br/>
+        <a href="http://www.gnu.org.in/">GNU India</a> <br/>
+        <a href="http://www.debian.org/">Debian</a> <br/>
+        <a href="http://www.gnome.org/">GNOME</a> <br/>
+        <a href="http://freshmeat.net/">Freshmeat</a> <br/>
+        <a href="http://sf.net/">SourceForge</a> <br/>
+        <a href="http://savannah.gnu.org/">Savannah</a>
+        </dd>
+        <!--
+        <dt>Computer Science</dt>
+        <dd>
+        <h3>Theory of Computer Science</h3>
+        <h3>Compiler Theories</h3>
+        <h3>Programming</h3>
+        </dd>
+        -->
+    </dl>
+</div>
