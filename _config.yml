@@ -1,0 +1,17 @@
+# Permalinks
+permalink:              pretty
+relative_permalinks:    true
+
+# Setup
+highlighter:        pygments
+safe:               true
+lsi:                false
+encoding:           utf-8
+title:              "@Jangid"
+tagline:            Anything that come across
+url:                http://codeisgreat.org/
+paginate:           1
+baseurl:            ""
+author:
+  name:             Pankaj Jangid
+  email:            pankaj.jangid@gmail.com
