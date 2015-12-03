@@ -8,8 +8,8 @@ safe:               true
 lsi:                false
 encoding:           utf-8
 title:              "@Jangid"
-tagline:            Anything that come across
-url:                http://codeisgreat.org/
+tagline:            My mind speaks
+url:                http://jangid.github.io/
 paginate:           1
 baseurl:            ""
 author:
