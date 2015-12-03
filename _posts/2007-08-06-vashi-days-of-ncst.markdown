@@ -3,6 +3,7 @@ layout: post
 title:  "Vashi Days of NCST"
 date:   2007-08-06 18:47:00
 tags: ncst new-bombay seawoods vashi
+published: false
 ---
 Today I got few old photos from Rahul. Luckily he had those NCST photos also when the NCST, New Bombay centre was at Vashi, right above the Vashi railway station.
 

@@ -3,6 +3,7 @@ layout: post
 title:  "The Grand Weightloss Party"
 date:   2007-08-22 00:42:00
 tags: abhilash dal-bati dinner party weightloss
+published: false
 ---
 About a month ago we all (Abhilash, Dinesh and Me) started going to the company gymnasium with different motives. Despite having good looks, Abhilash had a misunderstanding that he doesn't look good. And to rectify that he started regular workout everyday. Me want to build some muscle now. I know it is late. But it is never late you know. Dinesh has a deep back and want to fill that with muscles.
 

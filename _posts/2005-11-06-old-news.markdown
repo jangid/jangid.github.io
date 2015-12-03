@@ -3,6 +3,7 @@ layout: post
 title:  "Old News"
 date:   2005-11-06 18:00:00
 tags: debian update
+published: false
 ---
 “Sarge” is released 4 days back, but I came to know of this only when my net connection was fixed yesterday and I did an aptitude update. My /etc/apt/source.list file has following entries,
 
