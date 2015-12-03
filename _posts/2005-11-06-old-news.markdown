@@ -1,0 +1,14 @@
+---
+layout: post
+title:  "Old News"
+date:   2005-11-06 18:00:00
+tags: debian update
+---
+“Sarge” is released 4 days back, but I came to know of this only when my net connection was fixed yesterday and I did an aptitude update. My /etc/apt/source.list file has following entries,
+
+deb http://non-us.debian.org/debian-non-US sarge/non-US main
+deb http://ftp.debian.org/debian/ sarge main
+
+deb http://security.debian.org/ sarge/updates main
+
+I noticed that there are no updates even after 2-3 days. Went to debian home page and found 3.1 is released. It was just 4 days after 3.0r6's release.
