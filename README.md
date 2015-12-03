@@ -1,4 +1,4 @@
-jangid.github.com
-=================
+jangid.github.io
+================
 
 Repository for my home-page
