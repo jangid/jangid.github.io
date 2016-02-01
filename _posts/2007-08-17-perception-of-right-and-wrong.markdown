@@ -3,7 +3,6 @@ layout: post
 title:  "Perception of Right and Wrong"
 date:   2007-08-17 12:27:00
 tags: philosophy cab cadence driver perception right terrorists wrong
-published: false
 ---
 Many times we all have seen that someone is doing something wrong. And we simply don't understand why that someone is doing it that way. Even if you talk to him about his wrong doings he will not accept it. He thinks he is doing right.
 

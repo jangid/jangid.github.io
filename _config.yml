@@ -1,15 +1,29 @@
-# Site settings
-title: Pankaj Jangid
-email: pankaj.jangid@gmail.com
-description: > 
-  I am an entrepreneur. I consider myself a geek. I am coding since 1996 when I first got
-  into graduate course. I am a big fan of Linus, RMS and
-  Indian Prime Minister Narendra Modi.
-baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://jangid.github.io" # the base hostname & protocol for your site
-twitter_username: jangid
-github_username:  jangid
-facebook_username: jangid
+# Permalinks
 
-# Build settings
-markdown: kramdown
+# Use of `relative_permalinks` ensures post links from the index work properly.
+permalink:           pretty
+relative_permalinks: true
+
+# Setup
+title:              Pankaj Jangid
+tagline:            'I write code.'
+description: > 
+  I am an entrepreneur. I am writing code since 1996 and I consider myself a geek. 
+  I am a big fan of Linus, RMS and Indian Prime Minister Narendra Modi.
+url:                "http://jangid.github.io" # the base hostname & protocol for your site
+baseurl:            "" # the subpath of your site, e.g. /blog/
+paginate:            5
+version: 1.0.0
+
+# About/contact
+author:
+  name:              Pankaj Jangid
+  url:               https://twitter.com/Jangid
+  email:             pankaj.jangid@gmail.com
+
+# Custom vars
+version:             1.0.0
+
+# Github
+github:
+  repo: "http://github.com/jangid/jangid.github.io"

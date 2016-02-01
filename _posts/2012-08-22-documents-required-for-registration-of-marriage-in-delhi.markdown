@@ -3,7 +3,6 @@ layout: post
 title:  "Documents Required for Registration of Marriage in Delhi"
 date:   2012-08-22 10:31:00
 tags: certificate delhi documents marriage registration
-published: false
 ---
 I am going to apply for marriage certificate now, after almost 10 years of marriage. I'll share how is my experience of this process. But I thought I'll share the list of documents that are required for the registration. Preparing these document beforehand might help you speed up the process. I have copied this list from [Delhi Government Website][delhi-govt].
 
