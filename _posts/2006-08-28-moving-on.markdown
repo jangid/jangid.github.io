@@ -1,0 +1,8 @@
+---
+layout: post
+title:  "Moving On"
+date:   2006-08-28 22:43:00
+tags: career
+---
+
+Yes. I have resigned from [HCL Technologies, NOIDA](http://hcl.in/) and will be joining [Cadence Design Systems, NOIDA](http://www.cadence.com/) on 22nd September.
