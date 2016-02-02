@@ -1,3 +1,12 @@
 .social-integ-block {
-  vertical-align: top;
+}
+
+.social-integ-block .twitter-follow-button {
+  vertical-align: bottom;
+}
+
+.social-integ-block .fb-like,
+.social-integ-block .fb-like span, 
+.social-integ-block .fb-like span iframe {
+  vertical-align: bottom;
 }
