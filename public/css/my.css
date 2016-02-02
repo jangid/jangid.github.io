@@ -1,12 +1,16 @@
 .social-integ-block {
 }
 
-.social-integ-block .twitter-follow-button {
+.social-integ-block .twitter-follow-button, 
+.social-integ-block .twitter-share-button {
   vertical-align: bottom;
 }
 
 .social-integ-block .fb-like,
 .social-integ-block .fb-like span, 
-.social-integ-block .fb-like span iframe {
+.social-integ-block .fb-like span iframe, 
+.social-integ-block .fb-share-button,
+.social-integ-block .fb-share-button span, 
+.social-integ-block .fb-share-button span iframe {
   vertical-align: bottom;
 }
