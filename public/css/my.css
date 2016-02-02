@@ -11,6 +11,9 @@
 .social-integ-block .fb-like span iframe, 
 .social-integ-block .fb-share-button,
 .social-integ-block .fb-share-button span, 
-.social-integ-block .fb-share-button span iframe {
+.social-integ-block .fb-share-button span iframe, 
+.social-integ-block .fb-send,
+.social-integ-block .fb-send span, 
+.social-integ-block .fb-send span iframe {
   vertical-align: bottom;
 }
