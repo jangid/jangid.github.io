@@ -27,3 +27,6 @@ version:             1.0.0
 # Github
 github:
   repo: "http://github.com/jangid/jangid.github.io"
+
+#Build settings
+markdown:           kramdown
