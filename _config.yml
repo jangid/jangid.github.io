@@ -15,8 +15,10 @@ version: 1.0.0
 # About/contact
 author:
   name:              Pankaj Jangid
-  url:               https://twitter.com/Jangid
+  url:               https://jangid.github.io
   email:             pankaj.jangid@gmail.com
+  twitter:           http://twitter.com/jangid
+  facebook:          http://facebook.com/public.profile.of.pankaj
 
 # Custom vars
 version:             1.0.0

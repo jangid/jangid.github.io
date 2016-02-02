@@ -6,6 +6,13 @@
   <!-- Enable responsiveness on mobile devices-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
+  <!-- facebook OpenGraph -->
+  <meta property="og:url"           content="{{ site.url }}" />
+  <meta property="og:type"          content="website" />
+  <meta property="og:title"         content="Pankaj Jangid's Blog" />
+  <meta property="og:description"   content="I am an entrepreneur. I am writing code since 1996 and consider myself a geek. I am a big fan of Indian Prime Minister Narendra Modi." />
+  <meta property="og:image"         content="{{ site.url }}/public/Profile.jpg" />
+
   <title>
     {% if page.title == "Home" %}
       {{ site.title }} &middot; {{ site.tagline }}
