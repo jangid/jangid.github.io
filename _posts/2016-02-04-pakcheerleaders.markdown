@@ -1,7 +1,8 @@
 ---
 layout: post
 title:  "#PakCheerleaders?"
-tags: pakistan
+date:   2016-02-04 00:26:00
+tags:   pakistan
 ---
 
 Towards the evening, when I was leaving office for the day, an interesting social media trend came to my attention - #PakCheerleaders. I clicked on the hashtag and saw everyone abusing leaders of AAP and Congress. Some more digging and I could sense that the anger is becuase of the side that they took in Anupam Kher Pak visa row.
