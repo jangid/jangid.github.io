@@ -31,3 +31,6 @@ github:
 
 #Build settings
 markdown:           kramdown
+
+# Plugins
+gems:               [jekyll-paginate]
