@@ -14,13 +14,13 @@ title: Home
 
     <span class="post-date">{{ post.date | date_to_string }}</span>
     <div class="social-integ-block">
-      <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text={{ post.title }}&via={{ site.author.twitter_handle }}&url={{ site.url }}{{ post.url }}">Tweet</a>
+      <a class="twitter-share-button" href="https://twitter.com/share" data-text="{{ post.title }}" data-via="{{ site.author.twitter_handle }}" data-url="{{ site.url }}{{ post.url }}">Tweet</a>
       <div class="fb-share-button" data-href="{{ site.url }}{{ post.url }}" data-layout="button"></div>
       <div class="fb-send" data-href="{{ site.url }}{{ post.url }}"></div>
     </div>
     {{ post.content }}
     <div class="social-integ-block">
-      <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text={{ post.title }}&via={{ site.author.twitter_handle }}&url={{ site.url }}{{ post.url }}">Tweet</a>
+      <a class="twitter-share-button" href="https://twitter.com/share" data-text="{{ post.title }}" data-via="{{ site.author.twitter_handle }}" data-url="{{ site.url }}{{ post.url }}">Tweet</a>
       <div class="fb-share-button" data-href="{{ site.url }}{{ post.url }}" data-layout="button"></div>
       <div class="fb-send" data-href="{{ site.url }}{{ post.url }}"></div>
     </div>
