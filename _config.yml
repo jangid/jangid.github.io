@@ -10,7 +10,8 @@ description: >
 url:                "https://jangid.github.io" # the base hostname & protocol for your site
 baseurl:            "" # the subpath of your site, e.g. /blog/
 paginate:            5
-version: 1.0.0
+timezone:           "Asia/Kolkata"
+version:            1.0.0
 
 # About/contact
 author:
