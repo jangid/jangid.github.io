@@ -7,7 +7,7 @@ tags:   patriot bjp congress
 
 I met [Tajinder Bagga](http://twitter.com/tajinderbagga) in 2013 for the first time. Not a single day has passed since then, that he haven't talked to me on an issue of national interest. Even on days when he was being dragged into false allegations by opposition parties, he didn't care. The only thing he has in mind is Bharat. A patriot. A big fan of Narendra Modi.
 
-Several attempts have been made to malign his image. Everyone is aware of the false cases that are going on. Latest, by a lady in Bangalore. Probably she is being used by the oppotion party. A month ago, she attempted to do character assassination of Bagga on Twitter. She tried tooth and nail but failed. She tried to get support from other nationalists, but those who know Bagga have full faith in him.
+Several attempts have been made to malign his image. Everyone is aware of the false cases that are going on. Latest, by a lady in Bangalore. Probably she is being used by the opposition party. A month ago, she attempted to do character assassination of Bagga on Twitter. She tried tooth and nail but failed. She tried to get support from other nationalists, but those who know Bagga have full faith in him.
 
 Her latest weapon, the SC/ST attrocites option from the law book. It is so laughable. Till the time she filed a complaint, Bagga never knew that she belongs to SC or could be ST, we still do not bother to find it out. We never work like this. In fact, many of us don't know castes of each other in the group. Why should castes matter in a national cause. We are united by a cause, and will continue to move forward like this. 
 
