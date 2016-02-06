@@ -2,6 +2,7 @@
 title: Karamchand and Byomkesh Bakshi were the Best Detectives
 layout: post
 date: 2016-02-06 11:53:00 +05:30
+tags: series detective
 ---
 
 *Jab mein chhota bachcha tha* (When I was a kid), Karamchand used to be my favorite serial. I am 77 born, so I was about 10-12 years old at that time. Oh! what fun it was watching Karamchand and his secretary, Kitty.
