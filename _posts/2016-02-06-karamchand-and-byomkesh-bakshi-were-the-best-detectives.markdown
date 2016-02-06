@@ -1,5 +1,5 @@
 ---
-title: Karamchand and Byomkesh Bakshi were the Best Detectives
+title: "Karamchand and Byomkesh Bakshi were the Best Detectives"
 layout: post
 date: 2016-02-06 11:53:00 +05:30
 tags: series detective
