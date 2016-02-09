@@ -15,14 +15,12 @@ title: Home
     <span class="post-date">{{ post.date | date_to_string }}</span>
     <div class="social-integ-block">
       <a class="twitter-share-button" href="https://twitter.com/share" data-text="{{ post.title }}" data-via="{{ site.author.twitter_handle }}" data-url="{{ site.url }}{{ post.url }}">Tweet</a>
-      <div class="fb-share-button" data-href="{{ site.url }}{{ post.url }}" data-layout="button"></div>
-      <div class="fb-send" data-href="{{ site.url }}{{ post.url }}"></div>
+      <div class="fb-like" data-href="{{ site.url }}{{ post.url }}" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div>
     </div>
     {{ post.content }}
     <div class="social-integ-block">
       <a class="twitter-share-button" href="https://twitter.com/share" data-text="{{ post.title }}" data-via="{{ site.author.twitter_handle }}" data-url="{{ site.url }}{{ post.url }}">Tweet</a>
-      <div class="fb-share-button" data-href="{{ site.url }}{{ post.url }}" data-layout="button"></div>
-      <div class="fb-send" data-href="{{ site.url }}{{ post.url }}"></div>
+      <div class="fb-like" data-href="{{ site.url }}{{ post.url }}" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div>
     </div>
     <div class="fb-comments" data-href="{{ site.url }}{{ post.url }}" data-numposts="1" data-width="100%"></div>
   </div>
