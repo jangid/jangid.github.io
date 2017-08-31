@@ -1,0 +1,55 @@
+==================================================================
+https://keybase.io/jangid
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://jangid.info
+  * I am jangid (https://keybase.io/jangid) on keybase.
+  * I have a public key ASDzsZv-BkvoPuRaEBsWMnUJtXiOwpKz_nR1bIT7-5y8UQo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "010103f18e7c705a58587e81c230587484d7413b4e04bb90d467877b4e8a43cbd1310a",
+      "host": "keybase.io",
+      "kid": "0120f3b19bfe064be83ee45a101b16327509b5788ec292b3fe74756c84fbfb9cbc510a",
+      "uid": "aa81ea120c496852bad1e3ab2083db19",
+      "username": "jangid"
+    },
+    "merkle_root": {
+      "ctime": 1504165326,
+      "hash": "573e1caa7336b04eb9542317b218e27e3908e0ef26c78959cbef79f9d679a9114fdf37330238195b3f8825a01b250be1b03c2e77c7c81c6fdf6557159362d280",
+      "hash_meta": "6f2bc5b478b898eded71971ccf38f1dc4dd6851daeea98e4778fd67199a3dd3a",
+      "seqno": 1359288
+    },
+    "service": {
+      "hostname": "jangid.info",
+      "protocol": "http:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "1.0.28"
+  },
+  "ctime": 1504165410,
+  "expire_in": 504576000,
+  "prev": "a8db9cda094308ad481d4431913c1f4196bd8ef08839e56258a761c8ce36a9e0",
+  "seqno": 18,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEg87Gb/gZL6D7kWhAbFjJ1CbV4jsKSs/50dWyE+/ucvFEKp3BheWxvYWTFA0F7ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTAxMDNmMThlN2M3MDVhNTg1ODdlODFjMjMwNTg3NDg0ZDc0MTNiNGUwNGJiOTBkNDY3ODc3YjRlOGE0M2NiZDEzMTBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwZjNiMTliZmUwNjRiZTgzZWU0NWExMDFiMTYzMjc1MDliNTc4OGVjMjkyYjNmZTc0NzU2Yzg0ZmJmYjljYmM1MTBhIiwidWlkIjoiYWE4MWVhMTIwYzQ5Njg1MmJhZDFlM2FiMjA4M2RiMTkiLCJ1c2VybmFtZSI6ImphbmdpZCJ9LCJtZXJrbGVfcm9vdCI6eyJjdGltZSI6MTUwNDE2NTMyNiwiaGFzaCI6IjU3M2UxY2FhNzMzNmIwNGViOTU0MjMxN2IyMThlMjdlMzkwOGUwZWYyNmM3ODk1OWNiZWY3OWY5ZDY3OWE5MTE0ZmRmMzczMzAyMzgxOTViM2Y4ODI1YTAxYjI1MGJlMWIwM2MyZTc3YzdjODFjNmZkZjY1NTcxNTkzNjJkMjgwIiwiaGFzaF9tZXRhIjoiNmYyYmM1YjQ3OGI4OThlZGVkNzE5NzFjY2YzOGYxZGM0ZGQ2ODUxZGFlZWE5OGU0Nzc4ZmQ2NzE5OWEzZGQzYSIsInNlcW5vIjoxMzU5Mjg4fSwic2VydmljZSI6eyJob3N0bmFtZSI6ImphbmdpZC5pbmZvIiwicHJvdG9jb2wiOiJodHRwOiJ9LCJ0eXBlIjoid2ViX3NlcnZpY2VfYmluZGluZyIsInZlcnNpb24iOjF9LCJjbGllbnQiOnsibmFtZSI6ImtleWJhc2UuaW8gZ28gY2xpZW50IiwidmVyc2lvbiI6IjEuMC4yOCJ9LCJjdGltZSI6MTUwNDE2NTQxMCwiZXhwaXJlX2luIjo1MDQ1NzYwMDAsInByZXYiOiJhOGRiOWNkYTA5NDMwOGFkNDgxZDQ0MzE5MTNjMWY0MTk2YmQ4ZWYwODgzOWU1NjI1OGE3NjFjOGNlMzZhOWUwIiwic2Vxbm8iOjE4LCJ0YWciOiJzaWduYXR1cmUifaNzaWfEQPCt7cHMcSvSnpVG8OcUfVjh2iyuLpedpnhUSPrsgTi05FegdYBhC4piSajA0thPQmsMAHe1XAhU2uZwMGEnvQKoc2lnX3R5cGUgpGhhc2iCpHR5cGUIpXZhbHVlxCANSJGOqGiDl64IIPkaIdvesIDK/m25ewvN4ZcKrFzINaN0YWfNAgKndmVyc2lvbgE=
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/jangid
+
+==================================================================
