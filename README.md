@@ -1,4 +1,4 @@
 jangid.github.io
 ================
 
-Repository for my home-page
+Website -> http://jangid.github.io/
