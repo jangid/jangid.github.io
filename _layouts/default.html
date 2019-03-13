@@ -1,69 +1,21 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
 
-  {% include head.html %}
+  {%- include head.html -%}
 
   <body>
-    <script>
-      window.fbAsyncInit = function() {
-        FB.init({
-          appId      : '435126806693538',
-          xfbml      : true,
-          version    : 'v2.5'
-        });
-      };
 
-      (function(d, s, id){
-         var js, fjs = d.getElementsByTagName(s)[0];
-         if (d.getElementById(id)) {return;}
-         js = d.createElement(s); js.id = id;
-         js.src = "//connect.facebook.net/en_US/sdk.js";
-         fjs.parentNode.insertBefore(js, fjs);
-       }(document, 'script', 'facebook-jssdk'));
-    </script>
+    {%- include header.html -%}
 
-    {% include sidebar.html %}
-
-    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
-         content to avoid any CSS collisions with our real content. -->
-    <div class="wrap">
-      <div class="masthead">
-        <div class="container">
-          <h3 class="masthead-title">
-            <a href="{{ site.baseurl }}/" title="Home">{{ site.title }}</a>
-            <small>{{ site.tagline }}</small>
-          </h3>
-          <div class="social-integ-block">
-            <a href="https://twitter.com/Jangid" class="twitter-follow-button" data-show-count="true" data-show-screen-name="false">Follow @Jangid</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-            <div class="fb-like" data-href="{{ site.author.facebook }}" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="container content">
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
         {{ content }}
       </div>
-    </div>
+    </main>
 
-    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+    {%- include footer.html -%}
+    {%- include bootstrap_js.html -%}
 
-    <script>
-      (function(document) {
-        var toggle = document.querySelector('.sidebar-toggle');
-        var sidebar = document.querySelector('#sidebar');
-        var checkbox = document.querySelector('#sidebar-checkbox');
-
-        document.addEventListener('click', function(e) {
-          var target = e.target;
-
-          if(!checkbox.checked ||
-             sidebar.contains(target) ||
-             (target === checkbox || target === toggle)) return;
-
-          checkbox.checked = false;
-        }, false);
-      })(document);
-    </script>
   </body>
+
 </html>

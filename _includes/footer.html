@@ -1,51 +1,15 @@
-<footer class="site-footer">
+<footer class="site-footer h-card">
+  <data class="u-url" href="{{ "/" | relative_url }}"></data>
 
   <div class="wrapper">
 
-    <h2 class="footer-heading">{{ site.title }}</h2>
-
     <div class="footer-col-wrapper">
-
-      <div class="footer-col  footer-col-1">
-        <ul class="social-media-list">
-          {% if site.github_username %}
-          <li>
-            <a href="https://github.com/{{ site.github_username }}">
-              <span class="icon  icon--github">
-              </span>
-
-              <span class="username">https://github.com/{{ site.github_username }}</span>
-            </a>
-          </li>
-          {% endif %}
-
-          {% if site.twitter_username %}
-          <li>
-            <a href="https://twitter.com/{{ site.twitter_username }}">
-              <span class="icon  icon--twitter">
-              </span>
-
-              <span class="username">https://twitter.com/{{ site.twitter_username }}</span>
-            </a>
-          </li>
-          {% endif %}
-
-          {% if site.facebook_username %}
-          <li>
-            <a href="https://facebook.com/{{ site.facebook_username }}">
-              <span class="icon  icon--facebook">
-              </span>
-
-              <span class="username">https://facebook.com/{{ site.facebook_username }}</span>
-            </a>
-          </li>
-          {% endif %}
-
-        </ul>
+      <div class="footer-col footer-col-1">
+        {%- include social.html -%}
       </div>
 
-      <div class="footer-col  footer-col-2">
-        <p class="text">{{ site.description }}</p>
+      <div class="footer-col footer-col-3">
+        <p>{{- site.description | escape -}}</p>
       </div>
     </div>
 
