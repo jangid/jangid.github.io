@@ -7,16 +7,18 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Pankaj Jangid
+title: Pankaj Jangid's Blog
 email: pankaj.jangid@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
     I am an entrepreneur. I am writing code since 1996 and consider
     myself a geek. I am a big fan of Indian Prime Minister
     Narendra Damodardas Modi. 
+lang: en_IN
+github:
+    url: "https://jangid.github.io/"
+    username: jangid
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://jangid.github.io/"
-twitter_username: jangid
-github_username:  jangid
+logo: /assets/img/profile.jpg
 
 # Build settings
 markdown: kramdown
@@ -26,8 +28,32 @@ plugins:
     - jekyll-seo-tag
 
 google_analytics: UA-309724-6
+
+# Social
+social:
+    name: Pankaj Jangid
+    links:
+        - https://twitter.com/jangid
+        - https://facebook.com/jangid
+        - https://www.linkedin.com/in/pankaj-jangid
+        - https://www.quora.com/profile/Pankaj-Jangid
+        - https://github.com/jangid
+        - https://keybase.io/jangid
 disqus:
     shortname: jangid
+twitter:
+    username: jangid
+    card: summary
+facebook:
+    app_id: 845938482432716
+    publisher: jangid
+    admins: jangid4friends
+
+# site verifications
+webmaster_verifications:
+    google: lUT5I0PVRJkswd5R-3Uv4n9cx2gXaykjYxHijT_27jU
+    bing: 1E7803D02F0348CB9D29B3612207C2CB
+    yandex: 47102ceb8901d6b2
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
