@@ -21,7 +21,7 @@ twitter_username: jangid
 github_username: jangid
 # Build settings
 markdown: kramdown
-theme: minima
+#theme: minima
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
