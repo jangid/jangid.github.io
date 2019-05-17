@@ -7,38 +7,39 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Pankaj Jangid's Blog
+title: Pankaj Jangid's Bløg
 email: pankaj.jangid@gmail.com
-description: >- # this means to ignore newlines until "baseurl:"
-    I am an entrepreneur. I am writing code since 1996 and consider
-    myself a geek. I am a big fan of Indian Prime Minister
-    Narendra Damodardas Modi. 
+description: I write about everything. I write code for living.
 lang: en_IN
-github:
-    url: "https://jangid.github.io/"
-    username: jangid
+#github:
+#  url: "https://jangid.github.io/"
+#  username: jangid
+#github: [metadata]
 baseurl: "" # the subpath of your site, e.g. /blog
-logo: /assets/img/profile.jpg
-
+url: https://jangid.github.io
+twitter_username: jangid
+github_username: jangid
 # Build settings
 markdown: kramdown
-# theme: minima
+theme: minima
 plugins:
-    - jekyll-feed
-    - jekyll-seo-tag
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
 
 google_analytics: UA-309724-6
 
 # Social
 social:
-    name: Pankaj Jangid
-    links:
-        - https://twitter.com/jangid
-        - https://facebook.com/jangid
-        - https://www.linkedin.com/in/pankaj-jangid
-        - https://www.quora.com/profile/Pankaj-Jangid
-        - https://github.com/jangid
-        - https://keybase.io/jangid
+  name: Pankaj Jangid
+  links:
+    - https://twitter.com/jangid
+    - https://facebook.com/jangid
+    - https://instagram.com/pankaj_jangid
+    - https://www.linkedin.com/in/pankaj-jangid
+    - https://www.quora.com/profile/Pankaj-Jangid
+    - https://github.com/jangid
+    - https://keybase.io/jangid
 disqus:
     shortname: jangid
 twitter:
