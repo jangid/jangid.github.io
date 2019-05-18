@@ -14,11 +14,13 @@ Hue
 
 Hue is the actual selection of colour that we want. The other two values has nothing to do with the shade selection. On a dial from 0° to 360° the colour varies from red, violet to red again i.e. the rainbow colours.
 
-<a data-flickr-embed="true"  data-footer="true" href="https://www.flickr.com/photos/jangid/24690045272/in/album-72157664212186746/" title="Yellow at 60°"><img src="https://farm2.staticflickr.com/1511/24690045272_492637cd11.jpg" width="450" height="160" alt="Yellow at 60°"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
+![Yellow at 60º](/assets/img/2014/11/23/yellow_at_60.jpg "Yellow at 60º")
+*Yellow at 60º*
 
 I use YUI Colur Picker to decide the colours on my pages and screens. You may use any other, lots of them on GitHub.
 
-<a data-flickr-embed="true"  data-footer="true" href="https://www.flickr.com/photos/jangid/24781646176/in/album-72157664212186746/" title="Blue at 240°"><img src="https://farm2.staticflickr.com/1503/24781646176_f63dd862a5.jpg" width="450" height="160" alt="Blue at 240°"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
+![Blue at 240º](/assets/img/2014/11/23/blue_at_240.jpg "Blue at 240º")
+*Blue at 240º*
 
 At 60° hue it is yellow and 240° blue. Once you have zeroed in on which shade you want move on to the next parameter i.e. saturation.
 
@@ -27,9 +29,11 @@ Saturation
 
 I think of saturation in term of colour’s age. A blue, or for the context any coloured, object getting older and older will fade in colour and ultimately turn grey.
 
-<a data-flickr-embed="true"  data-footer="true" href="https://www.flickr.com/photos/jangid/24512391190/in/album-72157664212186746/" title="Yellow at 0% saturation"><img src="https://farm2.staticflickr.com/1539/24512391190_456abd4d1b.jpg" width="450" height="160" alt="Yellow at 0% saturation"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
+![Yellow at 0º Saturation](/assets/img/2014/11/23/yellow_at_0_saturation.jpg "Yellow at 0º Saturation")
+*Yellow at 0º Saturation*
 
-<a data-flickr-embed="true"  data-footer="true" href="https://www.flickr.com/photos/jangid/24690074462/in/album-72157664212186746/" title="Blue at 0% saturation"><img src="https://farm2.staticflickr.com/1545/24690074462_e994d1075e.jpg" width="450" height="160" alt="Blue at 0% saturation"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
+![Blue at 0º Saturation](/assets/img/2014/11/23/blue_at_0_saturation.jpg "Blue at 0º Saturation")
+*Blue at 0º Saturation*
 
 It doesn’t matter which colour is selected (hue). When the saturation is 0% it will look grey. And when the saturation is 100% the colour has full intensity; like a brand new object.
 
@@ -40,9 +44,11 @@ Have you ever entered in a darkroom, where no light can enter. Not very long ago
 
 Remember the analog brightness control in colour televisions. If you turn the knob full clockwise everything turns white.
 
-<a data-flickr-embed="true" data-footer="true"  href="https://www.flickr.com/photos/jangid/24690083342/in/album-72157664212186746/" title="Blue at 0% luminosity"><img src="https://farm2.staticflickr.com/1654/24690083342_b08d1e617a.jpg" width="450" height="160" alt="Blue at 0% luminosity"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
+![Blue at 0º Luminosity](/assets/img/2014/11/23/blue_at_0_luminosity.jpg "Blue at 0º Luminosity")
+*Blue at 0º Luminosity*
 
-<a data-flickr-embed="true" data-footer="true" href="https://www.flickr.com/photos/jangid/24512408330/in/album-72157664212186746/" title="Blue at 100% luminosity"><img src="https://farm2.staticflickr.com/1540/24512408330_07d2aac02f.jpg" width="450" height="160" alt="Blue at 100% luminosity"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
+![Blue at 100º Luminosity](/assets/img/2014/11/23/blue_at_100_luminosity.jpg "Blue at 100º Luminosity")
+*Blue at 100º Luminosity*
 
 I think of luminosity in the same way i.e. how much white light is falling on the object. It does not matter what hue you have selected or what saturation you have set the object will look black when luminosity is 0% i.e. no light and it will look white when it is 100% i.e. full bright.
 

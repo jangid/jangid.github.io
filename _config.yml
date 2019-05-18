@@ -23,28 +23,31 @@ github_username: jangid
 markdown: kramdown
 #theme: minima
 plugins:
-  - jekyll-feed
-  - jekyll-seo-tag
-  - jekyll-sitemap
+    - jekyll-feed
+    - jekyll-seo-tag
+    - jekyll-sitemap
 
 google_analytics: UA-309724-6
 
 # Social
 social:
-  name: Pankaj Jangid
-  links:
-    - https://twitter.com/jangid
-    - https://facebook.com/jangid
-    - https://instagram.com/pankaj_jangid
-    - https://www.linkedin.com/in/pankaj-jangid
-    - https://www.quora.com/profile/Pankaj-Jangid
-    - https://github.com/jangid
-    - https://keybase.io/jangid
+    name: Pankaj Jangid
+    links:
+        - https://twitter.com/jangid
+        - https://facebook.com/jangid
+        - https://instagram.com/pankaj_jangid
+        - https://www.linkedin.com/in/pankaj-jangid
+        - https://www.quora.com/profile/Pankaj-Jangid
+        - https://github.com/jangid
+        - https://keybase.io/jangid
+
 disqus:
     shortname: jangid
+
 twitter:
     username: jangid
     card: summary
+
 facebook:
     app_id: 845938482432716
     publisher: jangid
@@ -56,6 +59,12 @@ webmaster_verifications:
     bing: 1E7803D02F0348CB9D29B3612207C2CB
     yandex: 47102ceb8901d6b2
 
+defaults:
+    - scope:
+        path: "assets/img"
+      values:
+        image: true
+        
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
