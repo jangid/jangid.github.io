@@ -1,6 +1,8 @@
 ---
 layout: post
 title:  "Colours of Web"
+description: This article explains the HSL variant of colour settings in CSS.
+image: /assets/img/2014/11/23/yellow_at_60.jpg
 date:   2014-11-23 09:56:00
 tags: web colours
 ---

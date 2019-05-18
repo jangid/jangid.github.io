@@ -29,6 +29,7 @@ plugins:
 
 google_analytics: UA-309724-6
 
+logo: /assets/profile.jpg
 # Social
 social:
     name: Pankaj Jangid
