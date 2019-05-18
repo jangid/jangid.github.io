@@ -7,7 +7,9 @@ layout: default
     <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
       <header class="post-header">
-        <h1 class="post-title p-name" itemprop="name headline">{{ post.title | escape }}</h1>
+        <a class="post-link" href="{{ post.url | relative_url }}">
+            <h1 class="post-title p-name" itemprop="name headline">{{ post.title | escape }}</h1>
+        </a>
         <p class="post-meta">
           <time class="dt-published" datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">
             {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
@@ -22,8 +24,11 @@ layout: default
         {{ post.content }}
       </div>
 
+
       {%- if site.disqus.shortname -%}
-        {%- include disqus_comments.html -%}
+        <a class="post-link" href="{{ post.url | relative_url }}#disqus_thread">
+            comment
+        </a>
       {%- endif -%}
 
       <a class="u-url" href="{{ post.url | relative_url }}" hidden></a>
