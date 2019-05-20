@@ -12,29 +12,53 @@ layout: default
         </a>
         <p class="post-meta">
           <time class="dt-published" datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">
-            {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+            {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
             {{ post.date | date: date_format }}
           </time>
-          {%- if post.author -%}
+          {% if post.author %}
             • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ post.author }}</span></span>
-          {%- endif -%}</p>
+          {% endif %}</p>
       </header>
 
       <div class="post-content e-content" itemprop="articleBody">
-        {{ post.content }}
+          {{ post.content | truncatewords: 100 }} <br/>
+        <a href="{{ post.url | relative_url }}">more…</a>
       </div>
 
-
-      {%- if site.disqus.shortname -%}
-        <a class="post-link" href="{{ post.url | relative_url }}#disqus_thread">
-            comment
-        </a>
-      {%- endif -%}
 
       <a class="u-url" href="{{ post.url | relative_url }}" hidden></a>
     </article>
 
+    <hr>
+
+  {% if site.posts.size > 0 %}
+    <h1 class="page-heading">Older Posts</h1>
+    <ul class="post-list">
+    {% for post in site.posts %}
+      <li>
+        {% if forloop.index == 1 %}
+            {% continue %}
+        {% elsif forloop.index > 7 %}
+            {% break %}
+        {% endif %}
+        {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
+        <span class="post-meta">{{ post.date | date: date_format }}</span>
+        <a class="post-link" href="{{ post.url | relative_url }}">
+          {{ post.title | escape }}
+        </a>
+        {% if site.show_excerpts %}
+            {{ post.excerpt }}
+        {% endif %}
+      </li>
+    {% endfor %}
+    </ul>
+
+    <a href="/archive/">See all posts…</a>
+
+    <hr>
+
     <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
+  {% endif %}
 
 </div>
 
