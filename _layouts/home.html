@@ -6,58 +6,55 @@ layout: default
 <div class="home">
     <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
-      <header class="post-header">
-        <a class="post-link" href="{{ post.url | relative_url }}">
-            <h1 class="post-title p-name" itemprop="name headline">{{ post.title | escape }}</h1>
-        </a>
-        <p class="post-meta">
-          <time class="dt-published" datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">
-            {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
-            {{ post.date | date: date_format }}
-          </time>
-          {% if post.author %}
+        <header class="post-header">
+            <h2 class="post-title p-name" itemprop="name headline">
+                {{ post.title | escape }}
+            </h2>
+            <p class="post-meta">
+            <time class="dt-published" datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">
+                {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
+                {{ post.date | date: date_format }}
+            </time>
+            {% if post.author %}
             • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ post.author }}</span></span>
-          {% endif %}</p>
-      </header>
+            {% endif %}</p>
+        </header>
 
-      <div class="post-content e-content" itemprop="articleBody">
-          {{ post.content | truncatewords: 100 }} <br/>
-        <a href="{{ post.url | relative_url }}">more…</a>
-      </div>
+        <div class="post-content e-content" itemprop="articleBody">
+            {{ post.content | truncatewords: 100 }}
+            <a href="{{ post.url | relative_url }}">[more…]</a>
+        </div>
 
 
-      <a class="u-url" href="{{ post.url | relative_url }}" hidden></a>
+        <a class="u-url" href="{{ post.url | relative_url }}" hidden></a>
     </article>
 
     <hr>
 
   {% if site.posts.size > 0 %}
-    <h1 class="page-heading">Older Posts</h1>
-    <ul class="post-list">
+    <h2 class="page-heading">Older Posts</h2>
+    <ul>
     {% for post in site.posts %}
-      <li>
         {% if forloop.index == 1 %}
             {% continue %}
         {% elsif forloop.index > 7 %}
             {% break %}
         {% endif %}
+        <li>
         {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
-        <span class="post-meta">{{ post.date | date: date_format }}</span>
-        <a class="post-link" href="{{ post.url | relative_url }}">
-          {{ post.title | escape }}
-        </a>
+            <a href="{{ post.url | relative_url }}">
+                {{ post.title | escape }}
+            </a>
+            <span class="post-meta">{{ post.date | date: date_format }}</span>
         {% if site.show_excerpts %}
             {{ post.excerpt }}
         {% endif %}
-      </li>
+        </li>
     {% endfor %}
     </ul>
 
-    <a href="/archive/">See all posts…</a>
-
-    <hr>
-
-    <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
+    <a href="/archive/">[See all posts…]</a>
+    [subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a>]
   {% endif %}
 
 </div>
