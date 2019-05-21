@@ -21,10 +21,9 @@ layout: default
         </header>
 
         <div class="post-content e-content" itemprop="articleBody">
-            {{ post.content | truncatewords: 100 }}
+            {{ post.excerpt }}
             <a href="{{ post.url | relative_url }}">[more…]</a>
         </div>
-
 
         <a class="u-url" href="{{ post.url | relative_url }}" hidden></a>
     </article>
@@ -53,7 +52,9 @@ layout: default
     {% endfor %}
     </ul>
 
-    <a href="/archive/">[See all posts…]</a>
+    <a href="/archive/">
+        […and {{ site.posts.size | minus:7 }} more in the archive.]
+    </a>
     [subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a>]
   {% endif %}
 
