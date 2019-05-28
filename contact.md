@@ -12,6 +12,9 @@ completely unrelated message for me, may be that you want me to write about
 something, then do drop me an email at
 [pankaj.jangid@gmail.com](mailto:pankaj.jangid@gmail.com).
 
+### Research
+- [Pankaj Jangid on ResearchGate](https://www.researchgate.net/profile/Pankaj_Jangid)
+
 ### Connect with me on social media
 - [https://twitter.com/jangid](https://twitter.com/jangid)
 - [https://facebook.com/jangid](https://facebook.com/jangid)
