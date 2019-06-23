@@ -17,6 +17,7 @@ lang: en_IN
 #github: [metadata]
 baseurl: "" # the subpath of your site, e.g. /blog
 url: https://jangid.github.io
+author: Pankaj Jangid
 twitter_username: jangid
 github_username: jangid
 # Build settings
