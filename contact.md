@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: form
 title: Connect
 header: Get in touch
 permalink: /contact/
