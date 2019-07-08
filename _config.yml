@@ -20,6 +20,9 @@ url: https://jangid.github.io
 author: Pankaj Jangid
 twitter_username: jangid
 github_username: jangid
+mastodon:
+    - username: jangid
+      instance: mastodom.sdf.org
 # Build settings
 markdown: kramdown
 #theme: minima
