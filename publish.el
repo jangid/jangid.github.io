@@ -27,6 +27,9 @@
 (defvar codeisgreat-nav
   "<nav class=\"site-nav\"><a href=\"/\">Home</a> | <a href=\"/notes/\">Notes</a></nav>")
 
+;; Suppress build timestamp in HTML comment to avoid noisy diffs
+(setq org-html-metadata-timestamp-format "")
+
 ;; Postamble function for notes: show published date for articles,
 ;; last updated for pages without #+DATE (like the index).
 (defun jangid-notes-postamble (info)
@@ -52,6 +55,7 @@
          :html-postamble t
          :html-postamble-format (("en" "<p class=\"creator\">Created with %c</p>"))
          :section-numbers nil
+         :html-prefer-user-labels t
          :html-indent t)
         ("notes"
          :base-directory ,(expand-file-name "notes/" codeisgreat-src)
@@ -64,6 +68,7 @@
          ;; Show "Published: <date>" for articles, "Last updated: <timestamp>" for index
          :html-postamble jangid-notes-postamble
          :section-numbers nil
+         :html-prefer-user-labels t
          :html-indent t)
         ("css"
          :base-directory ,(expand-file-name "css/" codeisgreat-src)
