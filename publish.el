@@ -27,6 +27,20 @@
 (defvar codeisgreat-nav
   "<nav class=\"site-nav\"><a href=\"/\">Home</a> | <a href=\"/notes/\">Notes</a></nav>")
 
+;; Postamble function for notes: show published date for articles,
+;; last updated for pages without #+DATE (like the index).
+(defun jangid-notes-postamble (info)
+  "Return postamble HTML. INFO is the export communication channel."
+  (let ((date (org-export-get-date info))
+        (creator (plist-get info :creator)))
+    (concat
+     (if date
+         (format "<p class=\"date\">Published: %s</p>"
+                 (org-export-data date info))
+       (format "<p class=\"date\">Last updated: %s</p>"
+               (format-time-string "%Y-%m-%d")))
+     (format "<p class=\"creator\">Created with %s</p>" creator))))
+
 (setq org-publish-project-alist
       `(("pages"
          :base-directory ,codeisgreat-src
@@ -47,8 +61,8 @@
          :with-toc nil
          :with-date t
          :html-preamble ,codeisgreat-nav
-         :html-postamble t
-         :html-postamble-format (("en" "<p class=\"date\">Published: %d</p><p class=\"creator\">Created with %c</p>"))
+         ;; Show "Published: <date>" for articles, "Last updated: <timestamp>" for index
+         :html-postamble jangid-notes-postamble
          :section-numbers nil
          :html-indent t)
         ("css"
