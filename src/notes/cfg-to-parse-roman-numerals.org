@@ -1,0 +1,15 @@
+#+TITLE: CFG to Parse Roman Numerals
+#+DATE: 2005-09-08
+#+OPTIONS: toc:nil
+
+Any hint on how to write a context-free grammar for Roman numerals? I know that
+
+- I - 1
+- V - 5
+- X - 10
+- L - 50
+- C - 100
+- D - 500
+- M - 1000
+
+are the letters used in Roman numerals. Moreover, there is enough information about Roman numerals [[http://en.wikipedia.org/wiki/Roman_Numerals][here]].

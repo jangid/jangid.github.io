@@ -1,0 +1,140 @@
+#+TITLE: Pankaj Jangid
+#+OPTIONS: toc:nil
+#+OPTIONS: html-postamble:nil
+#+OPTIONS: author:nil
+#+OPTIONS: date:nil
+#+OPTIONS: num:nil
+#+LATEX_HEADER: \usepackage[margin=0.5in]{geometry}
+
+#+SUBTITLE: 46 Sadar Apartments, Mayur Vihar Phase 1 Extension, New Delhi 110091, India @@latex:\\@@ +91-9811942047 . pankaj.jangid@codeisgreat.com @@latex:\\@@ https://www.linkedin.com/in/pankaj-jangid/ . https://github.com/jangid/
+-----
+* title :noexport:
+  [Note: [[Skills][Skip Cover]] if you want to go directly to my skills.]
+
+  Organizations can do much better if they invest in the right technology at the right time. Otherwise they just fade away. One of my permanent objectives is to continuously explore emerging technologies and keep myself hands on with it. I keep the systems progressively aligned with the latest technology trends. And I am currently exploring opportunities where I can make a meaningful impact.
+
+  I'm an extremely effective software engineering leader, focusing particularly on open source technologies and agile practices. With 19+ years of hands-on industry experience, I understand how to select, build and refine software and teams to add business value and reduce costs.
+
+  People hire me to lead their software teams, solve hard technical problems, advise them on technology choices, and coach their developers using the latest industry practices and tools. Clients and employers around the world have valued my versatility and balance of deep technical, business and people skills.
+
+  I've worked as a senior consultant at elite companies such as Cadence Design Systems, NEC, and consulted independently with huge industry-leading businesses both in the India, US, Japan.  But start-ups are my real passion: I've started some, led development at several others, and consulted with yet more.
+
+  Areas of particular technical expertise and interest currently include design of manufacturing process automation, robotics, artificial intelligence, large data systems, programming languages, operating systems, and I have a high level knowledge across a very wide range of languages and open source technologies. With my fingers in many pies.
+
+  Below are highlights of my career
+
+  - Designed first of its kind assembly line interlocking system based on Raspberry Pi for an auto components manufacturing company in Gurgaon. They were struggling to get this done since past many years and have tried to work with many other consultants. This is first such system based on Raspberry Pi. Practically infinitely scalable, extensible. Earlier systems are mostly based on PLCs and they are difficult to integrate with databases and other record keeping systems. The data gathered can now be easily used for machine-learning and artificial intelligent systems.
+  - I am currently managing all the product teams at Optimizory, each of which has significant engineering requirements. The products are served from Amazon's AWS Cloud as well as home-grown data centres at large corporations. These products support large number of concurrent users. Products can be seen at https://optimizory.com/products/.
+  - US Department of Defense, NASA, Lockheed Martin, Thales Group and Rolls Royce – they all migrated to our system after replacing IBM’s DOORS platform. Many other Fortune 500 customers are using one or the other of our products. Partial list here - https://optimizory.com/customers/. The list was zero-sized when I joined.
+  - Built a team of 16 engineers starting from scratch. Mentored and successfully retained all of them in a startup environment. 
+  - I conduct regular brainstorming session on the technical challenges to come up with various options and then finally selecting one. My focus is always on building a culture of innovation. Special focus on conducting seminars based on current researches going on. Sometimes this includes discussions on customer success, marketing and sales as well. 
+  - Large enterprise customers have huge demand of handling millions of entities with complex relations in databases. A radically different solution solved most of those problems.
+  - Did pioneering work many times in my career – first Fortran 2003 compiler for NEC’s super-computer, one of the first companies to serve audio/video media on a mobile device (at PacketVideo, while working at HCL), first digital transformation projects in government (2000-2003), Challenged IBM DOORs with a Requirement Management System that we built from scratch.
+
+* This tree is hidden :noexport:
+** Cover Letter
+I'm an extremely effective software engineering leader, focusing particularly on open source technologies and agile practices. With 19+ years of hands-on industry experience, I understand how to select, build and refine software and teams to add business value and reduce costs.
+
+People hire me to lead their software teams, solve hard technical problems, advise them on technology choices, and coach their developers using the latest industry practices and tools. Clients and employers around the world have valued my versatility and balance of deep technical, business and people skills.
+
+I've worked as a senior consultant at elite companies such as Cadence Design Systems, NEC, and consulted independently with huge industry-leading businesses both in the India, US, Japan.  But start-ups are my real passion: I've started some, led development at several others, and consulted with yet more.
+
+Areas of particular technical expertise and interest currently include design of manufacturing process automation, robotics, artificial intelligence, large data systems, programming languages, operating systems, and I have a high level knowledge across a very wide range of languages and open source technologies. With my fingers in many pies.
+
+I am sure my it will challenging and interesting to work with your organization. And hence I would like to apply for this opportunity.
+
+** Summary
+Organizations can do much better if they invest in the right technology at the right time. Otherwise they just fade away. One of my permanent objectives is to continuously explore emerging technologies and keep myself hands on with it. I like to keep the systems progressively aligned with the latest technology trends. I am currently exploring new areas where I can make a meaningful impact.
+
+Below are highlights of my career. I am looking for opportunities where I can leverage my skills and apply it for larger overall impact on the growth of an organization.
+
+- Designed first of its kind assembly line interlocking system based on Raspberry Pi for an auto components manufacturing company in Gurgaon. They were struggling to get this done since past many years and have tried to work with many other consultants. This is first such system based on Raspberry Pi. Practically infinitely scalable, extensible. Earlier systems are mostly based on PLCs and they are difficult to integrate with databases and other record keeping systems. The data gathered can now be easily used for machine-learning and artificial intelligent systems.
+- I am currently managing three product teams, each of which has significant engineering requirements. All three products are served from Amazon's AWS Cloud. One of them is having a large number of concurrent users. The other two products are for enterprise use and are available for cluster configuration within the premise of an organisation. Products can be seen at https://optimizory.com/products/.
+- US Department of Defense, NASA, Lockheed Martin, Thales Group and Rolls Royce – they all migrated to our system after replacing IBM’s DOORS platform. Many other Fortune 500 customers are using one or the other of our products. Partial list here - https://optimizory.com/customers/. The list was zero-sized when I joined.
+- Built a team of 16 engineers starting from scratch. Mentored and successfully retained all of them in a startup environment. 
+- I conduct regular brainstorming session on the technical challenges to come up with various options and then finally selecting one. My focus is always on building a culture of innovation. Special focus on conducting seminars based on current researches going on. Sometimes this includes discussions on customer success, marketing and sales as well. 
+- Large enterprise customers have huge demand of handling millions of entities with complex relations in databases. A radically different solution solved most of those problems.
+- Did pioneering work many times in my career – first Fortran 2003 compiler for NEC’s super-computer, one of the first companies to serve audio/video media on a mobile device (at PacketVideo, while working at HCL), first digital transformation projects in government (2000-2003), Challenged IBM DOORs with a Requirement Management System that we built from scratch.
+
+Below, I am listing the skills which are relevant to the position.
+
+* Skills
+  - Solution design, tool selection, elaborate evaluation of technology
+  - Industrial automation – PLC, Raspberry Pi, SCADA
+  - Object Oriented and Functional Programming
+  - Machine Learning / Deep Learning specialization (certification from Coursera/Stanford University)
+  - Agile Management Methodologies (Scrum, Boards etc.)
+  - Very well versed with intricacies of Assembly Manufacturing Environment and Systems like Unix, GNU/Linux, FreeBSD, macOS, AIX, Solaris and Windows
+  - Source Code Management – CVS, SVN, Mercurial, Git, ClearCase
+  - Scripting and Programming languages – Rust, Ruby, Perl, Python, Awk, Sed, C, C++, Java, Octave (Matlab), Jupyter, R
+  - Web – HTML, CSS, JavaScript, APIs. Fameworks – VueJS, ReactJS, NodeJS, Bootstrap, Rails etc.
+
+* Experience
+** Chief Technology Officer - Optimizory Technologies
+   <2014-10-01 Wed>--
+
+   - From concept to fully developed product. I have successfully delivered three products at Optimizory - RMsis, vREST, and LXP.
+   - [[https://marketplace.atlassian.com/apps/30899/rmsis-requirements-management-for-jira][RMsis]] – a requirement engineering tool, [[https://marketplace.atlassian.com/apps/1211120/links-explorer-traceability-hierarchy][LXP]] – a traceability tool, [[https://vrest.io/][vREST]] is a RESTful API testing tool.
+   - Research on new possibilities like automatically extracting requirements from RFPs using Machine Learning.
+   - Conceptualize, prioritize requirements, write product specifications, and drive product development through close interaction with engineering teams.
+   - Careful selection of new team members and subsequent mentoring is the most important part of my work. I expose new members to the wide spectrum of technology. There are limitless possibilities. I want them to be leaders in their respective areas.
+   - Discussing problems and arriving at a solution. This is real fun when you have a high performing team and are heaving a fully charged discussion. This fills me with more energy. It gives conviction to the team also.
+   - Finally, reporting everything to seniors. Activities like development and testing status. Development challenges, performance and quality issues must be reported.
+
+** Member of Consulting Staff - Cadence Design Systems
+   <2006-09-01 Fri>--<2014-09-30 Tue>
+
+   - Cadence is industry leader in Electronic Design Automation (EDA). There are hundreds of tools with enormous amount of documentation. Literally terabytes of data. The challenge was to organize this content and make it searchable so that the users have precise information when they need it. I was given the task leading this effort.
+   - I designed the Search Analyzers that we could fit into Lucene. We used C++ variant of Lucene to plugin into a tool that we named Cadence Help.
+   - Cadence’s documents are scattered in FrameMaker files, Confluence, Source Code in various Programming Languages (Open and Proprietary). Search Analyzers have the intelligence to understand all these formats. This helps Lucene to index them and retrieve the appropriate document when requested.
+   - Lead the initiative to support HTML5 markup in Cadence Help. This was a huge cost saving. Because most of the modern tools (Confluence) support HTML5 outputs and there was no option for older HTML outputs. And Cadence Help had many patches to translated new formats to older HTML4 version to make it work.
+   - Also tried to work on standardizing content format across Cadence. Evaluated DITA specifications. Later on, the idea was dropped in favour of an advanced collaborative authoring platform Confluence.
+   - Lead the development and later maintenance of Cadence Help and complete content infrastructure of Cadence till the time I left Cadence. Cadence Help is still shipped as part of all the Cadence Tools and the content infrastructure that I designed and developed is still in use at Cadence.
+
+** Technical Lead, HCL Technologies
+   <2004-01-01 Thu>--<2006-08-31 Thu>
+
+   - Compiler design: Designed and proposed a new strategy for Fortran 2003 compiler front-end. Fortran is a nightmare for compiler designers. There are no reserved keywords, spaces change the meaning. I studied theoretical computer science, explored research papers, read books, including the dragon book by Aho, Ulman and Sethi. Then I came up with a solution which was well appreciated and rewarded by the customer.
+   - Media Streaming: I worked for PacketVideo on a media streaming system. This system was based on real media protocol which has two channels – (1) Data (2) Control. I prototyped a system where a user sends control signals using the user-interface for example play, pause, skip etc. and server optimizes bandwidth by responding to these control signals. It stops when pause is received, starts when play received, and so on. 
+   - Data Caching: I was part of the team that developed EdgeXtend, a database caching and distribution solution. In this setup an application always interacts with nearest in-memory cache node. EdgeXtend takes care of syncing the cache with the backend and other nodes.
+
+** Senior System Analyst, SPG Solution
+   <2003-03-01 Sat>--<2003-12-31 Wed>
+
+   - Recruitlive: End-to-end HR solution. It was written in Visual Java on the Microsoft platform. And asynchronous VB script was extensively used in it. This was much before the async of JavaScript was implemented.
+
+** Software Engineer, National Centre for Software Technologies (now C-DAC)
+   <2000-08-01 Tue>--<2003-02-28 Fri>
+
+   - Published a research paper “Sandesh: An Automated Email Responding System” and implemented this system using Java programming language. This was an information retrieval system based on statistical analysis of large amount of email data. A query received would be automatically replied by parsing the queries and scanning through the index of earlier human responses. (https://www.researchgate.net/publication/2875837_Sandesh_Response_Management_System) 
+   - NCST is best place for self-motivated people. Complete freehand to choose technology and implement a solution for a given problem. As freshers, we were allowed to make technology choices.
+   - I worked on various web projects. I started with CGI. Later developed applications using JSP/Java and Perl also.
+   - In my free time, I worked on several hobby projects – (1) Implemented virtual memory (VM) for NachOS educational operating system (2) Created an 8085 microprocessor emulator using C and ncurses library. I used ncurses library to visually show the data inside the registers of the microprocessor. (https://cvs.savannah.nongnu.org/viewvc/vm/vm8085++/)
+   - Simultaneously I had completed advanced courses on Artificial Intelligence, Machine Learning and Natural Language Processing.
+
+* Certifications
+** Deep Learning Specialization, Standford University, Coursera
+   <2019-03-09 Sat> - [[https://www.coursera.org/account/accomplishments/specialization/72ZS89ZWPERF?utm_medium=certificate&utm_source=link&utm_campaign=copybutton_certificate][See credential]]
+
+** Machine Learning, Stanford University, Coursera
+   <2019-02-08 Fri> - [[https://www.coursera.org/account/accomplishments/verify/2RM447BFPKDW?utm_medium=certificate&utm_source=link&utm_campaign=copybutton_certificate][See credential]]
+
+* Education
+** MS Software Systems, BITS Pilani
+   <2007-12-31 Mon>
+
+   - This is a distance learning program for working professionals. After looking at the syllabus of the program, I got interested into it. Subjects were – Advanced Operating Systems, Data warehousing, Data Analytics, Embedded Systems, Software Engineering, Advanced Networking and Telecommunications.
+   - My project was Content Management System with DITA Support. I completed this project while I was working at Cadence Design Systems. DITA was one of the standards that we were contemplating to use in Cadence, so I took this up as my desertion. This helped us in evaluating DITA.
+
+** BE Electrical, CTAE Udaipur
+   <2000-06-30 Fri>
+
+   - This under-grad course mainly consisted of subjects pertaining to electrical engineering. Computer Programming and Microprocessors were the two subjects that kicked of my interest in the field of Computer Science. I wrote several graphics libraries in Borland C. Later I used them in creating basic computer games like Tetris.
+   - Team sports interests me a lot. I got selected for the college volleyball team and our team was ranked 2nd in the university.
+   - In my 3rd year, I took part in the elections. And I could convince my fellow students to vote for me. As a result, I was elected General Secretary of the college student union.
+
+* Activities
+  I volunteer my time for two foundations (trusts):
+
+  1. Incredible Bharat Foundation is committed to promotion of Indian culture, literature, arts through exhibitions, conferences and ground events
+  2. Seema Jagran Manch works in the border areas to raise awareness about border and national security. We collaborate with Government bodies and citizens to make this happen. We also publish a magazine by the name Seema Sanghosh. I am chief editor for the magazine.

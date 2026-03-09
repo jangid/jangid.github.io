@@ -1,0 +1,41 @@
+#content, #postamble, #preamble {
+    max-width: 80ch;
+    margin: 0;
+}
+
+.site-nav {
+    padding: 0.5em 0;
+    margin-bottom: 1em;
+    border-bottom: 1px solid #ccc;
+    font-size: 0.9em;
+}
+
+.site-nav a {
+    text-decoration: none;
+    color: #333;
+}
+
+.site-nav a:hover {
+    text-decoration: underline;
+}
+
+#postamble {
+    border-top: 1px solid #ccc;
+}
+
+#postamble .date {
+    color: #666;
+    font-size: 0.9em;
+}
+
+p img {
+    max-width: 90%;
+}
+
+div.outline-2 h2 {
+    margin-bottom: 0;
+}
+
+p:has(.timestamp-wrapper) {
+    margin-top: 0;
+}

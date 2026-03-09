@@ -1,0 +1,28 @@
+#+TITLE: MacOS Contacts in Emacs
+#+DATE: 2021-01-23
+#+SUBTITLE: (Note that this requires Emacs 28 or later)
+
+Following code in your startup file will enable macOS contacts access
+via built-in EUDC feature of Emacs. No need for any extra package for
+this. The below snippet will add a keyboard short-cut as well ~‘C-c
+TAB’~.
+
+#+begin_src emacs-lisp
+  (when (eq system-type 'darwin)
+    (eval-and-compile (require 'eudcb-macos-contacts))
+    (eudc-macos-contacts-set-server "localhost"))
+  (eval-when-compile (require 'message))
+  (define-key message-mode-map
+    [(control ?c) (tab)] 'eudc-expand-inline)
+  (eval-when-compile (require 'sendmail))
+  (define-key mail-mode-map
+    [(control ?c) (tab)] 'eudc-expand-inline)
+#+end_src
+
+So if you are in a message buffer address field, just type few
+characters to search and then press the above defined key sequence
+~‘C-c TAB’~. If multiple matching contacts are found then the
+completion system will come into play. Icomplete also works with it.
+
+Another 0.1 sec saved in loading time. ~‘esup’~ now shows
+1.497sec. Because this is all builtin.

@@ -1,0 +1,17 @@
+#+title: Pankaj Jangid
+#+OPTIONS: toc:nil
+
+This is my /own/ personal space. Bookmark this page and check back
+every once in a while to see what I'm working on. Forgive me if I
+sound self-absorbed, but honestly, no other place on the web feels as
+comfortable to me for writing. Perhaps that's because I don't have
+easy access everywhere to my essential writing toolbox - /Emacs/.
+Plus, I might actually be protecting /your/ privacy in the process.
+
+If you have any suggestions, comments, or just feel like saying hello,
+drop me an email at: /pankaj@.../. You're also welcome to connect with
+me on [[https://x.com/jangid][X]].
+
+Head over to [[file:notes/index.org][Notes]] to read what I've been writing about.
+
+Recent: [[file:notes/space-sector-processes.org][Process Discipline in India's Space Sector]], [[file:notes/colors-of-web.org][Colors of Web]]

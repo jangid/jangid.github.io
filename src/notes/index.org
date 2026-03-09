@@ -1,0 +1,17 @@
+#+title: Notes
+#+OPTIONS: toc:nil
+
+- [[file:space-sector-processes.org][Process Discipline in India's Space Sector]] -- /2026-03-09/
+- [[file:colors-of-web.org][Colors of Web]] -- /2022-06-21/
+- [[file:emacs-macos-contacts.org][MacOS Contacts in Emacs]] -- /2021-01-23/
+- [[file:increasing-minimum-wage-by-50-percent-isnt-going-to-work.org][Increasing Minimum Wage By 50% Is Not Going To Work]] -- /2016-08-23/
+- [[file:karamchand-and-byomkesh-bakshi-were-the-best-detectives.org][Karamchand and Byomkesh Bakshi Were the Best Detectives]] -- /2016-02-06/
+- [[file:the-worst-week.org][The Worst Week]] -- /2006-07-12/
+- [[file:vashi-days-of-ncst.org][Vashi Days of NCST]] -- /2007-08-06/
+- [[file:perception-of-right-and-wrong.org][Perception of Right and Wrong]] -- /2007-08-17/
+- [[file:the-grand-weightloss-party.org][The Grand Weightloss Party]] -- /2007-08-22/
+- [[file:chicago-downtown-trip.org][Chicago Downtown Trip]] -- /2006-05-22/
+- [[file:moving-on.org][Moving On]] -- /2006-08-28/
+- [[file:life-and-universe.org][Life and Universe]] -- /2005-06-05/
+- [[file:cfg-to-parse-roman-numerals.org][CFG to Parse Roman Numerals]] -- /2005-09-08/
+- [[file:sentence-based-natural-language-plagiarism-detection.org][Sentence-based Natural Language Plagiarism Detection]] -- /2005-09-16/
