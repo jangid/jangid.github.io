@@ -1,7 +1,7 @@
 #+TITLE: Sandboxing Claude Code on macOS: Seatbelt + Privoxy
 #+DATE: 2026-04-14
 #+DESCRIPTION: Reducing the blast radius of AI coding agents on macOS with Apple Seatbelt and an HTTPS proxy.
-#+FILETAGS: :tech:
+#+FILETAGS: :tech:security:ai:
 #+OPTIONS: toc:nil
 
 When you run an AI coding agent in your terminal, you are not just giving it your codebase. You are giving it your user permissions. That means your SSH keys, your AWS credentials, your GPG keys, your Kubernetes config, your browser cookies -- anything your shell can read, the agent can read. Anything your shell can exec, the agent can exec.

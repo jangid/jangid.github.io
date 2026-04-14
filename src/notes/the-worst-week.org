@@ -1,5 +1,7 @@
 #+TITLE: The Worst Week
 #+DATE: 2006-07-12
+#+DESCRIPTION: A tough week for India's space program -- Agni III and INSAT-4C both failed.
+#+FILETAGS: :governance:india:
 #+OPTIONS: toc:nil
 
 1. Despite having so many successful stories in the bag, Agni III failed to hit the target. It was designed to hit a target at 3000 km (approximately 1900 miles).

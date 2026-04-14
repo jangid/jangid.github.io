@@ -1,5 +1,7 @@
 #+TITLE: Moving On
 #+DATE: 2006-08-28
+#+DESCRIPTION: Leaving HCL Technologies for Cadence Design Systems.
+#+FILETAGS: :personal:
 #+OPTIONS: toc:nil
 
 Yes. I have resigned from [[http://hcl.in/][HCL Technologies, Noida]] and will be joining [[http://www.cadence.com/][Cadence Design Systems, Noida]] on 22nd September.

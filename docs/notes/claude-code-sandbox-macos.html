@@ -212,13 +212,13 @@ I have been using Claude Code heavily at Optimizory and AlphaFi. The productivit
 </p>
 
 
-<div id="org74c4da2" class="figure">
+<div id="org88cc178" class="figure">
 <p><img src="../images/claude-code-sandbox-macos.png" alt="claude-code-sandbox-macos.png" />
 </p>
 </div>
-<div id="outline-container-org4c39ddc" class="outline-2">
-<h2 id="org4c39ddc">This is Not Hypothetical</h2>
-<div class="outline-text-2" id="text-org4c39ddc">
+<div id="outline-container-org24762bb" class="outline-2">
+<h2 id="org24762bb">This is Not Hypothetical</h2>
+<div class="outline-text-2" id="text-org24762bb">
 <p>
 Three things happened between late 2025 and early 2026 that changed how I think about this.
 </p>
@@ -240,9 +240,9 @@ None of this is about Claude being "bad" &ndash; every agentic coding tool has t
 </p>
 </div>
 </div>
-<div id="outline-container-org70a1538" class="outline-2">
-<h2 id="org70a1538">Seatbelt: The Layer That Does Not Ask</h2>
-<div class="outline-text-2" id="text-org70a1538">
+<div id="outline-container-orgfbcfb66" class="outline-2">
+<h2 id="orgfbcfb66">Seatbelt: The Layer That Does Not Ask</h2>
+<div class="outline-text-2" id="text-orgfbcfb66">
 <p>
 In October 2025, Anthropic shipped <a href="https://code.claude.com/docs/en/sandboxing">native sandboxing for Claude Code</a>. On macOS it uses Apple's Seatbelt framework. On Linux it uses bubblewrap. Both are kernel-level.
 </p>
@@ -260,9 +260,9 @@ One honest note: Apple has marked the older <code>sandbox-exec</code> command-li
 </p>
 </div>
 </div>
-<div id="outline-container-orgb59cdef" class="outline-2">
-<h2 id="orgb59cdef">Turning It On</h2>
-<div class="outline-text-2" id="text-orgb59cdef">
+<div id="outline-container-org5cd4027" class="outline-2">
+<h2 id="org5cd4027">Turning It On</h2>
+<div class="outline-text-2" id="text-org5cd4027">
 <p>
 Create or edit <code>~/.claude/settings.json</code> and add a sandbox block. Here is the minimum I would ship to a team:
 </p>
@@ -316,9 +316,9 @@ All of the above is enforced at the OS level, not inside Claude Code. A compromi
 </p>
 </div>
 </div>
-<div id="outline-container-org95c90d6" class="outline-2">
-<h2 id="org95c90d6">The Network Layer: Why a Filtering Proxy on Top</h2>
-<div class="outline-text-2" id="text-org95c90d6">
+<div id="outline-container-org53303ae" class="outline-2">
+<h2 id="org53303ae">The Network Layer: Why a Filtering Proxy on Top</h2>
+<div class="outline-text-2" id="text-org53303ae">
 <p>
 The sandbox's <code>allowedDomains</code> list is a positive allow list. Combined with a filtering proxy, you also get a <i>deny</i> list covering domains that are allowed through the positive list but happen to be actively malicious &ndash; compromised CDNs, typosquatted package mirrors, C2 infrastructure that happens to live on a domain the agent has legitimate reasons to reach.
 </p>
@@ -380,9 +380,9 @@ One limit worth naming here: Privoxy is an HTTP/HTTPS filtering proxy. It does n
 </p>
 </div>
 </div>
-<div id="outline-container-orgbad5a8b" class="outline-2">
-<h2 id="orgbad5a8b">What This Does Not Protect</h2>
-<div class="outline-text-2" id="text-orgbad5a8b">
+<div id="outline-container-org929358f" class="outline-2">
+<h2 id="org929358f">What This Does Not Protect</h2>
+<div class="outline-text-2" id="text-org929358f">
 <p>
 I want to be honest about the limits, because "kernel sandbox" is easy to read as "solved."
 </p>
@@ -395,9 +395,9 @@ I want to be honest about the limits, because "kernel sandbox" is easy to read a
 </ul>
 </div>
 </div>
-<div id="outline-container-org6cc005f" class="outline-2">
-<h2 id="org6cc005f">Set It Up Today</h2>
-<div class="outline-text-2" id="text-org6cc005f">
+<div id="outline-container-org65ab2d3" class="outline-2">
+<h2 id="org65ab2d3">Set It Up Today</h2>
+<div class="outline-text-2" id="text-org65ab2d3">
 <p>
 The CVEs I cited existed in the wild before the fixes shipped. The source leak is permanent &ndash; it cannot be unpublished. The frequency of these incidents is going up, not down. And the same pattern applies to every other AI coding tool you run; the specific flags and config keys differ, but the threat model is identical.
 </p>

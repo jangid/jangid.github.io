@@ -1,5 +1,7 @@
 #+TITLE: Chicago Downtown Trip
 #+DATE: 2006-05-22
+#+DESCRIPTION: A weekend trip from the suburbs into downtown Chicago and up the Sears Tower.
+#+FILETAGS: :personal:
 #+OPTIONS: toc:nil
 
 As I could not go to Pittsburgh with Binoy, I planned to go to Downtown Chicago with Amar last weekend. When approaching, I saw what looked like a huge mountain of cement in front of me. All those huge buildings in one place. At one point I thought what would happen if one building fell on another. It might trigger a cascade. I wish they do not fall.

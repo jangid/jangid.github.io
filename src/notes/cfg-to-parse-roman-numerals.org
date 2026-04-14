@@ -1,5 +1,7 @@
 #+TITLE: CFG to Parse Roman Numerals
 #+DATE: 2005-09-08
+#+DESCRIPTION: Working through a context-free grammar that accepts valid Roman numerals.
+#+FILETAGS: :tech:
 #+OPTIONS: toc:nil
 
 Any hint on how to write a context-free grammar for Roman numerals? I know that

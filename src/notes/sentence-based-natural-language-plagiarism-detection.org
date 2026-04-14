@@ -1,5 +1,7 @@
 #+TITLE: Sentence-Based Natural Language Plagiarism Detection
 #+DATE: 2005-09-16
+#+DESCRIPTION: A sentence-level algorithm for plagiarism detection across natural language and source code.
+#+FILETAGS: :tech:
 #+OPTIONS: toc:nil
 
 This paper details a novel algorithm for comparison of suspect documents at a sentence level and has been implemented as a component of plagiarism detection software for detecting similarities in both natural language documents and comments within program source code.

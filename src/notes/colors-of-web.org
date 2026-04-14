@@ -1,5 +1,7 @@
 #+TITLE: Colors of Web
 #+DATE: 2022-06-21
+#+DESCRIPTION: Why HSL beats RGB when you actually think about colors for the web.
+#+FILETAGS: :tech:
 
 Hue-Saturation-Luminosity (HSL); and not just Red-Green-Blue (RGB).
 

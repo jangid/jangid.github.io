@@ -1,5 +1,7 @@
 #+TITLE: Karamchand and Byomkesh Bakshi Were the Best Detectives
 #+DATE: 2016-02-06
+#+DESCRIPTION: Why the best detective serials on Indian TV from the 80s and 90s still hold up.
+#+FILETAGS: :personal:india:
 #+OPTIONS: toc:nil
 
 /Jab mein chhota bachcha tha/ (When I was a kid), Karamchand used to be my favourite serial. I am 77 born, so I was about 10-12 years old at that time. Oh, what fun it was watching Karamchand and his secretary, Kitty.

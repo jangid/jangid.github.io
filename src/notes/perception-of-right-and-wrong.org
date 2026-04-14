@@ -1,5 +1,7 @@
 #+TITLE: Perception of Right and Wrong
 #+DATE: 2007-08-17
+#+DESCRIPTION: A bus driver, a horn, and the gap between what is legal and what feels normal.
+#+FILETAGS: :personal:india:
 #+OPTIONS: toc:nil
 
 Our company bus driver drives very rashly. Speed limits on roadside boards mean nothing to him. Even in moderate traffic, I do not remember the horn being silent for more than 20 seconds. He keeps pressing it without considering that the person ahead is also in a hurry and also has somewhere to reach.

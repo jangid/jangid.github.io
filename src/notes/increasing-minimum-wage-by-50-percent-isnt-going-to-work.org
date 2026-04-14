@@ -1,5 +1,7 @@
 #+TITLE: Increasing Minimum Wage By 50% Is Not Going To Work
 #+DATE: 2016-08-23
+#+DESCRIPTION: If a 50% wage hike is good, why not 500%? The missing piece in well-meaning wage policy.
+#+FILETAGS: :governance:india:
 #+OPTIONS: toc:nil
 
 On 15th August 2016, the state government proposed to increase the minimum wage for unskilled workers by 50%. I am curious -- why not increase by 100%, why not by 200%, or for that matter why not by 500% and make everybody rich? There will be no poverty as per the socialist logic.

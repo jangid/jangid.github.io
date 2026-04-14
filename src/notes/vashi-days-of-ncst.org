@@ -1,5 +1,7 @@
 #+TITLE: Vashi Days of NCST
 #+DATE: 2007-08-06
+#+DESCRIPTION: Old photos from the NCST Vashi centre and the people who made it home.
+#+FILETAGS: :personal:
 #+OPTIONS: toc:nil
 
 Today I got a few old photos from Rahul. Luckily he had those pics which were taken at the NCST, New Bombay centre at Vashi, right above the Vashi railway station.
