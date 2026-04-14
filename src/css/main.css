@@ -74,6 +74,19 @@ pre {
     color: var(--muted);
 }
 
+.prev-next {
+    display: flex;
+    justify-content: space-between;
+    gap: 1em;
+    margin: 0 0 1.25em;
+    font-size: 0.95em;
+}
+
+.prev-next a { text-decoration: none; color: var(--accent); }
+.prev-next a:hover { text-decoration: underline; }
+.prev-next .newer { text-align: left; }
+.prev-next .older { text-align: right; margin-left: auto; }
+
 #postamble a { color: var(--muted); }
 #postamble a:hover { color: var(--accent); }
 

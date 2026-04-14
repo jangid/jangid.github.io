@@ -13,6 +13,7 @@
 (require 'ox-publish)
 (require 'ox-html)
 (require 'htmlize)
+(require 'cl-lib)
 
 ;; Resolve project root to the directory containing this script
 (defvar jangid-root
@@ -32,6 +33,71 @@
 ;; export info plist as :updated.
 (add-to-list 'org-export-options-alist
              '(:updated "UPDATED" nil nil parse))
+
+;; ---------------------------------------------------------------------------
+;; Notes manifest: scans src/notes/*.org, reads #+TITLE and #+DATE,
+;; sorts newest-first. Used to emit prev/next links on each article.
+;; Built once per publish run via :preparation-function on the notes project.
+
+(defvar jangid--notes-manifest nil
+  "List of (BASENAME TITLE DATE) entries for notes, newest first.")
+
+(defun jangid--read-note-meta (file)
+  "Return (BASENAME TITLE DATE) for FILE, or nil when either is missing.
+Notes without a #+DATE (e.g. the index) are skipped."
+  (with-temp-buffer
+    (insert-file-contents file)
+    (let ((title nil) (date nil))
+      (goto-char (point-min))
+      (while (re-search-forward "^#\\+\\([A-Za-z]+\\):[ \t]*\\(.*\\)$" nil t)
+        (let ((k (upcase (match-string 1)))
+              (v (string-trim (match-string 2))))
+          (cond
+           ((string= k "TITLE") (setq title v))
+           ((string= k "DATE") (setq date v)))))
+      (when (and title date (not (string-empty-p date)))
+        (list (file-name-base file) title date)))))
+
+(defun jangid--build-notes-manifest (&rest _)
+  "Scan the notes directory and cache a sorted manifest (newest first)."
+  (let* ((dir (expand-file-name "notes/" jangid-src))
+         (files (directory-files dir t "\\.org\\'"))
+         (entries (delq nil (mapcar #'jangid--read-note-meta files))))
+    (setq jangid--notes-manifest
+          (sort entries (lambda (a b) (string> (nth 2 a) (nth 2 b)))))
+    (message "jangid: built notes manifest with %d entries"
+             (length jangid--notes-manifest))))
+
+(defun jangid--prev-next-html (info)
+  "Return HTML for prev/next navigation based on the current note's position.
+Returns nil when the current file is not in the manifest (e.g. index)."
+  (let* ((file (plist-get info :input-file))
+         (base (and file (file-name-base file)))
+         (manifest jangid--notes-manifest)
+         (idx (and base manifest
+                   (cl-position base manifest
+                                :key #'car :test #'string=))))
+    (when idx
+      ;; manifest is newest-first: idx-1 = newer, idx+1 = older
+      (let ((newer (and (> idx 0) (nth (1- idx) manifest)))
+            (older (and (< (1+ idx) (length manifest))
+                        (nth (1+ idx) manifest))))
+        (when (or newer older)
+          (concat
+           "<nav class=\"prev-next\">"
+           (if newer
+               (format "<a class=\"newer\" href=\"./%s.html\">&larr; Newer: %s</a>"
+                       (nth 0 newer)
+                       (org-html-encode-plain-text (nth 1 newer)))
+             "<span></span>")
+           (if older
+               (format "<a class=\"older\" href=\"./%s.html\">Older: %s &rarr;</a>"
+                       (nth 0 older)
+                       (org-html-encode-plain-text (nth 1 older)))
+             "<span></span>")
+           "</nav>"))))))
+
+;; ---------------------------------------------------------------------------
 
 ;; Navigation bar HTML
 (defvar jangid-nav
@@ -68,6 +134,7 @@
          (updated (plist-get info :updated))
          (updated-str (and updated (org-element-interpret-data updated))))
     (concat
+     (or (jangid--prev-next-html info) "")
      (cond
       (date
        (concat
@@ -100,6 +167,7 @@
          :base-directory ,(expand-file-name "notes/" jangid-src)
          :publishing-directory ,(expand-file-name "notes/" jangid-docs)
          :publishing-function org-html-publish-to-html
+         :preparation-function jangid--build-notes-manifest
          :html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"../css/main.css\" />"
          :with-toc nil
          :with-date t
