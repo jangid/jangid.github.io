@@ -605,14 +605,16 @@ div.outline-2 h2 { margin-bottom: 0.3em; }
 /* Org inserts a paragraph containing only a timestamp when #+DATE is set */
 p:has(.timestamp-wrapper) { margin-top: 0; }
 
-/* Subtitles (from #+SUBTITLE) */
+/* Subtitles (from #+SUBTITLE): serif italic tagline directly under h1.title */
 .subtitle {
     display: block;
-    font-family: var(--font-sans);
+    font-family: var(--font-serif);
     font-weight: 400;
-    font-size: 0.9rem;
-    letter-spacing: 0.02em;
+    font-style: italic;
+    font-size: 1.1rem;
+    letter-spacing: 0;
     text-transform: none;
     color: var(--muted);
     margin-top: 0.3em;
+    line-height: 1.45;
 }

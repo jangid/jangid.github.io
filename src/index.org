@@ -1,18 +1,18 @@
-#+title: Pankaj Jangid
+#+TITLE: Pankaj Jangid
+#+SUBTITLE: Notes on software, entrepreneurship, and how we are governed.
 #+OPTIONS: toc:nil
 
-This is my /own/ personal space. Bookmark this page and check back
-every once in a while to see what I'm working on. Forgive me if I
-sound self-absorbed, but honestly, no other place on the web feels as
-comfortable to me for writing. Perhaps that's because I don't have
-easy access everywhere to my essential writing toolbox - /Emacs/.
-Plus, I might actually be protecting /your/ privacy in the process.
+I co-founded [[https://optimizory.com/][Optimizory]] and [[https://alphafi.xyz/][AlphaFi]]. Most of what I write is
+grounded in India, even when I'm writing it from somewhere else.
 
-If you have any suggestions, comments, or just feel like saying hello,
-drop me an email at [[mailto:pankaj@jangid.info][pankaj@jangid.info]]. You can also find me on
-[[https://x.com/jangid][X]], [[https://www.linkedin.com/in/pankaj-jangid/][LinkedIn]], and [[https://github.com/jangid][GitHub]].
+This is where I write -- long-form when the thought needs it,
+shorter when it doesn't. Everything here is written in Emacs, which
+is as much the point as the content.
 
-Head over to [[file:notes/index.org][Notes]] to read what I've been writing about.
+Email me at [[mailto:pankaj@jangid.info][pankaj@jangid.info]]. You can also find me on [[https://x.com/jangid][X]],
+[[https://www.linkedin.com/in/pankaj-jangid/][LinkedIn]], and [[https://github.com/jangid][GitHub]].
+
+Head to [[file:notes/index.org][Notes]] for the archive.
 
 Recent:
 
