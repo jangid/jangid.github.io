@@ -121,12 +121,21 @@ or nil if no image is found.  Accepts link forms `[[file:../images/X]]',
            nil t)
       (concat "/" (match-string 1)))))
 
+(defun jangid--normalise-image-path (raw)
+  "Accept an absolute URL, site-absolute path, or relative path; return a
+site-absolute path (starting with /) or a full URL unchanged."
+  (cond
+   ((null raw) nil)
+   ((string-match-p "\\`https?://" raw) raw)
+   ((string-prefix-p "/" raw) raw)
+   (t (concat "/" raw))))
+
 (defun jangid--extract-file-meta ()
   "Return (TITLE DESCRIPTION IMAGE-PATH) for the current buffer.
-TITLE / DESCRIPTION come from file-level keywords.  IMAGE-PATH is the
-site-relative path to the first embedded image (e.g. \"/images/foo.png\")
-or nil when the note has no image."
-  (let (title description)
+TITLE and DESCRIPTION come from file-level keywords.  IMAGE-PATH prefers an
+explicit #+OG_IMAGE override, then falls back to the first embedded image
+link in the body (e.g. \"/images/foo.png\"), or nil when neither exists."
+  (let (title description og-image)
     (save-excursion
       (goto-char (point-min))
       (while (re-search-forward "^#\\+\\([A-Za-z_]+\\):[ \t]*\\(.*\\)$" nil t)
@@ -134,8 +143,13 @@ or nil when the note has no image."
               (v (string-trim (match-string 2))))
           (cond
            ((string= k "TITLE") (setq title v))
-           ((string= k "DESCRIPTION") (setq description v))))))
-    (list title description (jangid--extract-first-image))))
+           ((string= k "DESCRIPTION") (setq description v))
+           ((string= k "OG_IMAGE") (setq og-image v))))))
+    (list title
+          description
+          (jangid--normalise-image-path
+           (or (and og-image (not (string-empty-p og-image)) og-image)
+               (jangid--extract-first-image))))))
 
 (defun jangid--read-file-meta (file)
   "Read TITLE and DESCRIPTION from FILE's file-level keywords."
