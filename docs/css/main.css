@@ -143,6 +143,12 @@ h1.title {
     margin: 0.4rem 0 1.75rem;
 }
 
+/* When a byline follows the title, tighten the gap to the byline and
+   let the byline's own margin control space before the body. */
+h1.title:has(+ .byline) {
+    margin-bottom: 0.35em;
+}
+
 .eyebrow {
     font-family: var(--font-sans);
     font-size: 0.76rem;
@@ -151,6 +157,20 @@ h1.title {
     text-transform: uppercase;
     color: var(--accent);
     margin: 1rem 0 0.4em;
+}
+
+.byline {
+    font-family: var(--font-sans);
+    font-size: 0.76rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 2.5em;
+}
+
+.byline .sep {
+    color: var(--border);
+    margin: 0 0.4em;
 }
 
 .eyebrow a {
@@ -433,11 +453,13 @@ pre code {
 #postamble .site-footer .sep { color: var(--border); }
 
 #postamble .legal {
-    font-size: 0.7rem;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    opacity: 0.75;
-    margin: 0.4em 0 1em;
+    font-size: 0.75rem;
+    letter-spacing: 0.01em;
+    text-transform: none;
+    color: var(--muted);
+    opacity: 0.72;
+    margin: 0.6em 0 1.25em;
+    line-height: 1.55;
 }
 
 #postamble .creator { display: none; }
@@ -473,12 +495,20 @@ pre code {
 .notes-list .note-entry {
     padding: 1.1em 0;
     border-bottom: 1px solid var(--border);
-    display: block;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+        "title  date"
+        "teaser teaser"
+        "tags   tags";
+    gap: 0.4em 1.25em;
+    align-items: baseline;
 }
 
 .notes-list .note-entry:last-child { border-bottom: none; }
 
 .notes-list a.title {
+    grid-area: title;
     font-family: var(--font-serif);
     font-size: 1.15rem;
     font-weight: 600;
@@ -498,14 +528,18 @@ pre code {
 }
 
 .notes-list .date {
+    grid-area: date;
+    justify-self: end;
     font-family: var(--font-sans);
     color: var(--muted);
     font-size: 0.7rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    margin-left: 0.75em;
     white-space: nowrap;
 }
+
+.notes-list .teaser { grid-area: teaser; }
+.notes-list .tags   { grid-area: tags; }
 
 .notes-list .teaser {
     font-family: var(--font-serif);

@@ -192,10 +192,11 @@ Adds canonical, OpenGraph, Twitter Card, and RSS discovery tags to
 
 (defun jangid--read-note-meta (file)
   "Return a plist of metadata for FILE, or nil when required fields missing.
-Keys: :base :title :date :description :tags.  Notes without #+DATE are skipped."
+Keys: :base :title :date :updated :description :tags.
+Notes without #+DATE are skipped."
   (with-temp-buffer
     (insert-file-contents file)
-    (let ((title nil) (date nil) (description nil) (tags nil))
+    (let ((title nil) (date nil) (updated nil) (description nil) (tags nil))
       (goto-char (point-min))
       (while (re-search-forward "^#\\+\\([A-Za-z_]+\\):[ \t]*\\(.*\\)$" nil t)
         (let ((k (upcase (match-string 1)))
@@ -203,6 +204,7 @@ Keys: :base :title :date :description :tags.  Notes without #+DATE are skipped."
           (cond
            ((string= k "TITLE") (setq title v))
            ((string= k "DATE") (setq date v))
+           ((string= k "UPDATED") (setq updated v))
            ((string= k "DESCRIPTION") (setq description v))
            ((string= k "FILETAGS")
             ;; #+FILETAGS: :tech:governance: or space-separated words
@@ -214,8 +216,17 @@ Keys: :base :title :date :description :tags.  Notes without #+DATE are skipped."
         (list :base (file-name-base file)
               :title title
               :date date
+              :updated (and updated (not (string-empty-p updated)) updated)
               :description description
               :tags tags)))))
+
+(defun jangid--format-date (iso)
+  "Format an ISO YYYY-MM-DD date as \"14 Apr 2026\".  Returns ISO on failure."
+  (condition-case nil
+      (format-time-string
+       "%d %b %Y"
+       (date-to-time (concat iso "T00:00:00Z")) t)
+    (error iso)))
 
 (defun jangid--build-notes-manifest (&rest _)
   "Scan the notes directory and cache a sorted manifest (newest first)."
@@ -285,8 +296,20 @@ Returns nil when the current file is not in the manifest (e.g. index)."
       "<span class=\"sep\">·</span>")
      "</p>")))
 
-(defun jangid--inject-eyebrow (text backend info)
-  "Final-output filter: inject the eyebrow before <h1 class=\"title\"> on notes."
+(defun jangid--byline-html (date updated)
+  "Render a Public-Sans small-caps byline with Published and optional Updated."
+  (concat
+   "<p class=\"byline\">"
+   "Published " (jangid--format-date date)
+   (when updated
+     (concat " <span class=\"sep\">·</span> Updated "
+             (jangid--format-date updated)))
+   "</p>"))
+
+(defun jangid--inject-article-header (text backend info)
+  "Final-output filter: on articles, inject eyebrow before and byline after
+<h1 class=\"title\">.  Non-article pages (not in the notes manifest) pass
+through unchanged."
   (if (and (eq backend 'html)
            jangid--notes-manifest)
       (let* ((input-file (plist-get info :input-file))
@@ -294,19 +317,33 @@ Returns nil when the current file is not in the manifest (e.g. index)."
              (entry (and base
                          (cl-find base jangid--notes-manifest
                                   :key (lambda (e) (plist-get e :base))
-                                  :test #'string=)))
-             (tags (and entry (plist-get entry :tags)))
-             (html (and tags (jangid--eyebrow-html tags))))
-        (if html
-            (replace-regexp-in-string
-             "<h1 class=\"title\">"
-             (concat html "\n<h1 class=\"title\">")
-             text t t)
+                                  :test #'string=))))
+        (if entry
+            (let* ((tags (plist-get entry :tags))
+                   (date (plist-get entry :date))
+                   (updated (plist-get entry :updated))
+                   (eyebrow (and tags (jangid--eyebrow-html tags)))
+                   (byline (and date (jangid--byline-html date updated)))
+                   ;; Insert eyebrow before the opening h1 tag.
+                   (after-eyebrow
+                    (if eyebrow
+                        (replace-regexp-in-string
+                         "<h1 class=\"title\">"
+                         (concat eyebrow "<h1 class=\"title\">")
+                         text t t)
+                      text))
+                   ;; Then insert byline after the closing </h1>.
+                   (close-pos (string-match "</h1>" after-eyebrow)))
+              (if (and byline close-pos)
+                  (concat (substring after-eyebrow 0 (+ close-pos 5))
+                          byline
+                          (substring after-eyebrow (+ close-pos 5)))
+                after-eyebrow))
           text))
     text))
 
 (add-to-list 'org-export-filter-final-output-functions
-             #'jangid--inject-eyebrow)
+             #'jangid--inject-article-header)
 
 ;; ---------------------------------------------------------------------------
 ;; Index and tag-page generation.  These write directly into docs/ after
@@ -337,7 +374,8 @@ Returns nil when the current file is not in the manifest (e.g. index)."
     (concat
      "<li class=\"note-entry\">"
      (format "<a class=\"title\" href=\"%s%s.html\">%s</a>" prefix base title)
-     (format " <span class=\"date\">%s</span>" date)
+     (format " <time class=\"date\" datetime=\"%s\">%s</time>"
+             date (jangid--format-date date))
      (when (and desc (not (string-empty-p desc)))
        (format "<p class=\"teaser\">%s</p>"
                (org-html-encode-plain-text desc)))
@@ -592,24 +630,12 @@ EXTRA-HEAD is inserted inside <head> (e.g. canonical + OG tags)."
       year))))
 
 (defun jangid-notes-postamble (info)
-  "Postamble for notes: published / updated dates, then site footer."
-  (let* ((date (org-export-get-date info))
-         (updated (plist-get info :updated))
-         (updated-str (and updated (org-element-interpret-data updated))))
-    (concat
-     (or (jangid--prev-next-html info) "")
-     (cond
-      (date
-       (concat
-        (format "<p class=\"date\">Published: %s"
-                (org-export-data date info))
-        (when (and updated-str (not (string-blank-p updated-str)))
-          (format " &middot; Updated: %s" updated-str))
-        "</p>"))
-      (t
-       (format "<p class=\"date\">Last updated: %s</p>"
-               (format-time-string "%Y-%m-%d"))))
-     (jangid--footer-html))))
+  "Postamble for notes: prev/next navigation then shared site footer.
+The Published/Updated byline is injected directly below the article
+title by `jangid--inject-article-header', not here."
+  (concat
+   (or (jangid--prev-next-html info) "")
+   (jangid--footer-html)))
 
 (defun jangid-pages-postamble (info)
   "Postamble for top-level pages: just the site footer."
