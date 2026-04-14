@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pankaj Jangid — Notes</title>
+    <link>https://jangid.info/notes/</link>
+    <description>Notes on software, entrepreneurship, governance, and the craft of building things.</description>
+    <language>en</language>
+    <lastBuildDate>Tue, 14 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://jangid.info/notes/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Sandboxing Claude Code on macOS: Seatbelt + Privoxy</title>
+      <link>https://jangid.info/notes/claude-code-sandbox-macos.html</link>
+      <guid isPermaLink="true">https://jangid.info/notes/claude-code-sandbox-macos.html</guid>
+      <pubDate>Tue, 14 Apr 2026 00:00:00 +0000</pubDate>
+      <description>Reducing the blast radius of AI coding agents on macOS with Apple Seatbelt and an HTTPS proxy.</description>
+    </item>
+    <item>
+      <title>Process Discipline in India&apos;s Space Sector</title>
+      <link>https://jangid.info/notes/space-sector-processes.html</link>
+      <guid isPermaLink="true">https://jangid.info/notes/space-sector-processes.html</guid>
+      <pubDate>Mon, 09 Mar 2026 00:00:00 +0000</pubDate>
+      <description>India&apos;s space startups are building rockets. The harder problem is building the processes that make them work.</description>
+    </item>
+    <item>
+      <title>Colors of Web</title>
+      <link>https://jangid.info/notes/colors-of-web.html</link>
+      <guid isPermaLink="true">https://jangid.info/notes/colors-of-web.html</guid>
+      <pubDate>Tue, 21 Jun 2022 00:00:00 +0000</pubDate>
+      <description>Why HSL beats RGB when you actually think about colors for the web.</description>
+    </item>
+    <item>
+      <title>MacOS Contacts in Emacs</title>
+      <link>https://jangid.info/notes/emacs-macos-contacts.html</link>
+      <guid isPermaLink="true">https://jangid.info/notes/emacs-macos-contacts.html</guid>
+      <pubDate>Sat, 23 Jan 2021 00:00:00 +0000</pubDate>
+      <description>A small snippet to pull macOS Contacts into Emacs via the built-in EUDC feature.</description>
+    </item>
+    <item>
+      <title>Increasing Minimum Wage By 50% Is Not Going To Work</title>
+      <link>https://jangid.info/notes/increasing-minimum-wage-by-50-percent-isnt-going-to-work.html</link>
+      <guid isPermaLink="true">https://jangid.info/notes/increasing-minimum-wage-by-50-percent-isnt-going-to-work.html</guid>
+      <pubDate>Tue, 23 Aug 2016 00:00:00 +0000</pubDate>
+      <description>If a 50% wage hike is good, why not 500%? The missing piece in well-meaning wage policy.</description>
+    </item>
+    <item>
+      <title>Karamchand and Byomkesh Bakshi Were the Best Detectives</title>
+      <link>https://jangid.info/notes/karamchand-and-byomkesh-bakshi-were-the-best-detectives.html</link>
+      <guid isPermaLink="true">https://jangid.info/notes/karamchand-and-byomkesh-bakshi-were-the-best-detectives.html</guid>
+      <pubDate>Sat, 06 Feb 2016 00:00:00 +0000</pubDate>
+      <description>Why the best detective serials on Indian TV from the 80s and 90s still hold up.</description>
+    </item>
+    <item>
+      <title>The Grand Weight Loss Party</title>
+      <link>https://jangid.info/notes/the-grand-weightloss-party.html</link>
+      <guid isPermaLink="true">https://jangid.info/notes/the-grand-weightloss-party.html</guid>
+      <pubDate>Wed, 22 Aug 2007 00:00:00 +0000</pubDate>
+      <description>A gym, three friends, and ten kilograms&apos; worth of reason to celebrate.</description>
+    </item>
+    <item>
+      <title>Perception of Right and Wrong</title>
+      <link>https://jangid.info/notes/perception-of-right-and-wrong.html</link>
+      <guid isPermaLink="true">https://jangid.info/notes/perception-of-right-and-wrong.html</guid>
+      <pubDate>Fri, 17 Aug 2007 00:00:00 +0000</pubDate>
+      <description>A bus driver, a horn, and the gap between what is legal and what feels normal.</description>
+    </item>
+    <item>
+      <title>Vashi Days of NCST</title>
+      <link>https://jangid.info/notes/vashi-days-of-ncst.html</link>
+      <guid isPermaLink="true">https://jangid.info/notes/vashi-days-of-ncst.html</guid>
+      <pubDate>Mon, 06 Aug 2007 00:00:00 +0000</pubDate>
+      <description>Old photos from the NCST Vashi centre and the people who made it home.</description>
+    </item>
+    <item>
+      <title>Moving On</title>
+      <link>https://jangid.info/notes/moving-on.html</link>
+      <guid isPermaLink="true">https://jangid.info/notes/moving-on.html</guid>
+      <pubDate>Mon, 28 Aug 2006 00:00:00 +0000</pubDate>
+      <description>Leaving HCL Technologies for Cadence Design Systems.</description>
+    </item>
+    <item>
+      <title>The Worst Week</title>
+      <link>https://jangid.info/notes/the-worst-week.html</link>
+      <guid isPermaLink="true">https://jangid.info/notes/the-worst-week.html</guid>
+      <pubDate>Wed, 12 Jul 2006 00:00:00 +0000</pubDate>
+      <description>A tough week for India&apos;s space program -- Agni III and INSAT-4C both failed.</description>
+    </item>
+    <item>
+      <title>Chicago Downtown Trip</title>
+      <link>https://jangid.info/notes/chicago-downtown-trip.html</link>
+      <guid isPermaLink="true">https://jangid.info/notes/chicago-downtown-trip.html</guid>
+      <pubDate>Mon, 22 May 2006 00:00:00 +0000</pubDate>
+      <description>A weekend trip from the suburbs into downtown Chicago and up the Sears Tower.</description>
+    </item>
+    <item>
+      <title>Sentence-Based Natural Language Plagiarism Detection</title>
+      <link>https://jangid.info/notes/sentence-based-natural-language-plagiarism-detection.html</link>
+      <guid isPermaLink="true">https://jangid.info/notes/sentence-based-natural-language-plagiarism-detection.html</guid>
+      <pubDate>Fri, 16 Sep 2005 00:00:00 +0000</pubDate>
+      <description>A sentence-level algorithm for plagiarism detection across natural language and source code.</description>
+    </item>
+    <item>
+      <title>CFG to Parse Roman Numerals</title>
+      <link>https://jangid.info/notes/cfg-to-parse-roman-numerals.html</link>
+      <guid isPermaLink="true">https://jangid.info/notes/cfg-to-parse-roman-numerals.html</guid>
+      <pubDate>Thu, 08 Sep 2005 00:00:00 +0000</pubDate>
+      <description>Working through a context-free grammar that accepts valid Roman numerals.</description>
+    </item>
+    <item>
+      <title>Life and Universe</title>
+      <link>https://jangid.info/notes/life-and-universe.html</link>
+      <guid isPermaLink="true">https://jangid.info/notes/life-and-universe.html</guid>
+      <pubDate>Sun, 05 Jun 2005 00:00:00 +0000</pubDate>
+      <description>Wondering what sits inside the smallest particle -- and who might sit outside ours.</description>
+    </item>
+  </channel>
+</rss>

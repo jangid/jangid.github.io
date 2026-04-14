@@ -1,0 +1,11 @@
+#+TITLE: Page not found
+#+DESCRIPTION: That page isn't here. Head back to the homepage or browse Notes.
+#+OPTIONS: toc:nil
+
+The page you were looking for is not here. It may have moved, or
+never existed.
+
+#+BEGIN_EXPORT html
+<p>Head back to the <a href="https://jangid.info/">homepage</a>,
+or browse the <a href="https://jangid.info/notes/">Notes</a>.</p>
+#+END_EXPORT

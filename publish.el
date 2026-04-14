@@ -14,6 +14,7 @@
 (require 'ox-html)
 (require 'htmlize)
 (require 'cl-lib)
+(require 'xml)
 
 ;; Resolve project root to the directory containing this script
 (defvar jangid-root
@@ -21,6 +22,18 @@
 
 (defvar jangid-src (expand-file-name "src/" jangid-root))
 (defvar jangid-docs (expand-file-name "docs/" jangid-root))
+
+(defconst jangid-site-url "https://jangid.info"
+  "Canonical root URL of the site (no trailing slash).")
+
+(defconst jangid-site-title "Pankaj Jangid"
+  "Site title used in OpenGraph and feed metadata.")
+
+(defconst jangid-site-description
+  "Notes on software, entrepreneurship, governance, and the craft of building things."
+  "Default site-wide description used when a page lacks its own.")
+
+(defconst jangid-twitter-handle "@jangid")
 
 ;; Disable interactive prompts in batch mode
 (setq org-confirm-babel-evaluate nil)
@@ -33,6 +46,93 @@
 ;; export info plist as :updated.
 (add-to-list 'org-export-options-alist
              '(:updated "UPDATED" nil nil parse))
+
+;; ---------------------------------------------------------------------------
+;; Shared meta helpers.  Canonical URL + OpenGraph + Twitter card tags are
+;; emitted on every page (both org-published and directly generated) so
+;; shares on LinkedIn / X render a proper preview.
+
+(defun jangid--xml-escape (s)
+  "Escape S for inclusion in attribute values or XML text."
+  (if s (xml-escape-string s) ""))
+
+(defun jangid--canonical-url (rel-html-path)
+  "Build the canonical URL for REL-HTML-PATH (relative to docs root).
+Strips trailing \"index.html\" so directory pages use the clean URL that
+GitHub Pages actually serves."
+  (let ((clean (replace-regexp-in-string "\\(\\`\\|/\\)index\\.html\\'"
+                                         (lambda (m) (if (string= m "index.html") "" "/"))
+                                         rel-html-path)))
+    (concat jangid-site-url "/" clean)))
+
+(defun jangid--meta-head (&rest args)
+  "Build per-page <head> meta for canonical, OG, Twitter, and feed discovery.
+Accepts a plist with :url :title :description :type keys.  Missing values
+fall back to site defaults."
+  (let* ((url (or (plist-get args :url) jangid-site-url))
+         (title (or (plist-get args :title) jangid-site-title))
+         (desc (or (plist-get args :description) jangid-site-description))
+         (og-type (or (plist-get args :type) "website")))
+    (mapconcat
+     #'identity
+     (list
+      (format "<link rel=\"canonical\" href=\"%s\"/>" (jangid--xml-escape url))
+      (format "<meta name=\"description\" content=\"%s\"/>" (jangid--xml-escape desc))
+      (format "<meta property=\"og:type\" content=\"%s\"/>" og-type)
+      (format "<meta property=\"og:site_name\" content=\"%s\"/>"
+              (jangid--xml-escape jangid-site-title))
+      (format "<meta property=\"og:title\" content=\"%s\"/>" (jangid--xml-escape title))
+      (format "<meta property=\"og:description\" content=\"%s\"/>" (jangid--xml-escape desc))
+      (format "<meta property=\"og:url\" content=\"%s\"/>" (jangid--xml-escape url))
+      "<meta name=\"twitter:card\" content=\"summary\"/>"
+      (format "<meta name=\"twitter:site\" content=\"%s\"/>" jangid-twitter-handle)
+      (format "<meta name=\"twitter:title\" content=\"%s\"/>" (jangid--xml-escape title))
+      (format "<meta name=\"twitter:description\" content=\"%s\"/>" (jangid--xml-escape desc))
+      (format "<link rel=\"alternate\" type=\"application/rss+xml\" title=\"%s\" href=\"/notes/feed.xml\"/>"
+              (jangid--xml-escape (concat jangid-site-title " — Notes"))))
+     "\n")))
+
+(defun jangid--extract-file-meta ()
+  "Return (TITLE DESCRIPTION) from the current buffer's file-level keywords."
+  (let (title description)
+    (save-excursion
+      (goto-char (point-min))
+      (while (re-search-forward "^#\\+\\([A-Za-z_]+\\):[ \t]*\\(.*\\)$" nil t)
+        (let ((k (upcase (match-string 1)))
+              (v (string-trim (match-string 2))))
+          (cond
+           ((string= k "TITLE") (setq title v))
+           ((string= k "DESCRIPTION") (setq description v))))))
+    (list title description)))
+
+(defun jangid--read-file-meta (file)
+  "Read TITLE and DESCRIPTION from FILE's file-level keywords."
+  (with-temp-buffer
+    (insert-file-contents file)
+    (jangid--extract-file-meta)))
+
+(defun jangid--publish-html-with-meta (plist filename pub-dir)
+  "Wrapper around `org-html-publish-to-html' that injects per-file meta.
+Adds canonical, OpenGraph, Twitter Card, and RSS discovery tags to
+`:html-head-extra' based on the source file's #+TITLE and #+DESCRIPTION."
+  (let* ((rel (file-relative-name filename jangid-src))
+         (html-rel (replace-regexp-in-string "\\.org\\'" ".html" rel))
+         (url (jangid--canonical-url html-rel))
+         (meta (jangid--read-file-meta filename))
+         (title (car meta))
+         (desc (cadr meta))
+         (is-note (string-prefix-p "notes/" rel))
+         (og-type (if is-note "article" "website"))
+         (head (jangid--meta-head :url url
+                                  :title title
+                                  :description desc
+                                  :type og-type))
+         (prev-extra (or (plist-get plist :html-head-extra) ""))
+         (new-plist (org-combine-plists
+                     plist
+                     (list :html-head-extra
+                           (concat prev-extra "\n" head)))))
+    (org-html-publish-to-html new-plist filename pub-dir)))
 
 ;; ---------------------------------------------------------------------------
 ;; Notes manifest: scans src/notes/*.org, reads #+TITLE and #+DATE,
@@ -167,8 +267,9 @@ Returns nil when the current file is not in the manifest (e.g. index)."
           (push (cons year (list e)) groups))))
     (sort groups (lambda (a b) (string> (car a) (car b))))))
 
-(defun jangid--wrap-html (title css-href body)
-  "Emit a full HTML document that mirrors org-publish output so CSS matches."
+(defun jangid--wrap-html (title css-href body &optional extra-head)
+  "Emit a full HTML document that mirrors org-publish output so CSS matches.
+EXTRA-HEAD is inserted inside <head> (e.g. canonical + OG tags)."
   (format "<!DOCTYPE html>
 <html lang=\"en\">
 <head>
@@ -176,6 +277,7 @@ Returns nil when the current file is not in the manifest (e.g. index)."
 <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/>
 <title>%s</title>
 <link rel=\"stylesheet\" type=\"text/css\" href=\"%s\"/>
+%s
 </head>
 <body>
 <div id=\"preamble\" class=\"status\">%s</div>
@@ -188,6 +290,7 @@ Returns nil when the current file is not in the manifest (e.g. index)."
 </html>\n"
           (org-html-encode-plain-text title)
           css-href
+          (or extra-head "")
           jangid-nav
           (org-html-encode-plain-text title)
           body
@@ -221,9 +324,15 @@ Returns nil when the current file is not in the manifest (e.g. index)."
                           (cdr group) "\n")
                "\n</ul>\n"))
             groups "\n")))
-         (out (expand-file-name "notes/index.html" jangid-docs)))
+         (out (expand-file-name "notes/index.html" jangid-docs))
+         (head (jangid--meta-head
+                :url (concat jangid-site-url "/notes/")
+                :title (concat jangid-site-title " — Notes")
+                :description
+                "All notes by Pankaj Jangid — tech, entrepreneurship, governance, and personal reflections."
+                :type "website")))
     (with-temp-file out
-      (insert (jangid--wrap-html "Notes" "../css/main.css" body)))
+      (insert (jangid--wrap-html "Notes" "../css/main.css" body head)))
     (message "jangid: wrote %s" out)))
 
 (defun jangid--write-tag-pages ()
@@ -249,13 +358,109 @@ Returns nil when the current file is not in the manifest (e.g. index)."
                               (cdr group) "\n")
                    "\n</ul>\n"))
                 groups "\n")))
-             (out (expand-file-name (concat slug ".html") tags-dir)))
+             (out (expand-file-name (concat slug ".html") tags-dir))
+             (page-title (format "Tagged: %s" tag))
+             (head (jangid--meta-head
+                    :url (concat jangid-site-url "/notes/tags/" slug ".html")
+                    :title (concat page-title " — " jangid-site-title)
+                    :description
+                    (format "All notes tagged %s on jangid.info." tag)
+                    :type "website")))
         (with-temp-file out
-          (insert (jangid--wrap-html
-                   (format "Tagged: %s" tag)
-                   "../../css/main.css"
-                   body)))
+          (insert (jangid--wrap-html page-title "../../css/main.css" body head)))
         (message "jangid: wrote %s" out)))))
+
+(defun jangid--rfc822-date (iso)
+  "Convert YYYY-MM-DD string ISO to an RFC 822 date suitable for RSS."
+  (format-time-string
+   "%a, %d %b %Y 00:00:00 +0000"
+   (date-to-time (concat iso "T00:00:00Z")) t))
+
+(defun jangid--write-rss ()
+  "Generate docs/notes/feed.xml from the manifest."
+  (let* ((out (expand-file-name "notes/feed.xml" jangid-docs))
+         (feed-url (concat jangid-site-url "/notes/feed.xml"))
+         (notes-url (concat jangid-site-url "/notes/"))
+         (build-date (format-time-string "%a, %d %b %Y %H:%M:%S +0000" nil t))
+         (last-build
+          (or (and jangid--notes-manifest
+                   (jangid--rfc822-date
+                    (plist-get (car jangid--notes-manifest) :date)))
+              build-date))
+         (items
+          (mapconcat
+           (lambda (e)
+             (let* ((base (plist-get e :base))
+                    (title (plist-get e :title))
+                    (desc (or (plist-get e :description) ""))
+                    (date (plist-get e :date))
+                    (link (concat jangid-site-url "/notes/" base ".html")))
+               (concat
+                "    <item>\n"
+                (format "      <title>%s</title>\n" (jangid--xml-escape title))
+                (format "      <link>%s</link>\n" (jangid--xml-escape link))
+                (format "      <guid isPermaLink=\"true\">%s</guid>\n"
+                        (jangid--xml-escape link))
+                (format "      <pubDate>%s</pubDate>\n" (jangid--rfc822-date date))
+                (format "      <description>%s</description>\n"
+                        (jangid--xml-escape desc))
+                "    </item>\n")))
+           jangid--notes-manifest
+           "")))
+    (with-temp-file out
+      (insert
+       "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+       "<rss version=\"2.0\" xmlns:atom=\"http://www.w3.org/2005/Atom\">\n"
+       "  <channel>\n"
+       (format "    <title>%s — Notes</title>\n"
+               (jangid--xml-escape jangid-site-title))
+       (format "    <link>%s</link>\n" (jangid--xml-escape notes-url))
+       (format "    <description>%s</description>\n"
+               (jangid--xml-escape jangid-site-description))
+       "    <language>en</language>\n"
+       (format "    <lastBuildDate>%s</lastBuildDate>\n" last-build)
+       (format "    <atom:link href=\"%s\" rel=\"self\" type=\"application/rss+xml\"/>\n"
+               (jangid--xml-escape feed-url))
+       items
+       "  </channel>\n"
+       "</rss>\n"))
+    (message "jangid: wrote %s" out)))
+
+(defun jangid--write-sitemap ()
+  "Generate docs/sitemap.xml covering home, notes index, notes, and tag pages."
+  (let* ((out (expand-file-name "sitemap.xml" jangid-docs))
+         (entries
+          (append
+           (list (concat jangid-site-url "/")
+                 (concat jangid-site-url "/notes/"))
+           (mapcar (lambda (e)
+                     (concat jangid-site-url "/notes/"
+                             (plist-get e :base) ".html"))
+                   jangid--notes-manifest)
+           (mapcar (lambda (tag)
+                     (concat jangid-site-url "/notes/tags/"
+                             (jangid--tag-slug tag) ".html"))
+                   (jangid--all-tags)))))
+    (with-temp-file out
+      (insert
+       "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+       "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n"
+       (mapconcat
+        (lambda (u) (format "  <url><loc>%s</loc></url>\n" (jangid--xml-escape u)))
+        entries "")
+       "</urlset>\n"))
+    (message "jangid: wrote %s" out)))
+
+(defun jangid--write-robots ()
+  "Generate docs/robots.txt pointing at the sitemap."
+  (let ((out (expand-file-name "robots.txt" jangid-docs)))
+    (with-temp-file out
+      (insert
+       "User-agent: *\n"
+       "Allow: /\n"
+       "\n"
+       (format "Sitemap: %s/sitemap.xml\n" jangid-site-url)))
+    (message "jangid: wrote %s" out)))
 
 ;; ---------------------------------------------------------------------------
 
@@ -316,7 +521,7 @@ Returns nil when the current file is not in the manifest (e.g. index)."
       `(("pages"
          :base-directory ,jangid-src
          :publishing-directory ,jangid-docs
-         :publishing-function org-html-publish-to-html
+         :publishing-function jangid--publish-html-with-meta
          :html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"css/main.css\" />"
          :with-toc nil
          :html-preamble ,jangid-nav
@@ -326,7 +531,7 @@ Returns nil when the current file is not in the manifest (e.g. index)."
         ("notes"
          :base-directory ,(expand-file-name "notes/" jangid-src)
          :publishing-directory ,(expand-file-name "notes/" jangid-docs)
-         :publishing-function org-html-publish-to-html
+         :publishing-function jangid--publish-html-with-meta
          :preparation-function jangid--build-notes-manifest
          :exclude "\\`index\\.org\\'"
          :html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"../css/main.css\" />"
@@ -363,5 +568,8 @@ Returns nil when the current file is not in the manifest (e.g. index)."
   (jangid--build-notes-manifest))
 (jangid--write-notes-index)
 (jangid--write-tag-pages)
+(jangid--write-rss)
+(jangid--write-sitemap)
+(jangid--write-robots)
 
 (message "Done.")
