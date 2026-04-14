@@ -412,6 +412,17 @@ pre code {
 .prev-next .newer { text-align: left; }
 .prev-next .older { text-align: right; }
 
+@media (max-width: 480px) {
+    .prev-next {
+        flex-direction: column;
+        gap: 1.1em;
+    }
+    .prev-next .newer,
+    .prev-next .older {
+        text-align: left;
+    }
+}
+
 /* ---------------------------------------------------------------------------
    Postamble: date, footer, legal
 --------------------------------------------------------------------------- */

@@ -3,9 +3,8 @@
 #+OPTIONS: toc:nil
 
 The page you were looking for is not here. It may have moved, or
-never existed.
+may never have existed.
 
-#+BEGIN_EXPORT html
-<p>Head back to the <a href="https://jangid.info/">homepage</a>,
-or browse the <a href="https://jangid.info/notes/">Notes</a>.</p>
-#+END_EXPORT
+Head back to the [[https://jangid.info/][homepage]], or browse the [[https://jangid.info/notes/][Notes]]
+archive -- chances are the article you want is only one hop
+away.

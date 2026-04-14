@@ -307,39 +307,49 @@ Returns nil when the current file is not in the manifest (e.g. index)."
    "</p>"))
 
 (defun jangid--inject-article-header (text backend info)
-  "Final-output filter: on articles, inject eyebrow before and byline after
-<h1 class=\"title\">.  Non-article pages (not in the notes manifest) pass
-through unchanged."
-  (if (and (eq backend 'html)
-           jangid--notes-manifest)
+  "Final-output filter: inject eyebrow (and byline, for articles) around
+<h1 class=\"title\">.  Handles three cases:
+  - notes in the manifest: tag eyebrow + date byline
+  - 404.org: a hardcoded \"Error · 404\" eyebrow
+  - everything else: pass through unchanged."
+  (if (eq backend 'html)
       (let* ((input-file (plist-get info :input-file))
              (base (and input-file (file-name-base input-file)))
              (entry (and base
+                         jangid--notes-manifest
                          (cl-find base jangid--notes-manifest
                                   :key (lambda (e) (plist-get e :base))
                                   :test #'string=))))
-        (if entry
-            (let* ((tags (plist-get entry :tags))
-                   (date (plist-get entry :date))
-                   (updated (plist-get entry :updated))
-                   (eyebrow (and tags (jangid--eyebrow-html tags)))
-                   (byline (and date (jangid--byline-html date updated)))
-                   ;; Insert eyebrow before the opening h1 tag.
-                   (after-eyebrow
-                    (if eyebrow
-                        (replace-regexp-in-string
-                         "<h1 class=\"title\">"
-                         (concat eyebrow "<h1 class=\"title\">")
-                         text t t)
-                      text))
-                   ;; Then insert byline after the closing </h1>.
-                   (close-pos (string-match "</h1>" after-eyebrow)))
-              (if (and byline close-pos)
-                  (concat (substring after-eyebrow 0 (+ close-pos 5))
-                          byline
-                          (substring after-eyebrow (+ close-pos 5)))
-                after-eyebrow))
-          text))
+        (cond
+         ;; Article in the notes manifest: eyebrow + byline
+         (entry
+          (let* ((tags (plist-get entry :tags))
+                 (date (plist-get entry :date))
+                 (updated (plist-get entry :updated))
+                 (eyebrow (and tags (jangid--eyebrow-html tags)))
+                 (byline (and date (jangid--byline-html date updated)))
+                 (after-eyebrow
+                  (if eyebrow
+                      (replace-regexp-in-string
+                       "<h1 class=\"title\">"
+                       (concat eyebrow "<h1 class=\"title\">")
+                       text t t)
+                    text))
+                 (close-pos (string-match "</h1>" after-eyebrow)))
+            (if (and byline close-pos)
+                (concat (substring after-eyebrow 0 (+ close-pos 5))
+                        byline
+                        (substring after-eyebrow (+ close-pos 5)))
+              after-eyebrow)))
+         ;; 404 page: hardcoded error eyebrow, no byline
+         ((string= base "404")
+          (replace-regexp-in-string
+           "<h1 class=\"title\">"
+           (concat "<p class=\"eyebrow\">Error"
+                   "<span class=\"sep\">·</span>404</p>"
+                   "<h1 class=\"title\">")
+           text t t))
+         (t text)))
     text))
 
 (add-to-list 'org-export-filter-final-output-functions
@@ -467,7 +477,7 @@ EXTRA-HEAD is inserted inside <head> (e.g. canonical + OG tags)."
                 "Complete archive of notes by Pankaj Jangid covering software engineering, entrepreneurship, governance, and personal reflections -- grouped by year and browsable by tag."
                 :type "website")))
     (with-temp-file out
-      (insert (jangid--wrap-html "Notes" "../css/main.css" body head)))
+      (insert (jangid--wrap-html "Notes" "/css/main.css" body head)))
     (message "jangid: wrote %s" out)))
 
 (defun jangid--write-tag-pages ()
@@ -503,7 +513,7 @@ EXTRA-HEAD is inserted inside <head> (e.g. canonical + OG tags)."
                             tag)
                     :type "website")))
         (with-temp-file out
-          (insert (jangid--wrap-html page-title "../../css/main.css" body head)))
+          (insert (jangid--wrap-html page-title "/css/main.css" body head)))
         (message "jangid: wrote %s" out)))))
 
 (defun jangid--rfc822-date (iso)
@@ -652,7 +662,7 @@ title by `jangid--inject-article-header', not here."
          :base-directory ,jangid-src
          :publishing-directory ,jangid-docs
          :publishing-function jangid--publish-html-with-meta
-         :html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"css/main.css\" />"
+         :html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"/css/main.css\" />"
          :with-toc nil
          :html-preamble ,jangid-nav
          :html-postamble jangid-pages-postamble
@@ -664,7 +674,7 @@ title by `jangid--inject-article-header', not here."
          :publishing-function jangid--publish-html-with-meta
          :preparation-function jangid--build-notes-manifest
          :exclude "\\`index\\.org\\'"
-         :html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"../css/main.css\" />"
+         :html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"/css/main.css\" />"
          :with-toc nil
          :with-date t
          :html-preamble ,jangid-nav
