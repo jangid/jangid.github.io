@@ -607,6 +607,12 @@ EXTRA-HEAD is inserted inside <head> (e.g. canonical + OG tags)."
 ;; Suppress build timestamp in HTML comment to avoid noisy diffs
 (setq org-html-metadata-timestamp-format "")
 
+;; We own every style via src/css/main.css.  Skip the 7KB inline default
+;; style block org injects (it also re-centres .title, which breaks the
+;; editorial left-aligned header).
+(setq org-html-head-include-default-style nil)
+(setq org-html-head-include-scripts nil)
+
 (defun jangid--footer-html ()
   "Shared site footer: contact, socials, license, copyright."
   (let ((year (format-time-string "%Y")))
