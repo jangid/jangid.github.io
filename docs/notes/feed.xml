@@ -3,7 +3,7 @@
   <channel>
     <title>Pankaj Jangid — Notes</title>
     <link>https://jangid.info/notes/</link>
-    <description>Notes on software, entrepreneurship, governance, and the craft of building things.</description>
+    <description>Notes by Pankaj Jangid on software engineering, entrepreneurship, governance, and the craft of building products, teams, and systems -- an archive that spans over two decades of writing.</description>
     <language>en</language>
     <lastBuildDate>Tue, 14 Apr 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://jangid.info/notes/feed.xml" rel="self" type="application/rss+xml"/>
@@ -12,105 +12,105 @@
       <link>https://jangid.info/notes/claude-code-sandbox-macos.html</link>
       <guid isPermaLink="true">https://jangid.info/notes/claude-code-sandbox-macos.html</guid>
       <pubDate>Tue, 14 Apr 2026 00:00:00 +0000</pubDate>
-      <description>Reducing the blast radius of AI coding agents on macOS with Apple Seatbelt and an HTTPS proxy.</description>
+      <description>How to reduce the blast radius of AI coding agents on macOS using Apple Seatbelt and an HTTPS proxy, without giving up the productivity gains that make these tools worth running in the first place.</description>
     </item>
     <item>
       <title>Process Discipline in India&apos;s Space Sector</title>
       <link>https://jangid.info/notes/space-sector-processes.html</link>
       <guid isPermaLink="true">https://jangid.info/notes/space-sector-processes.html</guid>
       <pubDate>Mon, 09 Mar 2026 00:00:00 +0000</pubDate>
-      <description>India&apos;s space startups are building rockets. The harder problem is building the processes that make them work.</description>
+      <description>India&apos;s space startups are building rockets and satellites. The harder problem -- and the one that separates a capable ecosystem from a headline one -- is building the processes that make them work reliably.</description>
     </item>
     <item>
       <title>Colors of Web</title>
       <link>https://jangid.info/notes/colors-of-web.html</link>
       <guid isPermaLink="true">https://jangid.info/notes/colors-of-web.html</guid>
       <pubDate>Tue, 21 Jun 2022 00:00:00 +0000</pubDate>
-      <description>Why HSL beats RGB when you actually think about colors for the web.</description>
+      <description>HSL beats RGB once you actually think about how colors work on the web. Hue, saturation, and luminosity line up with the intuition most of us already have for color -- RGB does not.</description>
     </item>
     <item>
       <title>MacOS Contacts in Emacs</title>
       <link>https://jangid.info/notes/emacs-macos-contacts.html</link>
       <guid isPermaLink="true">https://jangid.info/notes/emacs-macos-contacts.html</guid>
       <pubDate>Sat, 23 Jan 2021 00:00:00 +0000</pubDate>
-      <description>A small snippet to pull macOS Contacts into Emacs via the built-in EUDC feature.</description>
+      <description>A small startup-file snippet that exposes macOS Contacts inside Emacs through the built-in EUDC framework, with no external packages required, plus a keyboard shortcut for quick lookup.</description>
     </item>
     <item>
       <title>Increasing Minimum Wage By 50% Is Not Going To Work</title>
       <link>https://jangid.info/notes/increasing-minimum-wage-by-50-percent-isnt-going-to-work.html</link>
       <guid isPermaLink="true">https://jangid.info/notes/increasing-minimum-wage-by-50-percent-isnt-going-to-work.html</guid>
       <pubDate>Tue, 23 Aug 2016 00:00:00 +0000</pubDate>
-      <description>If a 50% wage hike is good, why not 500%? The missing piece in well-meaning wage policy.</description>
+      <description>If a 50% minimum wage hike is good, why not 500%? Walking through the downstream effects on employers, employment, and prices that well-meaning wage policy tends to ignore.</description>
     </item>
     <item>
       <title>Karamchand and Byomkesh Bakshi Were the Best Detectives</title>
       <link>https://jangid.info/notes/karamchand-and-byomkesh-bakshi-were-the-best-detectives.html</link>
       <guid isPermaLink="true">https://jangid.info/notes/karamchand-and-byomkesh-bakshi-were-the-best-detectives.html</guid>
       <pubDate>Sat, 06 Feb 2016 00:00:00 +0000</pubDate>
-      <description>Why the best detective serials on Indian TV from the 80s and 90s still hold up.</description>
+      <description>Why Karamchand and Byomkesh Bakshi -- two of the finest detective serials on Indian television from the 80s and 90s -- still hold up decades later, and what made their storytelling memorable.</description>
     </item>
     <item>
       <title>The Grand Weight Loss Party</title>
       <link>https://jangid.info/notes/the-grand-weightloss-party.html</link>
       <guid isPermaLink="true">https://jangid.info/notes/the-grand-weightloss-party.html</guid>
       <pubDate>Wed, 22 Aug 2007 00:00:00 +0000</pubDate>
-      <description>A gym, three friends, and ten kilograms&apos; worth of reason to celebrate.</description>
+      <description>Three friends, a company gymnasium in Noida, and ten kilograms&apos; worth of reason to celebrate. A short story from the early HCL Technologies days and what started as an ordinary workout routine.</description>
     </item>
     <item>
       <title>Perception of Right and Wrong</title>
       <link>https://jangid.info/notes/perception-of-right-and-wrong.html</link>
       <guid isPermaLink="true">https://jangid.info/notes/perception-of-right-and-wrong.html</guid>
       <pubDate>Fri, 17 Aug 2007 00:00:00 +0000</pubDate>
-      <description>A bus driver, a horn, and the gap between what is legal and what feels normal.</description>
+      <description>A bus driver, a horn, and the honest gap between what the law says and what feels normal when everyone around you is doing the same thing. A short reflection on how behaviour gets shaped.</description>
     </item>
     <item>
       <title>Vashi Days of NCST</title>
       <link>https://jangid.info/notes/vashi-days-of-ncst.html</link>
       <guid isPermaLink="true">https://jangid.info/notes/vashi-days-of-ncst.html</guid>
       <pubDate>Mon, 06 Aug 2007 00:00:00 +0000</pubDate>
-      <description>Old photos from the NCST Vashi centre and the people who made it home.</description>
+      <description>Old photos from the NCST Vashi centre above Vashi railway station in Navi Mumbai, and a few words about the colleagues -- Binoy, Jacob, Bhavana, Dharmesh, Ripul, Subbu, Meghna -- who made it home.</description>
     </item>
     <item>
       <title>Moving On</title>
       <link>https://jangid.info/notes/moving-on.html</link>
       <guid isPermaLink="true">https://jangid.info/notes/moving-on.html</guid>
       <pubDate>Mon, 28 Aug 2006 00:00:00 +0000</pubDate>
-      <description>Leaving HCL Technologies for Cadence Design Systems.</description>
+      <description>A short note on leaving HCL Technologies in Noida to join Cadence Design Systems, and what I was hoping to learn in the next role after a few good years at HCL.</description>
     </item>
     <item>
       <title>The Worst Week</title>
       <link>https://jangid.info/notes/the-worst-week.html</link>
       <guid isPermaLink="true">https://jangid.info/notes/the-worst-week.html</guid>
       <pubDate>Wed, 12 Jul 2006 00:00:00 +0000</pubDate>
-      <description>A tough week for India&apos;s space program -- Agni III and INSAT-4C both failed.</description>
+      <description>A difficult week for India&apos;s space program when Agni III missed its 3000 km target and INSAT-4C was lost at launch. A short note on what ambitious engineering actually costs when things go wrong.</description>
     </item>
     <item>
       <title>Chicago Downtown Trip</title>
       <link>https://jangid.info/notes/chicago-downtown-trip.html</link>
       <guid isPermaLink="true">https://jangid.info/notes/chicago-downtown-trip.html</guid>
       <pubDate>Mon, 22 May 2006 00:00:00 +0000</pubDate>
-      <description>A weekend trip from the suburbs into downtown Chicago and up the Sears Tower.</description>
+      <description>A weekend trip from the suburbs into downtown Chicago with Amar, up the Sears Tower, and a walk through a city that looked like one enormous cement mountain on the approach.</description>
     </item>
     <item>
       <title>Sentence-Based Natural Language Plagiarism Detection</title>
       <link>https://jangid.info/notes/sentence-based-natural-language-plagiarism-detection.html</link>
       <guid isPermaLink="true">https://jangid.info/notes/sentence-based-natural-language-plagiarism-detection.html</guid>
       <pubDate>Fri, 16 Sep 2005 00:00:00 +0000</pubDate>
-      <description>A sentence-level algorithm for plagiarism detection across natural language and source code.</description>
+      <description>A sentence-level algorithm for plagiarism detection across natural language documents and source code comments, implemented as part of a larger plagiarism detection system during my NCST thesis work.</description>
     </item>
     <item>
       <title>CFG to Parse Roman Numerals</title>
       <link>https://jangid.info/notes/cfg-to-parse-roman-numerals.html</link>
       <guid isPermaLink="true">https://jangid.info/notes/cfg-to-parse-roman-numerals.html</guid>
       <pubDate>Thu, 08 Sep 2005 00:00:00 +0000</pubDate>
-      <description>Working through a context-free grammar that accepts valid Roman numerals.</description>
+      <description>Working through a context-free grammar that accepts all and only valid Roman numerals, and what that exercise teaches you about the underlying structure of the Roman number system.</description>
     </item>
     <item>
       <title>Life and Universe</title>
       <link>https://jangid.info/notes/life-and-universe.html</link>
       <guid isPermaLink="true">https://jangid.info/notes/life-and-universe.html</guid>
       <pubDate>Sun, 05 Jun 2005 00:00:00 +0000</pubDate>
-      <description>Wondering what sits inside the smallest particle -- and who might sit outside ours.</description>
+      <description>A young mind wondering what sits inside the smallest particle we have ever seen, and whether we ourselves might be sitting inside some larger universe waiting to be discovered by somebody else.</description>
     </item>
   </channel>
 </rss>

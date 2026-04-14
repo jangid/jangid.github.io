@@ -1,6 +1,6 @@
 #+TITLE: The Grand Weight Loss Party
 #+DATE: 2007-08-22
-#+DESCRIPTION: A gym, three friends, and ten kilograms' worth of reason to celebrate.
+#+DESCRIPTION: Three friends, a company gymnasium in Noida, and ten kilograms' worth of reason to celebrate. A short story from the early HCL Technologies days and what started as an ordinary workout routine.
 #+FILETAGS: :personal:
 #+OPTIONS: toc:nil
 

@@ -1,6 +1,6 @@
 #+TITLE: Chicago Downtown Trip
 #+DATE: 2006-05-22
-#+DESCRIPTION: A weekend trip from the suburbs into downtown Chicago and up the Sears Tower.
+#+DESCRIPTION: A weekend trip from the suburbs into downtown Chicago with Amar, up the Sears Tower, and a walk through a city that looked like one enormous cement mountain on the approach.
 #+FILETAGS: :personal:
 #+OPTIONS: toc:nil
 

@@ -1,6 +1,6 @@
 #+TITLE: MacOS Contacts in Emacs
 #+DATE: 2021-01-23
-#+DESCRIPTION: A small snippet to pull macOS Contacts into Emacs via the built-in EUDC feature.
+#+DESCRIPTION: A small startup-file snippet that exposes macOS Contacts inside Emacs through the built-in EUDC framework, with no external packages required, plus a keyboard shortcut for quick lookup.
 #+FILETAGS: :tech:
 #+SUBTITLE: (Note that this requires Emacs 28 or later)
 

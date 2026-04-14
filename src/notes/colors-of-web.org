@@ -1,6 +1,6 @@
 #+TITLE: Colors of Web
 #+DATE: 2022-06-21
-#+DESCRIPTION: Why HSL beats RGB when you actually think about colors for the web.
+#+DESCRIPTION: HSL beats RGB once you actually think about how colors work on the web. Hue, saturation, and luminosity line up with the intuition most of us already have for color -- RGB does not.
 #+FILETAGS: :tech:
 
 Hue-Saturation-Luminosity (HSL); and not just Red-Green-Blue (RGB).

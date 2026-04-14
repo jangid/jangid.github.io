@@ -1,6 +1,6 @@
 #+TITLE: Vashi Days of NCST
 #+DATE: 2007-08-06
-#+DESCRIPTION: Old photos from the NCST Vashi centre and the people who made it home.
+#+DESCRIPTION: Old photos from the NCST Vashi centre above Vashi railway station in Navi Mumbai, and a few words about the colleagues -- Binoy, Jacob, Bhavana, Dharmesh, Ripul, Subbu, Meghna -- who made it home.
 #+FILETAGS: :personal:
 #+OPTIONS: toc:nil
 

@@ -1,6 +1,6 @@
 #+TITLE: Moving On
 #+DATE: 2006-08-28
-#+DESCRIPTION: Leaving HCL Technologies for Cadence Design Systems.
+#+DESCRIPTION: A short note on leaving HCL Technologies in Noida to join Cadence Design Systems, and what I was hoping to learn in the next role after a few good years at HCL.
 #+FILETAGS: :personal:
 #+OPTIONS: toc:nil
 

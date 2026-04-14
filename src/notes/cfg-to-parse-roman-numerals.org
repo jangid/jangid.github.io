@@ -1,6 +1,6 @@
 #+TITLE: CFG to Parse Roman Numerals
 #+DATE: 2005-09-08
-#+DESCRIPTION: Working through a context-free grammar that accepts valid Roman numerals.
+#+DESCRIPTION: Working through a context-free grammar that accepts all and only valid Roman numerals, and what that exercise teaches you about the underlying structure of the Roman number system.
 #+FILETAGS: :tech:
 #+OPTIONS: toc:nil
 

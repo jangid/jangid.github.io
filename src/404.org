@@ -1,5 +1,5 @@
 #+TITLE: Page not found
-#+DESCRIPTION: That page isn't here. Head back to the homepage or browse Notes.
+#+DESCRIPTION: The page you were looking for is not here on jangid.info. Head back to the homepage or browse the Notes archive -- chances are the article you want is only one hop away.
 #+OPTIONS: toc:nil
 
 The page you were looking for is not here. It may have moved, or

@@ -1,6 +1,6 @@
 #+TITLE: Sandboxing Claude Code on macOS: Seatbelt + Privoxy
 #+DATE: 2026-04-14
-#+DESCRIPTION: Reducing the blast radius of AI coding agents on macOS with Apple Seatbelt and an HTTPS proxy.
+#+DESCRIPTION: How to reduce the blast radius of AI coding agents on macOS using Apple Seatbelt and an HTTPS proxy, without giving up the productivity gains that make these tools worth running in the first place.
 #+FILETAGS: :tech:security:ai:
 #+OPTIONS: toc:nil
 

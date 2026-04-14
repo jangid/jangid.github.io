@@ -1,6 +1,6 @@
 #+TITLE: Life and Universe
 #+DATE: 2005-06-05
-#+DESCRIPTION: Wondering what sits inside the smallest particle -- and who might sit outside ours.
+#+DESCRIPTION: A young mind wondering what sits inside the smallest particle we have ever seen, and whether we ourselves might be sitting inside some larger universe waiting to be discovered by somebody else.
 #+FILETAGS: :personal:
 #+OPTIONS: toc:nil
 

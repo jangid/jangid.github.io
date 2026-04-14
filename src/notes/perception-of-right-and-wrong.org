@@ -1,6 +1,6 @@
 #+TITLE: Perception of Right and Wrong
 #+DATE: 2007-08-17
-#+DESCRIPTION: A bus driver, a horn, and the gap between what is legal and what feels normal.
+#+DESCRIPTION: A bus driver, a horn, and the honest gap between what the law says and what feels normal when everyone around you is doing the same thing. A short reflection on how behaviour gets shaped.
 #+FILETAGS: :personal:india:
 #+OPTIONS: toc:nil
 

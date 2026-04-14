@@ -30,7 +30,7 @@
   "Site title used in OpenGraph and feed metadata.")
 
 (defconst jangid-site-description
-  "Notes on software, entrepreneurship, governance, and the craft of building things."
+  "Notes by Pankaj Jangid on software engineering, entrepreneurship, governance, and the craft of building products, teams, and systems -- an archive that spans over two decades of writing."
   "Default site-wide description used when a page lacks its own.")
 
 (defconst jangid-twitter-handle "@jangid")
@@ -67,33 +67,65 @@ GitHub Pages actually serves."
 
 (defun jangid--meta-head (&rest args)
   "Build per-page <head> meta for canonical, OG, Twitter, and feed discovery.
-Accepts a plist with :url :title :description :type keys.  Missing values
-fall back to site defaults."
+Accepts a plist with :url :title :description :type :image keys.  Missing
+values fall back to site defaults.  When :image is non-nil the Twitter Card
+type is upgraded to `summary_large_image' so the picture is actually shown."
   (let* ((url (or (plist-get args :url) jangid-site-url))
          (title (or (plist-get args :title) jangid-site-title))
          (desc (or (plist-get args :description) jangid-site-description))
-         (og-type (or (plist-get args :type) "website")))
+         (og-type (or (plist-get args :type) "website"))
+         (image-path (plist-get args :image))
+         (image-url (and image-path
+                         (if (string-match-p "\\`https?://" image-path)
+                             image-path
+                           (concat jangid-site-url image-path))))
+         (twitter-card (if image-url "summary_large_image" "summary")))
     (mapconcat
      #'identity
-     (list
-      (format "<link rel=\"canonical\" href=\"%s\"/>" (jangid--xml-escape url))
-      (format "<meta name=\"description\" content=\"%s\"/>" (jangid--xml-escape desc))
-      (format "<meta property=\"og:type\" content=\"%s\"/>" og-type)
-      (format "<meta property=\"og:site_name\" content=\"%s\"/>"
-              (jangid--xml-escape jangid-site-title))
-      (format "<meta property=\"og:title\" content=\"%s\"/>" (jangid--xml-escape title))
-      (format "<meta property=\"og:description\" content=\"%s\"/>" (jangid--xml-escape desc))
-      (format "<meta property=\"og:url\" content=\"%s\"/>" (jangid--xml-escape url))
-      "<meta name=\"twitter:card\" content=\"summary\"/>"
-      (format "<meta name=\"twitter:site\" content=\"%s\"/>" jangid-twitter-handle)
-      (format "<meta name=\"twitter:title\" content=\"%s\"/>" (jangid--xml-escape title))
-      (format "<meta name=\"twitter:description\" content=\"%s\"/>" (jangid--xml-escape desc))
-      (format "<link rel=\"alternate\" type=\"application/rss+xml\" title=\"%s\" href=\"/notes/feed.xml\"/>"
-              (jangid--xml-escape (concat jangid-site-title " — Notes"))))
+     (delq
+      nil
+      (list
+       (format "<link rel=\"canonical\" href=\"%s\"/>" (jangid--xml-escape url))
+       (format "<meta name=\"description\" content=\"%s\"/>" (jangid--xml-escape desc))
+       (format "<meta property=\"og:type\" content=\"%s\"/>" og-type)
+       (format "<meta property=\"og:site_name\" content=\"%s\"/>"
+               (jangid--xml-escape jangid-site-title))
+       (format "<meta property=\"og:title\" content=\"%s\"/>" (jangid--xml-escape title))
+       (format "<meta property=\"og:description\" content=\"%s\"/>" (jangid--xml-escape desc))
+       (format "<meta property=\"og:url\" content=\"%s\"/>" (jangid--xml-escape url))
+       (when image-url
+         (format "<meta property=\"og:image\" content=\"%s\"/>"
+                 (jangid--xml-escape image-url)))
+       (when image-url
+         (format "<meta property=\"og:image:alt\" content=\"%s\"/>"
+                 (jangid--xml-escape title)))
+       (format "<meta name=\"twitter:card\" content=\"%s\"/>" twitter-card)
+       (format "<meta name=\"twitter:site\" content=\"%s\"/>" jangid-twitter-handle)
+       (format "<meta name=\"twitter:title\" content=\"%s\"/>" (jangid--xml-escape title))
+       (format "<meta name=\"twitter:description\" content=\"%s\"/>" (jangid--xml-escape desc))
+       (when image-url
+         (format "<meta name=\"twitter:image\" content=\"%s\"/>"
+                 (jangid--xml-escape image-url)))
+       (format "<link rel=\"alternate\" type=\"application/rss+xml\" title=\"%s\" href=\"/notes/feed.xml\"/>"
+               (jangid--xml-escape (concat jangid-site-title " — Notes")))))
      "\n")))
 
+(defun jangid--extract-first-image ()
+  "Scan current buffer for the first org image link and return an /images/X path,
+or nil if no image is found.  Accepts link forms `[[file:../images/X]]',
+`[[./images/X]]', or `[[images/X]]'."
+  (save-excursion
+    (goto-char (point-min))
+    (when (re-search-forward
+           "\\[\\[\\(?:file:\\)?\\(?:\\.\\./\\|\\./\\)?\\(images/[^]]+\\)\\]"
+           nil t)
+      (concat "/" (match-string 1)))))
+
 (defun jangid--extract-file-meta ()
-  "Return (TITLE DESCRIPTION) from the current buffer's file-level keywords."
+  "Return (TITLE DESCRIPTION IMAGE-PATH) for the current buffer.
+TITLE / DESCRIPTION come from file-level keywords.  IMAGE-PATH is the
+site-relative path to the first embedded image (e.g. \"/images/foo.png\")
+or nil when the note has no image."
   (let (title description)
     (save-excursion
       (goto-char (point-min))
@@ -103,7 +135,7 @@ fall back to site defaults."
           (cond
            ((string= k "TITLE") (setq title v))
            ((string= k "DESCRIPTION") (setq description v))))))
-    (list title description)))
+    (list title description (jangid--extract-first-image))))
 
 (defun jangid--read-file-meta (file)
   "Read TITLE and DESCRIPTION from FILE's file-level keywords."
@@ -121,12 +153,14 @@ Adds canonical, OpenGraph, Twitter Card, and RSS discovery tags to
          (meta (jangid--read-file-meta filename))
          (title (car meta))
          (desc (cadr meta))
+         (image (nth 2 meta))
          (is-note (string-prefix-p "notes/" rel))
          (og-type (if is-note "article" "website"))
          (head (jangid--meta-head :url url
                                   :title title
                                   :description desc
-                                  :type og-type))
+                                  :type og-type
+                                  :image image))
          (prev-extra (or (plist-get plist :html-head-extra) ""))
          (new-plist (org-combine-plists
                      plist
@@ -329,7 +363,7 @@ EXTRA-HEAD is inserted inside <head> (e.g. canonical + OG tags)."
                 :url (concat jangid-site-url "/notes/")
                 :title (concat jangid-site-title " — Notes")
                 :description
-                "All notes by Pankaj Jangid — tech, entrepreneurship, governance, and personal reflections."
+                "Complete archive of notes by Pankaj Jangid covering software engineering, entrepreneurship, governance, and personal reflections -- grouped by year and browsable by tag."
                 :type "website")))
     (with-temp-file out
       (insert (jangid--wrap-html "Notes" "../css/main.css" body head)))
@@ -364,7 +398,8 @@ EXTRA-HEAD is inserted inside <head> (e.g. canonical + OG tags)."
                     :url (concat jangid-site-url "/notes/tags/" slug ".html")
                     :title (concat page-title " — " jangid-site-title)
                     :description
-                    (format "All notes tagged %s on jangid.info." tag)
+                    (format "All notes on jangid.info tagged \"%s\" -- part of a writing archive by Pankaj Jangid covering software engineering, entrepreneurship, governance, and personal reflections."
+                            tag)
                     :type "website")))
         (with-temp-file out
           (insert (jangid--wrap-html page-title "../../css/main.css" body head)))

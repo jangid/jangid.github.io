@@ -1,6 +1,6 @@
 #+TITLE: Karamchand and Byomkesh Bakshi Were the Best Detectives
 #+DATE: 2016-02-06
-#+DESCRIPTION: Why the best detective serials on Indian TV from the 80s and 90s still hold up.
+#+DESCRIPTION: Why Karamchand and Byomkesh Bakshi -- two of the finest detective serials on Indian television from the 80s and 90s -- still hold up decades later, and what made their storytelling memorable.
 #+FILETAGS: :personal:india:
 #+OPTIONS: toc:nil
 
