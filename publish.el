@@ -515,7 +515,7 @@ EXTRA-HEAD is inserted inside <head> (e.g. canonical + OG tags)."
 
 ;; Navigation bar HTML
 (defvar jangid-nav
-  "<nav class=\"site-nav\"><a href=\"/\">Home</a> | <a href=\"/notes/\">Notes</a></nav>")
+  "<nav class=\"site-nav\"><a href=\"/\">Home</a><a href=\"/notes/\">Notes</a></nav>")
 
 ;; Suppress build timestamp in HTML comment to avoid noisy diffs
 (setq org-html-metadata-timestamp-format "")
@@ -603,6 +603,8 @@ EXTRA-HEAD is inserted inside <head> (e.g. canonical + OG tags)."
         ("other"
          :base-directory ,(expand-file-name "other/" jangid-src)
          :publishing-directory ,(expand-file-name "other/" jangid-docs)
+         :base-extension any
+         :recursive t
          :publishing-function org-publish-attachment)
         ("website"
          :components ("pages" "notes" "images" "css" "other"))))

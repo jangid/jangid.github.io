@@ -1,100 +1,410 @@
+/* ---------------------------------------------------------------------------
+   Self-hosted fonts (src/other/fonts → docs/other/fonts)
+   Literata (variable, opsz + wght): reading serif for body and headings
+   Public Sans (static: 400/500/600 + italics): UI/metadata sans
+--------------------------------------------------------------------------- */
+
+@font-face {
+    font-family: "Literata";
+    src: url("../other/fonts/Literata-VF-Roman.woff2") format("woff2");
+    font-weight: 200 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Literata";
+    src: url("../other/fonts/Literata-VF-Italic.woff2") format("woff2");
+    font-weight: 200 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Public Sans";
+    src: url("../other/fonts/PublicSans-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Public Sans";
+    src: url("../other/fonts/PublicSans-Italic.woff2") format("woff2");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Public Sans";
+    src: url("../other/fonts/PublicSans-Medium.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Public Sans";
+    src: url("../other/fonts/PublicSans-MediumItalic.woff2") format("woff2");
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Public Sans";
+    src: url("../other/fonts/PublicSans-SemiBold.woff2") format("woff2");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Public Sans";
+    src: url("../other/fonts/PublicSans-SemiBoldItalic.woff2") format("woff2");
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* ---------------------------------------------------------------------------
+   Design tokens
+--------------------------------------------------------------------------- */
+
 :root {
-    --bg: #ffffff;
-    --fg: #1a1a1a;
-    --muted: #666;
-    --accent: #0b5fff;
-    --border: #ccc;
-    --code-bg: #f4f4f4;
+    --font-serif: "Literata", "Iowan Old Style", "Charter", Georgia, serif;
+    --font-sans:  "Public Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --font-mono:  ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+    --bg:       #faf8f3;   /* warm paper */
+    --fg:       #1f1d1a;   /* warm near-black */
+    --muted:    #706a5f;   /* warm grey */
+    --border:   #d8d2c5;   /* soft warm hairline */
+    --accent:   #2a3f6b;   /* ink blue */
+    --code-bg:  #efebe0;   /* slightly deeper paper */
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --bg: #121417;
-        --fg: #e6e6e6;
-        --muted: #9aa0a6;
-        --accent: #7aa7ff;
-        --border: #2a2f36;
+        --bg:      #161a20;   /* deep slate */
+        --fg:      #e8e4dc;   /* warm off-white */
+        --muted:   #8a8475;   /* warm grey, dimmer */
+        --border:  #2a2f36;   /* subtle hairline */
+        --accent:  #a8b9d8;   /* softened ink blue */
         --code-bg: #1b1f24;
     }
 }
 
-html { background: var(--bg); }
+html {
+    background: var(--bg);
+}
+
+/* ---------------------------------------------------------------------------
+   Body & rhythm
+--------------------------------------------------------------------------- */
 
 body {
+    margin: 0;
     color: var(--fg);
     background: var(--bg);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-                 "Helvetica Neue", Arial, sans-serif;
-    line-height: 1.6;
+    font-family: var(--font-serif);
+    font-size: 17.5px;
+    line-height: 1.7;
+    font-optical-sizing: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
 
-#content, #postamble, #preamble {
+#content,
+#postamble,
+#preamble {
     max-width: 80ch;
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 0 1.25rem;
 }
 
-a { color: var(--accent); }
+/* ---------------------------------------------------------------------------
+   Headings
+--------------------------------------------------------------------------- */
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+}
+
+h1.title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    line-height: 1.15;
+    margin: 1rem 0 1.75rem;
+}
+
+h2 {
+    font-size: 1.55rem;
+    margin: 2.4em 0 0.5em;
+}
+
+h3 {
+    font-size: 1.2rem;
+    margin: 2em 0 0.4em;
+}
+
+/* Year headings on notes index / tag pages: H2 immediately before a
+   notes list is the "year" rubric — muted, with a thin rule under. */
+h2:has(+ ul.notes-list) {
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: 1.1rem;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin: 2.8em 0 1em;
+    padding-bottom: 0.3em;
+    border-bottom: 1px solid var(--border);
+}
+
+.content > h2:first-of-type,
+.content > h2:has(+ ul.notes-list):first-of-type {
+    margin-top: 1.5em;
+}
+
+/* ---------------------------------------------------------------------------
+   Flow elements
+--------------------------------------------------------------------------- */
+
+p { margin: 0 0 1.4em; }
+
+/* Slightly more leading for the first paragraph on a page */
+.content > p:first-of-type { line-height: 1.75; }
+
+ul, ol {
+    padding-left: 1.4em;
+    margin: 0 0 1.4em;
+}
+
+li { margin-bottom: 0.3em; }
+
+blockquote {
+    margin: 1.6em 0;
+    padding: 0.1em 0 0.1em 1.25em;
+    border-left: 2px solid var(--border);
+    color: var(--muted);
+    font-style: italic;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    width: 20%;
+    margin: 3em auto;
+}
+
+::selection {
+    background: color-mix(in srgb, var(--accent) 18%, transparent);
+    color: var(--fg);
+}
+
+/* ---------------------------------------------------------------------------
+   Links: quiet by default, ink-blue on hover
+--------------------------------------------------------------------------- */
+
+a {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: var(--border);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.22em;
+    transition: color 0.12s ease, text-decoration-color 0.12s ease;
+}
+
+a:hover {
+    color: var(--accent);
+    text-decoration-color: var(--accent);
+}
+
+/* ---------------------------------------------------------------------------
+   Images & figures
+--------------------------------------------------------------------------- */
 
 img, video {
     max-width: 100%;
     height: auto;
 }
 
+figure {
+    margin: 1.8em 0;
+}
+
+figcaption,
+.figure p:last-child:not(:only-child) {
+    font-family: var(--font-serif);
+    font-style: italic;
+    color: var(--muted);
+    font-size: 0.92rem;
+    text-align: center;
+    margin-top: 0.6em;
+}
+
+/* ---------------------------------------------------------------------------
+   Code
+--------------------------------------------------------------------------- */
+
 pre, code {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+}
+
+code {
     background: var(--code-bg);
-    color: var(--fg);
+    padding: 0.1em 0.35em;
+    border-radius: 3px;
 }
 
 pre {
-    padding: 0.75em 1em;
+    background: var(--code-bg);
+    padding: 1em 1.2em;
     border-radius: 4px;
     overflow-x: auto;
+    margin: 1.6em 0;
+    line-height: 1.55;
 }
 
+pre code {
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+}
+
+/* ---------------------------------------------------------------------------
+   Site nav (preamble)
+--------------------------------------------------------------------------- */
+
 .site-nav {
-    padding: 0.5em 0;
-    margin-bottom: 1em;
-    border-bottom: 1px solid var(--border);
-    font-size: 0.9em;
+    font-family: var(--font-sans);
+    padding: 1.5em 0 2.25em;
+    font-size: 0.74rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
 }
 
 .site-nav a {
-    text-decoration: none;
-    color: var(--fg);
-}
-
-.site-nav a:hover { text-decoration: underline; }
-
-#postamble {
-    border-top: 1px solid var(--border);
-    margin-top: 3em;
-    padding-top: 1em;
-    font-size: 0.9em;
     color: var(--muted);
+    text-decoration: none;
 }
+
+.site-nav a:hover {
+    color: var(--accent);
+}
+
+.site-nav a + a::before {
+    content: "·";
+    margin: 0 0.75em;
+    color: var(--border);
+}
+
+/* ---------------------------------------------------------------------------
+   Prev / next (on article pages, top of postamble)
+--------------------------------------------------------------------------- */
 
 .prev-next {
     display: flex;
     justify-content: space-between;
-    gap: 1em;
-    margin: 0 0 1.25em;
-    font-size: 0.95em;
+    gap: 1.5em;
+    margin: 0 0 2em;
+    font-family: var(--font-serif);
 }
 
-.prev-next a { text-decoration: none; color: var(--accent); }
-.prev-next a:hover { text-decoration: underline; }
-.prev-next .newer { text-align: left; }
-.prev-next .older { text-align: right; margin-left: auto; }
+.prev-next a {
+    text-decoration: none;
+    color: inherit;
+    font-size: 0.95rem;
+    line-height: 1.35;
+    display: inline-block;
+}
+
+.prev-next a:hover { color: var(--accent); }
+
+.prev-next .newer { text-align: left; flex: 1 1 0; }
+.prev-next .older { text-align: right; flex: 1 1 0; }
+
+/* ---------------------------------------------------------------------------
+   Postamble: date, footer, legal
+--------------------------------------------------------------------------- */
+
+#postamble {
+    font-family: var(--font-sans);
+    margin-top: 4em;
+    padding-top: 1.5em;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+}
+
+#postamble .date {
+    font-size: 0.74rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 1.25em;
+}
+
+#postamble a {
+    color: var(--muted);
+    text-decoration-color: transparent;
+}
+
+#postamble a:hover {
+    color: var(--accent);
+    text-decoration-color: var(--accent);
+}
+
+#postamble .site-footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35em 0.9em;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin: 1.5em 0 0.6em;
+}
+
+#postamble .site-footer .sep { color: var(--border); }
+
+#postamble .legal {
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    opacity: 0.75;
+    margin: 0.4em 0 1em;
+}
+
+#postamble .creator { display: none; }
+
+/* ---------------------------------------------------------------------------
+   Notes index / tag pages
+--------------------------------------------------------------------------- */
 
 .tags-browse {
+    font-family: var(--font-sans);
+    font-size: 0.74rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
     color: var(--muted);
-    font-size: 0.95em;
-    margin: 0.5em 0 2em;
+    margin: -0.5em 0 2.5em;
 }
 
-.tags-browse a { color: var(--accent); text-decoration: none; }
-.tags-browse a:hover { text-decoration: underline; }
+.tags-browse a {
+    color: var(--muted);
+    text-decoration: none;
+}
+
+.tags-browse a:hover {
+    color: var(--accent);
+}
 
 .notes-list {
     list-style: none;
@@ -103,74 +413,101 @@ pre {
 }
 
 .notes-list .note-entry {
-    padding: 0.75em 0;
+    padding: 1.1em 0;
     border-bottom: 1px solid var(--border);
+    display: block;
 }
 
 .notes-list .note-entry:last-child { border-bottom: none; }
 
-.notes-list .title {
+.notes-list a.title {
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
     font-weight: 600;
+    line-height: 1.3;
+    color: var(--fg);
     text-decoration: none;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    transition: background-size 0.2s ease, color 0.12s ease;
 }
 
-.notes-list .title:hover { text-decoration: underline; }
+.notes-list a.title:hover {
+    color: var(--accent);
+    background-size: 100% 1px;
+}
 
 .notes-list .date {
+    font-family: var(--font-sans);
     color: var(--muted);
-    font-size: 0.85em;
-    margin-left: 0.5em;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-left: 0.75em;
+    white-space: nowrap;
 }
 
 .notes-list .teaser {
-    margin: 0.35em 0 0.35em;
+    font-family: var(--font-serif);
+    margin: 0.4em 0 0.5em;
     color: var(--fg);
+    line-height: 1.55;
+    font-size: 1rem;
 }
 
 .notes-list .tags {
-    margin-top: 0.25em;
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 0.35em;
     display: flex;
     flex-wrap: wrap;
-    gap: 0.4em;
+    align-items: baseline;
 }
 
+/* Tag chips: plain small-caps labels separated by middle dots */
 .tag-chip {
-    display: inline-block;
-    padding: 0.1em 0.6em;
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    font-size: 0.8em;
+    display: inline;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    border-radius: 0;
     color: var(--muted);
     text-decoration: none;
-    background: var(--code-bg);
+}
+
+.tag-chip + .tag-chip::before {
+    content: "·";
+    color: var(--border);
+    margin: 0 0.5em;
 }
 
 .tag-chip:hover {
     color: var(--accent);
-    border-color: var(--accent);
 }
 
-#postamble a { color: var(--muted); }
-#postamble a:hover { color: var(--accent); }
+/* ---------------------------------------------------------------------------
+   Misc
+--------------------------------------------------------------------------- */
 
-#postamble .date { color: var(--muted); }
+/* Org generates <div class="outline-2"> wrappers; neutralise inherited spacing */
+div.outline-2 h2 { margin-bottom: 0.3em; }
 
-#postamble .site-footer {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75em 1.25em;
-    margin-top: 0.75em;
-}
-
-#postamble .site-footer .sep {
-    color: var(--border);
-}
-
-#postamble .legal {
-    margin-top: 0.5em;
-    font-size: 0.85em;
-}
-
-div.outline-2 h2 { margin-bottom: 0; }
-
+/* Org inserts a paragraph containing only a timestamp when #+DATE is set */
 p:has(.timestamp-wrapper) { margin-top: 0; }
+
+/* Subtitles (from #+SUBTITLE) */
+.subtitle {
+    display: block;
+    font-family: var(--font-sans);
+    font-weight: 400;
+    font-size: 0.9rem;
+    letter-spacing: 0.02em;
+    text-transform: none;
+    color: var(--muted);
+    margin-top: 0.3em;
+}
