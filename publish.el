@@ -248,16 +248,65 @@ Returns nil when the current file is not in the manifest (e.g. index)."
           (concat
            "<nav class=\"prev-next\">"
            (if newer
-               (format "<a class=\"newer\" href=\"./%s.html\">&larr; Newer: %s</a>"
+               (format (concat "<a class=\"newer\" href=\"./%s.html\">"
+                               "<span class=\"label\">Newer</span>"
+                               "<span class=\"title\">&larr; %s</span>"
+                               "</a>")
                        (plist-get newer :base)
                        (org-html-encode-plain-text (plist-get newer :title)))
              "<span></span>")
            (if older
-               (format "<a class=\"older\" href=\"./%s.html\">Older: %s &rarr;</a>"
+               (format (concat "<a class=\"older\" href=\"./%s.html\">"
+                               "<span class=\"label\">Older</span>"
+                               "<span class=\"title\">%s &rarr;</span>"
+                               "</a>")
                        (plist-get older :base)
                        (org-html-encode-plain-text (plist-get older :title)))
              "<span></span>")
            "</nav>"))))))
+
+;; ---------------------------------------------------------------------------
+;; Eyebrow: per-article tag label rendered above <h1 class="title">.
+;; Pulled from the manifest so it mirrors #+FILETAGS without needing the
+;; author to mark anything up.  Only runs on files that are part of the
+;; notes manifest (articles); other pages pass through unchanged.
+
+(defun jangid--eyebrow-html (tags)
+  "Render the small-caps accent-color TAG · TAG label list for TAGS."
+  (when tags
+    (concat
+     "<p class=\"eyebrow\">"
+     (mapconcat
+      (lambda (tag)
+        (format "<a href=\"/notes/tags/%s.html\">%s</a>"
+                (jangid--tag-slug tag)
+                (org-html-encode-plain-text tag)))
+      tags
+      "<span class=\"sep\">·</span>")
+     "</p>")))
+
+(defun jangid--inject-eyebrow (text backend info)
+  "Final-output filter: inject the eyebrow before <h1 class=\"title\"> on notes."
+  (if (and (eq backend 'html)
+           jangid--notes-manifest)
+      (let* ((input-file (plist-get info :input-file))
+             (base (and input-file (file-name-base input-file)))
+             (entry (and base
+                         (cl-find base jangid--notes-manifest
+                                  :key (lambda (e) (plist-get e :base))
+                                  :test #'string=)))
+             (tags (and entry (plist-get entry :tags)))
+             (html (and tags (jangid--eyebrow-html tags))))
+        (if html
+            (replace-regexp-in-string
+             "<h1 class=\"title\">"
+             (concat html "\n<h1 class=\"title\">")
+             text t t)
+          text))
+    text))
+
+(add-to-list 'org-export-filter-final-output-functions
+             #'jangid--inject-eyebrow)
 
 ;; ---------------------------------------------------------------------------
 ;; Index and tag-page generation.  These write directly into docs/ after
