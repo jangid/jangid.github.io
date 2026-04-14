@@ -1,3 +1,0 @@
-#+TITLE: Hello Blog
-
-This is my attempt to post using org-mode. Yeah!
