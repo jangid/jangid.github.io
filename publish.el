@@ -106,6 +106,7 @@ type is upgraded to `summary_large_image' so the picture is actually shown."
        (when image-url
          (format "<meta name=\"twitter:image\" content=\"%s\"/>"
                  (jangid--xml-escape image-url)))
+       "<link rel=\"icon\" type=\"image/svg+xml\" href=\"/favicon.svg\"/>"
        (format "<link rel=\"alternate\" type=\"application/rss+xml\" title=\"%s\" href=\"/notes/feed.xml\"/>"
                (jangid--xml-escape (concat jangid-site-title " — Notes")))))
      "\n")))
@@ -691,6 +692,12 @@ title by `jangid--inject-article-header', not here."
          :base-extension "jpeg\\|jpg\\|gif\\|png"
          :publishing-directory ,(expand-file-name "images/" jangid-docs)
          :publishing-function org-publish-attachment)
+        ("root-assets"
+         :base-directory ,jangid-src
+         :publishing-directory ,jangid-docs
+         :base-extension "svg\\|ico\\|png\\|webmanifest\\|txt"
+         :recursive nil
+         :publishing-function org-publish-attachment)
         ("other"
          :base-directory ,(expand-file-name "other/" jangid-src)
          :publishing-directory ,(expand-file-name "other/" jangid-docs)
@@ -698,7 +705,7 @@ title by `jangid--inject-article-header', not here."
          :recursive t
          :publishing-function org-publish-attachment)
         ("website"
-         :components ("pages" "notes" "images" "css" "other"))))
+         :components ("pages" "notes" "images" "css" "other" "root-assets"))))
 
 ;; Publish
 (message "Publishing jangid.info from %s to %s" jangid-src jangid-docs)
