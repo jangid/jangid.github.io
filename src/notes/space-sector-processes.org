@@ -1,5 +1,7 @@
 #+TITLE: Process Discipline in India's Space Sector
 #+DATE: 2026-03-09
+#+DESCRIPTION: India's space startups are building rockets. The harder problem is building the processes that make them work.
+#+FILETAGS: :governance:india:
 #+OPTIONS: toc:nil
 
 India's space sector has over 400 companies and $726 million in venture funding. We are building rockets and satellites. But are we building the processes that make them work?

@@ -87,6 +87,69 @@ pre {
 .prev-next .newer { text-align: left; }
 .prev-next .older { text-align: right; margin-left: auto; }
 
+.tags-browse {
+    color: var(--muted);
+    font-size: 0.95em;
+    margin: 0.5em 0 2em;
+}
+
+.tags-browse a { color: var(--accent); text-decoration: none; }
+.tags-browse a:hover { text-decoration: underline; }
+
+.notes-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2em;
+}
+
+.notes-list .note-entry {
+    padding: 0.75em 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.notes-list .note-entry:last-child { border-bottom: none; }
+
+.notes-list .title {
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.notes-list .title:hover { text-decoration: underline; }
+
+.notes-list .date {
+    color: var(--muted);
+    font-size: 0.85em;
+    margin-left: 0.5em;
+}
+
+.notes-list .teaser {
+    margin: 0.35em 0 0.35em;
+    color: var(--fg);
+}
+
+.notes-list .tags {
+    margin-top: 0.25em;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4em;
+}
+
+.tag-chip {
+    display: inline-block;
+    padding: 0.1em 0.6em;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    font-size: 0.8em;
+    color: var(--muted);
+    text-decoration: none;
+    background: var(--code-bg);
+}
+
+.tag-chip:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
 #postamble a { color: var(--muted); }
 #postamble a:hover { color: var(--accent); }
 
