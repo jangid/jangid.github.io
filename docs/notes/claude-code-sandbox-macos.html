@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!--  -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sandboxing Claude Code on macOS: Seatbelt + Privoxy</title>
+<meta name="author" content="Pankaj Jangid" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-c:before { content: 'C'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'JavaScript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="../css/main.css" />
+</head>
+<body>
+<div id="preamble" class="status">
+<nav class="site-nav"><a href="/">Home</a> | <a href="/notes/">Notes</a></nav>
+</div>
+<div id="content" class="content">
+<h1 class="title">Sandboxing Claude Code on macOS: Seatbelt + Privoxy</h1>
+<p>
+When you run an AI coding agent in your terminal, you are not just giving it your codebase. You are giving it your user permissions. That means your SSH keys, your AWS credentials, your GPG keys, your Kubernetes config, your browser cookies &ndash; anything your shell can read, the agent can read. Anything your shell can exec, the agent can exec.
+</p>
+
+<p>
+I have been using Claude Code heavily at Optimizory and AlphaFi. The productivity gain is real. But so is the blast radius if something goes wrong. This note is about how I set it up to reduce that blast radius, and why I think every team using these tools should do the same before the next incident lands in their inbox.
+</p>
+
+
+<div id="orgb9da17c" class="figure">
+<p><img src="../images/claude-code-sandbox-macos.png" alt="claude-code-sandbox-macos.png" />
+</p>
+</div>
+<div id="outline-container-orgbef61ae" class="outline-2">
+<h2 id="orgbef61ae">This is Not Hypothetical</h2>
+<div class="outline-text-2" id="text-orgbef61ae">
+<p>
+Three things happened between late 2025 and early 2026 that changed how I think about this.
+</p>
+
+<p>
+In March 2026, Check Point Research published <a href="https://research.checkpoint.com/2026/rce-and-api-token-exfiltration-through-claude-code-project-files-cve-2025-59536/">CVE-2025-59536 and CVE-2026-21852</a>. The attack is simple: a malicious repository ships with a <code>.claude/settings.json</code> that defines a Hook, or a <code>.mcp.json</code> that auto-approves a remote server. The moment a developer opens the project, Claude Code executes the hook <i>before</i> the trust dialog renders. Remote code execution, API token theft, both pre-auth from the user's perspective.
+</p>
+
+<p>
+On March 31, 2026, Anthropic <a href="https://venturebeat.com/technology/claude-codes-source-code-appears-to-have-leaked-heres-what-we-know">accidentally published 512,000 lines of Claude Code source to npm</a>. The leak revealed the exact orchestration for hooks, MCP registration, and tool execution. Attackers now have a full map.
+</p>
+
+<p>
+Meanwhile, a systematic study of agentic coding tools (<a href="https://arxiv.org/html/2509.22040v1">arxiv:2509.22040</a>) showed that adaptive prompt injection attacks succeed against Claude Code, Cursor, and GitHub Copilot at rates above 85%. Invariant Labs demonstrated a <a href="https://botmonster.com/posts/ai-coding-agent-insider-threat-prompt-injection-mcp-exploits/">GitHub MCP hijack</a> where a malicious Issue filed on a public repo coerced the agent into leaking data from the user's private repos. The Cursor-plus-Supabase version of this leaked <code>service_role</code> keys via a support ticket.
+</p>
+
+<p>
+None of this is about Claude being "bad" &ndash; every agentic coding tool has the same shape of problem. The question is: what layer of the stack actually stops a bad instruction from reaching your keys?
+</p>
+</div>
+</div>
+<div id="outline-container-org982cb1a" class="outline-2">
+<h2 id="org982cb1a">Seatbelt: The Layer That Does Not Ask</h2>
+<div class="outline-text-2" id="text-org982cb1a">
+<p>
+In October 2025, Anthropic shipped <a href="https://code.claude.com/docs/en/sandboxing">native sandboxing for Claude Code</a>. On macOS it uses Apple's Seatbelt framework. On Linux it uses bubblewrap. Both are kernel-level.
+</p>
+
+<p>
+Seatbelt is not a new piece of software and not a marketing name. It is the same kernel sandbox that Chrome uses to isolate its renderer processes and the same primitive every iOS app runs inside. The <a href="https://chromium.googlesource.com/chromium/src/+/HEAD/sandbox/mac/seatbelt_sandbox_design.md">Chromium Mac Sandbox V2 design document</a> is the canonical reference &ndash; if you want to understand the actual enforcement boundary, read it. Chrome's threat model assumes the renderer will be compromised. Its sandbox exists so that when it is, the attacker cannot read your documents. That is the same assumption I want to make about an AI coding agent.
+</p>
+
+<p>
+Seatbelt enforces policies in the kernel. A sandboxed process does not see denied paths. It cannot <code>exec</code> outside allowed directories. It cannot open network sockets to non-allowed hosts. No prompt, no dialog, no soft confirmation. The syscall fails. This is important because every prompt-based guardrail in an agent eventually loses to a sufficiently creative attacker. A kernel denial does not.
+</p>
+
+<p>
+One honest note: Apple has marked the older <code>sandbox-exec</code> command-line tool as deprecated. The underlying kernel API that Claude Code uses is what Chrome also uses, and it is not deprecated. The CLI wrapper is.
+</p>
+</div>
+</div>
+<div id="outline-container-org38cf1be" class="outline-2">
+<h2 id="org38cf1be">Turning It On</h2>
+<div class="outline-text-2" id="text-org38cf1be">
+<p>
+Create or edit <code>~/.claude/settings.json</code> and add a sandbox block. Here is the minimum I would ship to a team:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-json"><code>{
+  "sandbox": {
+    "enabled": true,
+    "filesystem": {
+      "denyRead": [
+        "~/.ssh",
+        "~/.gnupg",
+        "~/.authinfo.gpg",
+        "~/.aws/credentials"
+      ],
+      "denyWrite": [
+        "~/.aws",
+        "~/.config",
+        "~/Library/Keychains"
+      ]
+    },
+    "network": {
+      "httpProxyPort": 8118,
+      "allowedDomains": [
+        "api.anthropic.com",
+        "registry.npmjs.org",
+        "github.com",
+        "pypi.org",
+        "crates.io"
+      ]
+    }
+  }
+}
+</code></pre>
+</div>
+
+<p>
+The <code>denyRead</code> list should cover every place a secret actually lives on your machine. Walk through your <code>$HOME</code> and think honestly. Mine also includes the Emacs authinfo file and a couple of per-project token caches. Yours will look different.
+</p>
+
+<p>
+The <code>denyWrite</code> list is about integrity. Even if a process cannot exfiltrate an AWS key, it could still modify <code>~/.aws/config</code> to point future CLI calls at an attacker-controlled endpoint. Deny writes to config directories you did not put there for the agent.
+</p>
+
+<p>
+The <code>allowedDomains</code> list is where most people under-invest. An agent that can reach any HTTPS host can exfiltrate anything it reads, in one <code>curl</code>. Keep the list tight. Add domains when you genuinely need them, not preemptively.
+</p>
+
+<p>
+All of the above is enforced at the OS level, not inside Claude Code. A compromised hook or a malicious MCP server that tries to escape the agent still hits the same kernel denial. That is what "defense in depth" actually means here.
+</p>
+</div>
+</div>
+<div id="outline-container-orgdfcede0" class="outline-2">
+<h2 id="orgdfcede0">The Network Layer: Why a Filtering Proxy on Top</h2>
+<div class="outline-text-2" id="text-orgdfcede0">
+<p>
+The sandbox's <code>allowedDomains</code> list is a positive allow list. Combined with a filtering proxy, you also get a <i>deny</i> list covering domains that are allowed through the positive list but happen to be actively malicious &ndash; compromised CDNs, typosquatted package mirrors, C2 infrastructure that happens to live on a domain the agent has legitimate reasons to reach.
+</p>
+
+<p>
+I run <a href="https://www.privoxy.org/">Privoxy</a> locally for this. It is boring, battle-tested, open-source filtering-proxy software &ndash; no telemetry, no cloud account. The sandbox config's <code>httpProxyPort: 8118</code> routes all sandboxed HTTP traffic through it.
+</p>
+
+<p>
+The filtering is only as good as the block list. I wrote a small script that aggregates five threat-intelligence feeds into a Privoxy action file:
+</p>
+
+<ul class="org-ul">
+<li><a href="https://urlhaus.abuse.ch/">URLhaus</a> (abuse.ch) &ndash; malware distribution URLs, updated every five minutes.</li>
+<li><a href="https://github.com/hagezi/dns-blocklists">HaGeZi DNS Blocklists</a> &ndash; aggregated threat intelligence, broad coverage.</li>
+<li>Emerging Threats (Proofpoint) &ndash; IDS-derived malware and APT domains.</li>
+<li><a href="https://lists.cyberhost.uk/">CyberHost</a> &ndash; verified malware and phishing.</li>
+<li><a href="https://gitlab.com/malware-filter/urlhaus-filter">urlhaus-filter</a> &ndash; domain-format mirror of URLhaus.</li>
+</ul>
+
+<p>
+After dedup, this typically lands around 1.1&ndash;1.2 million domains. Refreshed every six hours via cron.
+</p>
+
+<p>
+The full script is here: <b><a href="https://gist.github.com/jangid/00c36592a154c611de93923c649b3cf9">threat-to-privoxy.sh on GitHub Gist</a></b>.
+</p>
+
+<p>
+Setup on macOS:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash"><code>brew install privoxy
+brew services start privoxy
+
+<span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">Download the script (or save from the gist)
+</span>curl -o ~/bin/threat-to-privoxy.sh <span style="font-style: italic;">\</span>
+  https://gist.githubusercontent.com/jangid/00c36592a154c611de93923c649b3cf9/raw/threat-to-privoxy.sh
+chmod +x ~/bin/threat-to-privoxy.sh
+
+<span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">First run populates the action file and registers it
+</span>sudo ~/bin/threat-to-privoxy.sh
+brew services restart privoxy
+
+<span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">Keep it fresh
+</span>crontab -e
+<span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">Add:
+</span><span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">0 */6 * * * ~/bin/threat-to-privoxy.sh &amp;&amp; brew services restart privoxy</span>
+</code></pre>
+</div>
+
+<p>
+The script auto-detects Intel vs Apple Silicon Homebrew paths and is safe to re-run.
+</p>
+
+<p>
+One limit worth naming here: Privoxy is an HTTP/HTTPS filtering proxy. It does not cover raw TCP, SOCKS-tunnelled traffic, or non-HTTP protocols that a subprocess might use. For most package managers and <code>curl</code>-style fetches this is fine, because they speak HTTP. But if your workflow involves SSH tunnels, custom TCP clients, or a tool that opens its own SOCKS channel, that traffic bypasses Privoxy entirely. If you know of a well-audited SOCKS proxy with threat-intelligence integration comparable to what Privoxy does at the HTTP layer, I would genuinely like to hear about it &ndash; reply or message me. I plan to add a SOCKS layer next, and I would rather use something vetted than roll my own.
+</p>
+</div>
+</div>
+<div id="outline-container-orgf043420" class="outline-2">
+<h2 id="orgf043420">What This Does Not Protect</h2>
+<div class="outline-text-2" id="text-orgf043420">
+<p>
+I want to be honest about the limits, because "kernel sandbox" is easy to read as "solved."
+</p>
+
+<ul class="org-ul">
+<li><b>Prompt injection inside allowed domains.</b> If your <code>allowedDomains</code> includes <code>github.com</code> and an attacker files a malicious Issue that the agent reads, the sandbox does not see that as an attack &ndash; it is a legitimate request to an allowed host. Treat MCP servers and agent inputs as untrusted input, always.</li>
+<li><b>IDE and editor extensions outside Claude Code.</b> If you run other AI tools alongside &ndash; Cursor, Copilot, Windsurf, aider &ndash; each has its own permission model. Check their configurations separately. I will write about those in follow-up articles. The short version: every one of them needs the same analysis.</li>
+<li><b>The agent's legitimate reach.</b> The sandbox cannot tell the difference between "read this source file because I am refactoring" and "read this source file because an injected prompt told me to summarise it to a C2 server." Keep the write and network lists tight enough that summary-to-attacker has nowhere to land.</li>
+<li><b>Supply chain attacks on tools you install.</b> The sandbox gates what Claude Code can reach. It does not audit the integrity of a package the user tells <code>npm install</code> to fetch. That is a separate problem &ndash; use lockfiles, checksum verification, and something like <a href="https://github.com/trailofbits/claude-code-config">Trail of Bits' opinionated defaults</a> for the agent side.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org276ae81" class="outline-2">
+<h2 id="org276ae81">Set It Up Today</h2>
+<div class="outline-text-2" id="text-org276ae81">
+<p>
+The CVEs I cited existed in the wild before the fixes shipped. The source leak is permanent &ndash; it cannot be unpublished. The frequency of these incidents is going up, not down. And the same pattern applies to every other AI coding tool you run; the specific flags and config keys differ, but the threat model is identical.
+</p>
+
+<p>
+The Claude Code sandbox takes about ten minutes to configure properly. Privoxy takes another ten. Twenty minutes of work against a risk class that has already produced multiple public incidents. That is a good trade.
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Published: 2026-04-14</p><p class="creator">Created with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 31.0.50 (<a href="https://orgmode.org">Org</a> mode 9.8.2)</p>
+</div>
+</body>
+</html>

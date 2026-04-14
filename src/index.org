@@ -14,4 +14,7 @@ me on [[https://x.com/jangid][X]].
 
 Head over to [[file:notes/index.org][Notes]] to read what I've been writing about.
 
-Recent: [[file:notes/space-sector-processes.org][Process Discipline in India's Space Sector]], [[file:notes/colors-of-web.org][Colors of Web]]
+Recent:
+
+1. [[file:notes/claude-code-sandbox-macos.org][Sandboxing Claude Code on macOS: Seatbelt + Privoxy]]
+2. [[file:notes/space-sector-processes.org][Process Discipline in India's Space Sector]]

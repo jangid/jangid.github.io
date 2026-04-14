@@ -5,9 +5,14 @@
 ;;
 ;; Run from the codeisgreat directory. Generates HTML in docs/ from src/.
 
+;; Batch Emacs doesn't auto-initialise packages; htmlize lives in ELPA
+(require 'package)
+(package-initialize)
+
 (require 'org)
 (require 'ox-publish)
 (require 'ox-html)
+(require 'htmlize)
 
 ;; Resolve project root to the directory containing this script
 (defvar codeisgreat-root
@@ -55,8 +60,7 @@
          :html-postamble t
          :html-postamble-format (("en" "<p class=\"creator\">Created with %c</p>"))
          :section-numbers nil
-         :html-prefer-user-labels t
-         :html-indent t)
+         :html-prefer-user-labels t)
         ("notes"
          :base-directory ,(expand-file-name "notes/" codeisgreat-src)
          :publishing-directory ,(expand-file-name "notes/" codeisgreat-docs)
@@ -68,8 +72,7 @@
          ;; Show "Published: <date>" for articles, "Last updated: <timestamp>" for index
          :html-postamble jangid-notes-postamble
          :section-numbers nil
-         :html-prefer-user-labels t
-         :html-indent t)
+         :html-prefer-user-labels t)
         ("css"
          :base-directory ,(expand-file-name "css/" codeisgreat-src)
          :base-extension "css"

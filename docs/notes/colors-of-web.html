@@ -1,325 +1,326 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
- "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-  <head>
-    <!--  -->
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Colors of Web</title>
-    <meta name="author" content="Pankaj Jangid" />
-    <meta name="generator" content="Org Mode" />
-    <style type="text/css">
-      #content { max-width: 60em; margin: auto; }
-      .title  { text-align: center;
-		margin-bottom: .2em; }
-      .subtitle { text-align: center;
-		  font-size: medium;
-		  font-weight: bold;
-		  margin-top:0; }
-      .todo   { font-family: monospace; color: red; }
-      .done   { font-family: monospace; color: green; }
-      .priority { font-family: monospace; color: orange; }
-      .tag    { background-color: #eee; font-family: monospace;
-		padding: 2px; font-size: 80%; font-weight: normal; }
-      .timestamp { color: #bebebe; }
-      .timestamp-kwd { color: #5f9ea0; }
-      .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-      .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-      .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-      .underline { text-decoration: underline; }
-      #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-      p.verse { margin-left: 3%; }
-      pre {
-	  border: 1px solid #e6e6e6;
-	  border-radius: 3px;
-	  background-color: #f2f2f2;
-	  padding: 8pt;
-	  font-family: monospace;
-	  overflow: auto;
-	  margin: 1.2em;
-      }
-      pre.src {
-	  position: relative;
-	  overflow: auto;
-      }
-      pre.src:before {
-	  display: none;
-	  position: absolute;
-	  top: -8px;
-	  right: 12px;
-	  padding: 3px;
-	  color: #555;
-	  background-color: #f2f2f299;
-      }
-      pre.src:hover:before { display: inline; margin-top: 14px;}
-      /* Languages per Org manual */
-      pre.src-asymptote:before { content: 'Asymptote'; }
-      pre.src-awk:before { content: 'Awk'; }
-      pre.src-authinfo::before { content: 'Authinfo'; }
-      pre.src-C:before { content: 'C'; }
-      /* pre.src-C++ doesn't work in CSS */
-      pre.src-clojure:before { content: 'Clojure'; }
-      pre.src-css:before { content: 'CSS'; }
-      pre.src-D:before { content: 'D'; }
-      pre.src-ditaa:before { content: 'ditaa'; }
-      pre.src-dot:before { content: 'Graphviz'; }
-      pre.src-calc:before { content: 'Emacs Calc'; }
-      pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-      pre.src-fortran:before { content: 'Fortran'; }
-      pre.src-gnuplot:before { content: 'gnuplot'; }
-      pre.src-haskell:before { content: 'Haskell'; }
-      pre.src-hledger:before { content: 'hledger'; }
-      pre.src-java:before { content: 'Java'; }
-      pre.src-js:before { content: 'Javascript'; }
-      pre.src-latex:before { content: 'LaTeX'; }
-      pre.src-ledger:before { content: 'Ledger'; }
-      pre.src-lisp:before { content: 'Lisp'; }
-      pre.src-lilypond:before { content: 'Lilypond'; }
-      pre.src-lua:before { content: 'Lua'; }
-      pre.src-matlab:before { content: 'MATLAB'; }
-      pre.src-mscgen:before { content: 'Mscgen'; }
-      pre.src-ocaml:before { content: 'Objective Caml'; }
-      pre.src-octave:before { content: 'Octave'; }
-      pre.src-org:before { content: 'Org mode'; }
-      pre.src-oz:before { content: 'OZ'; }
-      pre.src-plantuml:before { content: 'Plantuml'; }
-      pre.src-processing:before { content: 'Processing.js'; }
-      pre.src-python:before { content: 'Python'; }
-      pre.src-R:before { content: 'R'; }
-      pre.src-ruby:before { content: 'Ruby'; }
-      pre.src-sass:before { content: 'Sass'; }
-      pre.src-scheme:before { content: 'Scheme'; }
-      pre.src-screen:before { content: 'Gnu Screen'; }
-      pre.src-sed:before { content: 'Sed'; }
-      pre.src-sh:before { content: 'shell'; }
-      pre.src-sql:before { content: 'SQL'; }
-      pre.src-sqlite:before { content: 'SQLite'; }
-      /* additional languages in org.el's org-babel-load-languages alist */
-      pre.src-forth:before { content: 'Forth'; }
-      pre.src-io:before { content: 'IO'; }
-      pre.src-J:before { content: 'J'; }
-      pre.src-makefile:before { content: 'Makefile'; }
-      pre.src-maxima:before { content: 'Maxima'; }
-      pre.src-perl:before { content: 'Perl'; }
-      pre.src-picolisp:before { content: 'Pico Lisp'; }
-      pre.src-scala:before { content: 'Scala'; }
-      pre.src-shell:before { content: 'Shell Script'; }
-      pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-      /* additional language identifiers per "defun org-babel-execute"
+<head>
+<!--  -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Colors of Web</title>
+<meta name="author" content="Pankaj Jangid" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-c:before { content: 'C'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'JavaScript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
        in ob-*.el */
-      pre.src-cpp:before  { content: 'C++'; }
-      pre.src-abc:before  { content: 'ABC'; }
-      pre.src-coq:before  { content: 'Coq'; }
-      pre.src-groovy:before  { content: 'Groovy'; }
-      /* additional language identifiers from org-babel-shell-names in
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
      ob-shell.el: ob-shell is the only babel language using a lambda to put
      the execution function name together. */
-      pre.src-bash:before  { content: 'bash'; }
-      pre.src-csh:before  { content: 'csh'; }
-      pre.src-ash:before  { content: 'ash'; }
-      pre.src-dash:before  { content: 'dash'; }
-      pre.src-ksh:before  { content: 'ksh'; }
-      pre.src-mksh:before  { content: 'mksh'; }
-      pre.src-posh:before  { content: 'posh'; }
-      /* Additional Emacs modes also supported by the LaTeX listings package */
-      pre.src-ada:before { content: 'Ada'; }
-      pre.src-asm:before { content: 'Assembler'; }
-      pre.src-caml:before { content: 'Caml'; }
-      pre.src-delphi:before { content: 'Delphi'; }
-      pre.src-html:before { content: 'HTML'; }
-      pre.src-idl:before { content: 'IDL'; }
-      pre.src-mercury:before { content: 'Mercury'; }
-      pre.src-metapost:before { content: 'MetaPost'; }
-      pre.src-modula-2:before { content: 'Modula-2'; }
-      pre.src-pascal:before { content: 'Pascal'; }
-      pre.src-ps:before { content: 'PostScript'; }
-      pre.src-prolog:before { content: 'Prolog'; }
-      pre.src-simula:before { content: 'Simula'; }
-      pre.src-tcl:before { content: 'tcl'; }
-      pre.src-tex:before { content: 'TeX'; }
-      pre.src-plain-tex:before { content: 'Plain TeX'; }
-      pre.src-verilog:before { content: 'Verilog'; }
-      pre.src-vhdl:before { content: 'VHDL'; }
-      pre.src-xml:before { content: 'XML'; }
-      pre.src-nxml:before { content: 'XML'; }
-      /* add a generic configuration mode; LaTeX export needs an additional
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
      (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-      pre.src-conf:before { content: 'Configuration File'; }
+  pre.src-conf:before { content: 'Configuration File'; }
 
-      table { border-collapse:collapse; }
-      caption.t-above { caption-side: top; }
-      caption.t-bottom { caption-side: bottom; }
-      td, th { vertical-align:top;  }
-      th.org-right  { text-align: center;  }
-      th.org-left   { text-align: center;   }
-      th.org-center { text-align: center; }
-      td.org-right  { text-align: right;  }
-      td.org-left   { text-align: left;   }
-      td.org-center { text-align: center; }
-      dt { font-weight: bold; }
-      .footpara { display: inline; }
-      .footdef  { margin-bottom: 1em; }
-      .figure { padding: 1em; }
-      .figure p { text-align: center; }
-      .equation-container {
-	  display: table;
-	  text-align: center;
-	  width: 100%;
-      }
-      .equation {
-	  vertical-align: middle;
-      }
-      .equation-label {
-	  display: table-cell;
-	  text-align: right;
-	  vertical-align: middle;
-      }
-      .inlinetask {
-	  padding: 10px;
-	  border: 2px solid gray;
-	  margin: 10px;
-	  background: #ffffcc;
-      }
-      #org-div-home-and-up
-      { text-align: right; font-size: 70%; white-space: nowrap; }
-      textarea { overflow-x: auto; }
-      .linenr { font-size: smaller }
-      .code-highlighted { background-color: #ffff00; }
-      .org-info-js_info-navigation { border-style: none; }
-      #org-info-js_console-label
-      { font-size: 10px; font-weight: bold; white-space: nowrap; }
-      .org-info-js_search-highlight
-      { background-color: #ffff00; color: #000000; font-weight: bold; }
-      .org-svg { }
-    </style>
-    <link rel="stylesheet" type="text/css" href="../css/main.css" />
-  </head>
-  <body>
-    <div id="preamble" class="status">
-      <nav class="site-nav"><a href="/">Home</a> | <a href="/notes/">Notes</a></nav>
-    </div>
-    <div id="content" class="content">
-      <h1 class="title">Colors of Web</h1>
-      <p>
-	Hue-Saturation-Luminosity (HSL); and not just Red-Green-Blue (RGB).
-      </p>
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="../css/main.css" />
+</head>
+<body>
+<div id="preamble" class="status">
+<nav class="site-nav"><a href="/">Home</a> | <a href="/notes/">Notes</a></nav>
+</div>
+<div id="content" class="content">
+<h1 class="title">Colors of Web</h1>
+<p>
+Hue-Saturation-Luminosity (HSL); and not just Red-Green-Blue (RGB).
+</p>
 
-      <p>
-	HSL is about how we think about colors. You might have observed in some of the
-	CSS files that the colors are now specified as hsl(hue, saturation, luminosity)
-	instead of rgb(red, green, blue). I was going through various color guides and
-	have come up with this summary.
-      </p>
-      <div id="outline-container-org7444147" class="outline-2">
-	<h2 id="org7444147">Hue</h2>
-	<div class="outline-text-2" id="text-org7444147">
-	  <p>
-	    Hue is the actual selection of color that we want. The other two values have
-	    nothing to do with the shade selection. On a dial from 0° to 360° the color
-	    varies from red, through violet, to red again i.e. the rainbow colors.
-	  </p>
-
-
-	  <div id="org5c7557a" class="figure">
-	    <p><img src="../images/hue_1.jpeg" alt="hue_1.jpeg" />
-	    </p>
-	  </div>
-
-	  <p>
-	    I use YUI Color Picker to decide the colors on my pages and screens. You may use
-	    any other, lots of them on GitHub.
-	  </p>
+<p>
+HSL is about how we think about colors. You might have observed in some of the
+CSS files that the colors are now specified as hsl(hue, saturation, luminosity)
+instead of rgb(red, green, blue). I was going through various color guides and
+have come up with this summary.
+</p>
+<div id="outline-container-org77b99b0" class="outline-2">
+<h2 id="org77b99b0">Hue</h2>
+<div class="outline-text-2" id="text-org77b99b0">
+<p>
+Hue is the actual selection of color that we want. The other two values have
+nothing to do with the shade selection. On a dial from 0° to 360° the color
+varies from red, through violet, to red again i.e. the rainbow colors.
+</p>
 
 
-	  <div id="org203e9b5" class="figure">
-	    <p><img src="../images/hue_2.jpeg" alt="hue_2.jpeg" />
-	    </p>
-	  </div>
+<div id="org8f086b5" class="figure">
+<p><img src="../images/hue_1.jpeg" alt="hue_1.jpeg" />
+</p>
+</div>
 
-	  <p>
-	    At 60° hue it is yellow and 240° blue. Once you have zeroed in on which shade
-	    you want move on to the next parameter i.e. saturation.
-	  </p>
-	</div>
-      </div>
-      <div id="outline-container-orgaed3f11" class="outline-2">
-	<h2 id="orgaed3f11">Saturation</h2>
-	<div class="outline-text-2" id="text-orgaed3f11">
-	  <p>
-	    I think of saturation in terms of a color’s age. A blue, or for that matter any
-	    colored, object getting older and older will fade in color and ultimately turn
-	    grey.
-	  </p>
+<p>
+I use YUI Color Picker to decide the colors on my pages and screens. You may use
+any other, lots of them on GitHub.
+</p>
 
 
-	  <div id="orga01b063" class="figure">
-	    <p><img src="../images/saturation_1.jpeg" alt="saturation_1.jpeg" />
-	    </p>
-	  </div>
+<div id="orgc8bc6e9" class="figure">
+<p><img src="../images/hue_2.jpeg" alt="hue_2.jpeg" />
+</p>
+</div>
+
+<p>
+At 60° hue it is yellow and 240° blue. Once you have zeroed in on which shade
+you want move on to the next parameter i.e. saturation.
+</p>
+</div>
+</div>
+<div id="outline-container-org5ff6d93" class="outline-2">
+<h2 id="org5ff6d93">Saturation</h2>
+<div class="outline-text-2" id="text-org5ff6d93">
+<p>
+I think of saturation in terms of a color’s age. A blue, or for that matter any
+colored, object getting older and older will fade in color and ultimately turn
+grey.
+</p>
 
 
-	  <div id="org57e6933" class="figure">
-	    <p><img src="../images/saturation_2.jpeg" alt="saturation_2.jpeg" />
-	    </p>
-	  </div>
+<div id="orgab11738" class="figure">
+<p><img src="../images/saturation_1.jpeg" alt="saturation_1.jpeg" />
+</p>
+</div>
 
 
-	  <p>
-	    It doesn’t matter which color is selected (hue). When the saturation is 0% it
-	    will look grey. And when the saturation is 100% the color has full intensity;
-	    like a brand new object.
-	  </p>
-	</div>
-      </div>
-      <div id="outline-container-org2460c5d" class="outline-2">
-	<h2 id="org2460c5d">Luminosity</h2>
-	<div class="outline-text-2" id="text-org2460c5d">
-	  <p>
-	    Have you ever entered a darkroom, where no light can enter? Not very long
-	    ago, photographers used to process photos in a darkroom. In a darkroom, in the
-	    absence of light, all colors look the same i.e. black.
-	  </p>
-
-	  <p>
-	    Do you remember the analog brightness control in color televisions? If you turn
-	    the knob full clockwise everything turns white.
-	  </p>
+<div id="org4225571" class="figure">
+<p><img src="../images/saturation_2.jpeg" alt="saturation_2.jpeg" />
+</p>
+</div>
 
 
-	  <div id="org2499f0c" class="figure">
-	    <p><img src="../images/luminosity_1.jpeg" alt="luminosity_1.jpeg" />
-	    </p>
-	  </div>
+<p>
+It doesn’t matter which color is selected (hue). When the saturation is 0% it
+will look grey. And when the saturation is 100% the color has full intensity;
+like a brand new object.
+</p>
+</div>
+</div>
+<div id="outline-container-orgfea9870" class="outline-2">
+<h2 id="orgfea9870">Luminosity</h2>
+<div class="outline-text-2" id="text-orgfea9870">
+<p>
+Have you ever entered a darkroom, where no light can enter? Not very long
+ago, photographers used to process photos in a darkroom. In a darkroom, in the
+absence of light, all colors look the same i.e. black.
+</p>
+
+<p>
+Do you remember the analog brightness control in color televisions? If you turn
+the knob full clockwise everything turns white.
+</p>
 
 
-	  <div id="org5285e1a" class="figure">
-	    <p><img src="../images/luminosity_2.jpeg" alt="luminosity_2.jpeg" />
-	    </p>
-	  </div>
+<div id="org9921abd" class="figure">
+<p><img src="../images/luminosity_1.jpeg" alt="luminosity_1.jpeg" />
+</p>
+</div>
 
-	  <p>
-	    I think of luminosity in the same way i.e. how much white light is falling on
-	    the object. It does not matter what hue you have selected or what saturation you
-	    have set the object will look black when luminosity is 0% i.e. no light and it
-	    will look white when it is 100% i.e. full bright.
-	  </p>
 
-	  <p>
-	    I find this analogy easier because thinking in terms of red-green-blue is not
-	    very natural. We don’t know exactly what combination of red, green and blue to use
-	    to produce a certain color. But our minds can comprehend color, intensity and
-	    brightness much more easily.
-	  </p>
+<div id="orgb306533" class="figure">
+<p><img src="../images/luminosity_2.jpeg" alt="luminosity_2.jpeg" />
+</p>
+</div>
 
-	  <p>
-	    I hope you enjoyed. And you will use hsl() in your next CSS.
-	  </p>
-	</div>
-      </div>
-    </div>
-    <div id="postamble" class="status">
-      <p class="date">Published: 2022-06-21</p><p class="creator">Created with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 31.0.50 (<a href="https://orgmode.org">Org</a> mode 9.7.11)</p>
-    </div>
-  </body>
+<p>
+I think of luminosity in the same way i.e. how much white light is falling on
+the object. It does not matter what hue you have selected or what saturation you
+have set the object will look black when luminosity is 0% i.e. no light and it
+will look white when it is 100% i.e. full bright.
+</p>
+
+<p>
+I find this analogy easier because thinking in terms of red-green-blue is not
+very natural. We don’t know exactly what combination of red, green and blue to use
+to produce a certain color. But our minds can comprehend color, intensity and
+brightness much more easily.
+</p>
+
+<p>
+I hope you enjoyed. And you will use hsl() in your next CSS.
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Published: 2022-06-21</p><p class="creator">Created with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 31.0.50 (<a href="https://orgmode.org">Org</a> mode 9.8.2)</p>
+</div>
+</body>
 </html>
