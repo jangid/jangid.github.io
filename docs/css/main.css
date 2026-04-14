@@ -1,41 +1,100 @@
+:root {
+    --bg: #ffffff;
+    --fg: #1a1a1a;
+    --muted: #666;
+    --accent: #0b5fff;
+    --border: #ccc;
+    --code-bg: #f4f4f4;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #121417;
+        --fg: #e6e6e6;
+        --muted: #9aa0a6;
+        --accent: #7aa7ff;
+        --border: #2a2f36;
+        --code-bg: #1b1f24;
+    }
+}
+
+html { background: var(--bg); }
+
+body {
+    color: var(--fg);
+    background: var(--bg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                 "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+}
+
 #content, #postamble, #preamble {
     max-width: 80ch;
-    margin: 0;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+a { color: var(--accent); }
+
+img, video {
+    max-width: 100%;
+    height: auto;
+}
+
+pre, code {
+    background: var(--code-bg);
+    color: var(--fg);
+}
+
+pre {
+    padding: 0.75em 1em;
+    border-radius: 4px;
+    overflow-x: auto;
 }
 
 .site-nav {
     padding: 0.5em 0;
     margin-bottom: 1em;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid var(--border);
     font-size: 0.9em;
 }
 
 .site-nav a {
     text-decoration: none;
-    color: #333;
+    color: var(--fg);
 }
 
-.site-nav a:hover {
-    text-decoration: underline;
-}
+.site-nav a:hover { text-decoration: underline; }
 
 #postamble {
-    border-top: 1px solid #ccc;
-}
-
-#postamble .date {
-    color: #666;
+    border-top: 1px solid var(--border);
+    margin-top: 3em;
+    padding-top: 1em;
     font-size: 0.9em;
+    color: var(--muted);
 }
 
-p img {
-    max-width: 90%;
+#postamble a { color: var(--muted); }
+#postamble a:hover { color: var(--accent); }
+
+#postamble .date { color: var(--muted); }
+
+#postamble .site-footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75em 1.25em;
+    margin-top: 0.75em;
 }
 
-div.outline-2 h2 {
-    margin-bottom: 0;
+#postamble .site-footer .sep {
+    color: var(--border);
 }
 
-p:has(.timestamp-wrapper) {
-    margin-top: 0;
+#postamble .legal {
+    margin-top: 0.5em;
+    font-size: 0.85em;
 }
+
+div.outline-2 h2 { margin-bottom: 0; }
+
+p:has(.timestamp-wrapper) { margin-top: 0; }

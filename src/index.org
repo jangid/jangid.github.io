@@ -9,8 +9,8 @@ easy access everywhere to my essential writing toolbox - /Emacs/.
 Plus, I might actually be protecting /your/ privacy in the process.
 
 If you have any suggestions, comments, or just feel like saying hello,
-drop me an email at: /pankaj@.../. You're also welcome to connect with
-me on [[https://x.com/jangid][X]].
+drop me an email at [[mailto:pankaj@jangid.info][pankaj@jangid.info]]. You can also find me on
+[[https://x.com/jangid][X]], [[https://www.linkedin.com/in/pankaj-jangid/][LinkedIn]], and [[https://github.com/jangid][GitHub]].
 
 Head over to [[file:notes/index.org][Notes]] to read what I've been writing about.
 

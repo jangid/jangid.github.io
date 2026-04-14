@@ -1,9 +1,9 @@
-;;; publish.el --- Build codeisgreat.org site from command line
+;;; publish.el --- Build jangid.info from command line
 ;;
 ;; Usage:
 ;;   /Applications/Emacs.app/Contents/MacOS/Emacs --batch -l publish.el
 ;;
-;; Run from the codeisgreat directory. Generates HTML in docs/ from src/.
+;; Run from the project root. Generates HTML in docs/ from src/.
 
 ;; Batch Emacs doesn't auto-initialise packages; htmlize lives in ELPA
 (require 'package)
@@ -15,11 +15,11 @@
 (require 'htmlize)
 
 ;; Resolve project root to the directory containing this script
-(defvar codeisgreat-root
+(defvar jangid-root
   (file-name-directory (or load-file-name buffer-file-name default-directory)))
 
-(defvar codeisgreat-src (expand-file-name "src/" codeisgreat-root))
-(defvar codeisgreat-docs (expand-file-name "docs/" codeisgreat-root))
+(defvar jangid-src (expand-file-name "src/" jangid-root))
+(defvar jangid-docs (expand-file-name "docs/" jangid-root))
 
 ;; Disable interactive prompts in batch mode
 (setq org-confirm-babel-evaluate nil)
@@ -28,69 +28,103 @@
 (setq org-publish-use-timestamps-flag
       (not (getenv "FORCE_PUBLISH")))
 
+;; Register #+UPDATED: as a recognised file keyword so it lands in the
+;; export info plist as :updated.
+(add-to-list 'org-export-options-alist
+             '(:updated "UPDATED" nil nil parse))
+
 ;; Navigation bar HTML
-(defvar codeisgreat-nav
+(defvar jangid-nav
   "<nav class=\"site-nav\"><a href=\"/\">Home</a> | <a href=\"/notes/\">Notes</a></nav>")
 
 ;; Suppress build timestamp in HTML comment to avoid noisy diffs
 (setq org-html-metadata-timestamp-format "")
 
-;; Postamble function for notes: show published date for articles,
-;; last updated for pages without #+DATE (like the index).
-(defun jangid-notes-postamble (info)
-  "Return postamble HTML. INFO is the export communication channel."
-  (let ((date (org-export-get-date info))
-        (creator (plist-get info :creator)))
+(defun jangid--footer-html ()
+  "Shared site footer: contact, socials, license, copyright."
+  (let ((year (format-time-string "%Y")))
     (concat
-     (if date
-         (format "<p class=\"date\">Published: %s</p>"
-                 (org-export-data date info))
+     "<div class=\"site-footer\">"
+     "<span><a href=\"mailto:pankaj@jangid.info\">pankaj@jangid.info</a></span>"
+     "<span class=\"sep\">·</span>"
+     "<span><a href=\"https://x.com/jangid\" rel=\"me\">X</a></span>"
+     "<span class=\"sep\">·</span>"
+     "<span><a href=\"https://www.linkedin.com/in/pankaj-jangid/\" rel=\"me\">LinkedIn</a></span>"
+     "<span class=\"sep\">·</span>"
+     "<span><a href=\"https://github.com/jangid\" rel=\"me\">GitHub</a></span>"
+     "</div>"
+     (format
+      (concat "<div class=\"legal\">"
+              "&copy; 2005&ndash;%s Pankaj Jangid. "
+              "Prose licensed under "
+              "<a href=\"https://creativecommons.org/licenses/by/4.0/\">CC BY 4.0</a>; "
+              "code snippets under the MIT License."
+              "</div>")
+      year))))
+
+(defun jangid-notes-postamble (info)
+  "Postamble for notes: published / updated dates, then site footer."
+  (let* ((date (org-export-get-date info))
+         (updated (plist-get info :updated))
+         (updated-str (and updated (org-element-interpret-data updated))))
+    (concat
+     (cond
+      (date
+       (concat
+        (format "<p class=\"date\">Published: %s"
+                (org-export-data date info))
+        (when (and updated-str (not (string-blank-p updated-str)))
+          (format " &middot; Updated: %s" updated-str))
+        "</p>"))
+      (t
        (format "<p class=\"date\">Last updated: %s</p>"
-               (format-time-string "%Y-%m-%d")))
-     (format "<p class=\"creator\">Created with %s</p>" creator))))
+               (format-time-string "%Y-%m-%d"))))
+     (jangid--footer-html))))
+
+(defun jangid-pages-postamble (info)
+  "Postamble for top-level pages: just the site footer."
+  (jangid--footer-html))
 
 (setq org-publish-project-alist
       `(("pages"
-         :base-directory ,codeisgreat-src
-         :publishing-directory ,codeisgreat-docs
+         :base-directory ,jangid-src
+         :publishing-directory ,jangid-docs
          :publishing-function org-html-publish-to-html
          :html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"css/main.css\" />"
          :with-toc nil
-         :html-preamble ,codeisgreat-nav
-         :html-postamble t
-         :html-postamble-format (("en" "<p class=\"creator\">Created with %c</p>"))
+         :html-preamble ,jangid-nav
+         :html-postamble jangid-pages-postamble
          :section-numbers nil
          :html-prefer-user-labels t)
         ("notes"
-         :base-directory ,(expand-file-name "notes/" codeisgreat-src)
-         :publishing-directory ,(expand-file-name "notes/" codeisgreat-docs)
+         :base-directory ,(expand-file-name "notes/" jangid-src)
+         :publishing-directory ,(expand-file-name "notes/" jangid-docs)
          :publishing-function org-html-publish-to-html
          :html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"../css/main.css\" />"
          :with-toc nil
          :with-date t
-         :html-preamble ,codeisgreat-nav
-         ;; Show "Published: <date>" for articles, "Last updated: <timestamp>" for index
+         :html-preamble ,jangid-nav
          :html-postamble jangid-notes-postamble
          :section-numbers nil
          :html-prefer-user-labels t)
         ("css"
-         :base-directory ,(expand-file-name "css/" codeisgreat-src)
+         :base-directory ,(expand-file-name "css/" jangid-src)
          :base-extension "css"
-         :publishing-directory ,(expand-file-name "css/" codeisgreat-docs)
+         :publishing-directory ,(expand-file-name "css/" jangid-docs)
          :publishing-function org-publish-attachment)
         ("images"
-         :base-directory ,(expand-file-name "images/" codeisgreat-src)
+         :base-directory ,(expand-file-name "images/" jangid-src)
          :base-extension "jpeg\\|jpg\\|gif\\|png"
-         :publishing-directory ,(expand-file-name "images/" codeisgreat-docs)
+         :publishing-directory ,(expand-file-name "images/" jangid-docs)
          :publishing-function org-publish-attachment)
         ("other"
-         :base-directory ,(expand-file-name "other/" codeisgreat-src)
-         :publishing-directory ,(expand-file-name "other/" codeisgreat-docs)
+         :base-directory ,(expand-file-name "other/" jangid-src)
+         :publishing-directory ,(expand-file-name "other/" jangid-docs)
          :publishing-function org-publish-attachment)
         ("website"
          :components ("pages" "notes" "images" "css" "other"))))
 
 ;; Publish
-(message "Publishing codeisgreat.org from %s to %s" codeisgreat-src codeisgreat-docs)
+(message "Publishing jangid.info from %s to %s" jangid-src jangid-docs)
 (org-publish "website")
 (message "Done.")
