@@ -1,9 +1,10 @@
 #+TITLE: Pankaj Jangid
-#+SUBTITLE: Notes on software, entrepreneurship, and how we are governed.
+#+SUBTITLE: Notes on AI, blockchain, and how we are governed.
 #+OPTIONS: toc:nil
 
-I co-founded [[https://optimizory.com/][Optimizory]] and [[https://alphafi.xyz/][AlphaFi]]. Most of what I write is
-grounded in India, even when I'm writing it from somewhere else.
+I work on AI and blockchain, and I keep an eye on robotics and IoT.
+Most of what I write about public systems is grounded in India, even
+when I'm writing it from somewhere else.
 
 This is where I write -- long-form when the thought needs it,
 shorter when it doesn't. Everything here is written in Emacs, which
