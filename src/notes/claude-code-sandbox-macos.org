@@ -2,6 +2,7 @@
 #+DATE: 2026-04-14
 #+DESCRIPTION: How to reduce the blast radius of AI coding agents on macOS using Apple Seatbelt and an HTTPS proxy, without giving up the productivity gains that make these tools worth running in the first place.
 #+FILETAGS: :tech:security:ai:
+#+OG_IMAGE: /images/claude-code-sandbox-macos-card.png
 #+OPTIONS: toc:nil
 
 When you run an AI coding agent in your terminal, you are not just giving it your codebase. You are giving it your user permissions. That means your SSH keys, your AWS credentials, your GPG keys, your Kubernetes config, your browser cookies -- anything your shell can read, the agent can read. Anything your shell can exec, the agent can exec.
