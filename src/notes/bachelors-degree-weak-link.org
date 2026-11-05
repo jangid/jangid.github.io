@@ -50,7 +50,7 @@ China and South Korea have six each. India has none. One list does not settle an
 
 The outside view could be dismissed as a matter of reputation. So I looked at what Indian data says about Indian graduates.
 
-[[https://docs.avantifellows.org/analyses/plfs/returns/][Avanti Fellows analysed]] the 2025 Periodic Labour Force Survey and compared qualifications by two things: the chance of holding a regular-salaried job, and the median monthly wage. Combining both, they priced each qualification against someone who stopped at class 12. Here are six rows from their table.
+[[https://docs.avantifellows.org/analyses/plfs/returns/][Avanti Fellows analysed]] the 2025 Periodic Labour Force Survey and compared qualifications by two things: the chance of holding a regular-salaried job, and the median monthly wage. Combining both, they priced each qualification against someone who stopped at class 12. The method is simple. Multiply the chance of a formal job by the median wage, and divide by the same figure for class 12. Here are six rows from their table.
 
 | Pathway                              | Formal job | Median wage | vs class 12 |
 |--------------------------------------+------------+-------------+-------------|
