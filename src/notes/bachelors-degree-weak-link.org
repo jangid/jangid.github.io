@@ -1,0 +1,114 @@
+#+TITLE: The Weak Link Is the Bachelor's Degree
+#+DATE: 2026-11-05
+#+DESCRIPTION: A plain bachelor's degree in India is worth only 1.5 times a class 12 education, and more years of study do not repair it. The repair is inside the three years.
+#+FILETAGS: :governance:india:
+#+OG_IMAGE: /images/bachelors-degree-weak-link-card.png
+#+OPTIONS: toc:nil
+
+Sridhar Vembu [[https://theprint.in/feature/zohos-sridhar-vembu-wants-india-to-shut-down-mba-schools/3085817/][recently said]] that India should shut down its business schools and build startup incubators instead. His point was that the country needs founders and experimentation, not more MBA graduates.
+
+I agree with parts of this. Business schools train people well in finance, sales and resourcing. They teach the transactional side of a business. They do not teach how to see a large problem and build something that solves it. Incentives in that world are tied to deal outcomes, and the larger picture gets lost.
+
+But I want to extend his view one level down. The problem does not start at the MBA. It starts with the three-year bachelor's degree that comes before it. If that degree is weak, no amount of study stacked on top will repair it.
+
+I am writing this mainly for teachers and for the people who make education policy. They are the ones who can change it. I also hope serious students read it, because they live with the result.
+
+* The Outside Measure
+
+The Abu Dhabi Residents Office publishes [[https://adro.gov.ae/-/media/Project/Expat-Bureau/International-Universities.pdf][a list of 100 universities]] whose graduates qualify for the Abu Dhabi Golden Visa. The file is dated July 2023, and it is still the list on their site. It came up again in news reports this September. I am not commenting on the policy itself. I am reading the list as what it is: an outside rating of which universities produce graduates that another country wants.
+
+I tallied the list by university name. Two universities appear twice, so it has 98 distinct names. This is how it breaks down.
+
+| Region              | Universities on the list |
+|---------------------+--------------------------|
+| USA                 |                       27 |
+| Asia                |                       26 |
+| UK                  |                       17 |
+| Europe excluding UK |                       16 |
+| Australia           |                        7 |
+| Canada              |                        3 |
+| New Zealand         |                        1 |
+| Latin America       |                        1 |
+| India               |                        0 |
+
+Asia is not missing from the list. Asia is the second-largest group. So I looked at the Asian entries separately.
+
+| Asian country or territory | Universities on the list |
+|----------------------------+--------------------------|
+| Mainland China             |                        6 |
+| South Korea                |                        6 |
+| Japan                      |                        5 |
+| Hong Kong                  |                        5 |
+| Singapore                  |                        2 |
+| Taiwan                     |                        1 |
+| Malaysia                   |                        1 |
+| India                      |                        0 |
+
+China and South Korea have six each. India has none. One list does not settle anything. But it is a fair signal of how our universities are seen from outside, and it should make us ask why.
+
+* The Inside Measure
+
+The outside view could be dismissed as a matter of reputation. So I looked at what Indian data says about Indian graduates.
+
+[[https://docs.avantifellows.org/analyses/plfs/returns/][Avanti Fellows analysed]] the 2025 Periodic Labour Force Survey and compared qualifications by two things: the chance of holding a regular-salaried job, and the median monthly wage. Combining both, they priced each qualification against someone who stopped at class 12. Here are six rows from their table.
+
+| Pathway                              | Formal job | Median wage | vs class 12 |
+|--------------------------------------+------------+-------------+-------------|
+| Class 12                             |      19.1% | Rs 15,000   |        1.00 |
+| General degree                       |      23.9% | Rs 18,000   |        1.50 |
+| General PG degree                    |      31.1% | Rs 22,000   |        2.39 |
+| Engineering diploma (below graduate) |      49.5% | Rs 18,000   |        3.12 |
+| Engineering degree                   |      56.6% | Rs 35,000   |        6.92 |
+| Engineering PG degree                |      59.5% | Rs 33,000   |        6.86 |
+
+A plain bachelor's degree in science, arts or commerce is worth about 1.5 times class 12. That is the weakest return of any qualification past class 12. And 18% of the age band holds it, more than twice the share of every technical pathway combined.
+
+Look at the diploma row. An engineering diploma below graduate level is worth 3.1 times class 12, more than double the general degree. The spread between different routes after school is wider than the spread between class 10 and a bachelor's degree.
+
+This is not a new finding. [[https://www.isec.ac.in/the-changing-rates-of-return-to-education-in-india-evidence-from-nss-data/][A study from ISEC]], using NSS data from 1983 to 2011-12, found that for regular workers the returns were highest for a diploma, followed by graduation and above. Two studies, two decades apart, on different data, say the same thing. A focused diploma does better than a general degree.
+
+[[https://durham-repository.worktribe.com/output/1455851/academic-specialization-and-returns-to-education-evidence-from-india][An older paper in the Journal of Education and Work]] adds one more piece. At the graduate level, returns rose more in management and engineering than in science, arts and commerce. So the gap is not across all degrees. It sits in the general streams.
+
+* More Years Are Not the Fix
+
+The usual answer to a weak degree is to add more study. Do a postgraduate degree. Add a fourth year to the bachelor's.
+
+The numbers do not support this as a general fix. An engineering postgraduate degree earns about the same as an engineering degree, and the two stay close in most age bands in the same data. Where the bachelor's is already strong, more years add little.
+
+The general streams look different. A general postgraduate degree does earn clearly more than a general degree, at every age band. I read that as a sign of where the weakness is. If a further two years make so much difference, the first three were not doing their job.
+
+That is also why I don't think a four-year bachelor's will help on its own. An extra year was meant to give broader training across the humanities and sciences. That is a good aim. But a longer course with the same content and the same teaching will give the same result. The question is what the years are connected to.
+
+* What I Have Seen
+
+My own experience matches the data.
+
+I have worked with graduates of engineering, science, law and finance. Many of them do not understand very basic things from their own courses. These are not advanced topics. They are the foundations the course was meant to give.
+
+I have also seen the opposite gap. Some people are very good in their own field but miss general awareness. I have met a good programmer who could not explain how the earth, the moon and the sun move. The overall picture is missing.
+
+As a student, I was frustrated with the teaching I received. I won't name anyone, and I don't think naming would help.
+
+Later, I went to a college to hire students. The teachers I met there did not know much about what was currently happening in the industry. Their knowledge was from an earlier time.
+
+I don't see this as a failing of teachers as people. It is what the system asks of them. As I see it, a teacher is rewarded for finishing the syllabus and running examinations. Nothing in the system asks them to stay current, and nothing gives them the time or support to do it. When the routine is all that is measured, the routine is what we get.
+
+* What a Working Version Looks Like
+
+If I had to sketch a better version, it would have a few parts.
+
+1. /A standing way for teachers to refresh their knowledge./ Not a one-time workshop. A regular cycle, with time set aside, where teachers spend time with industry or research and bring it back to class. It should count towards how they are assessed.
+2. /Courses tied to real problems./ Every course should know what problem it is preparing students for. A fourth year makes sense only if it is spent on such problems.
+3. /Original research./ We often wait for someone else to do the research, and then pick up from there. That laggard habit has to go. Universities should compete on research that is directly useful to industry or to society.
+4. /More founders, not just a job race./ Universities should send out people who build things. The free market will then decide which products work. That is a fair and empirical judge.
+5. /Long bets funded by those who can afford them./ Some research takes ten years, and nobody can know the outcome in advance. Small companies cannot fund that. The government and large companies can. So can students who believe strongly in an idea and are willing to spend their own years on it.
+
+These two ideas sit together. Long bets need patient money because their results cannot be judged early. Once something becomes a product, the market can judge it.
+
+On business schools, one number is worth keeping in mind. Among founders of US unicorns, [[https://poetsandquants.com/2026/06/15/your-mba-probably-wont-help-you-build-a-unicorn-heres-the-data/][roughly one in eight has an MBA]]. Seven in eight did not need one. A good grounding and the urge to solve a problem seem to matter more than the extra credential.
+
+* Backing Our Own People Works
+
+There is good news here too. We have seen recently that backing our own surveyors and scientists brings results. The recent mineral finds came from trusting their work.
+
+That is the model I want for our universities. Trust teachers, give them the means to stay current, and ask them for useful work rather than routine work. Fix the three years of the bachelor's degree first. If we do that, I believe the founders, the research and the outside recognition will follow.

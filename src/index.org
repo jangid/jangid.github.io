@@ -17,5 +17,5 @@ Head to [[file:notes/index.org][Notes]] for the archive.
 
 Recent:
 
-1. [[file:notes/claude-code-sandbox-macos.org][Sandboxing Claude Code on macOS: Seatbelt + Privoxy]]
-2. [[file:notes/space-sector-processes.org][Process Discipline in India's Space Sector]]
+1. [[file:notes/bachelors-degree-weak-link.org][The Weak Link Is the Bachelor's Degree]]
+2. [[file:notes/claude-code-sandbox-macos.org][Sandboxing Claude Code on macOS: Seatbelt + Privoxy]]
